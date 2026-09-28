@@ -65,9 +65,7 @@ const CONSONANTS_MAP = {
 
 // Vowel Modifiers (Guninthalu Matras)
 const VOWEL_MODS = {
-  "aam": "ాం",
   "aa": "ా", "A": "ా",
-  "am": "ం",   // word final or Anusvara vowel modifier
   "a": "",     // Inherent vowel: removes halant/virama
   "ii": "ీ", "I": "ీ", "ee": "ీ",
   "i": "ి",
@@ -85,9 +83,7 @@ const VOWEL_MODS = {
 
 // Independent Vowels (అచ్చులు)
 const INDEPENDENT_VOWELS = {
-  "aam": "ఆం",
   "aa": "ఆ", "A": "ఆ",
-  "am": "అం",
   "a": "అ",
   "ii": "ఈ", "I": "ఈ", "ee": "ఈ",
   "i": "ఇ",
@@ -122,14 +118,30 @@ const SORTED_INDEP_VOWELS = Object.keys(INDEPENDENT_VOWELS).sort((a, b) => b.len
 
 // Common Tenglish colloquial shortcuts to ensure both casual and strict transliteration work
 const WORD_OVERRIDES = {
+  "namaskaaram": "నమస్కారం",
+  "namaskaram": "నమస్కారం",
+  "namaskaaraM": "నమస్కారం",
+  "namaskaraM": "నమస్కారం",
+  "namaskAram": "నమస్కారం",
+  "namaskAraM": "నమస్కారం",
+  "namaskaaramu": "నమస్కారము",
+  "namaskaramu": "నమస్కారము",
   "rachayitha": "రచయిత",
   "rachayita": "రచయిత",
   "tho": "తో",
+  "tO": "తో",
   "telugulo": "తెలుగులో",
+  "telugulO": "తెలుగులో",
   "type": "టైప్",
+  "taip": "టైప్",
+  "Taip": "టైప్",
   "cheyandi": "చేయండి",
-  "cheyyandi": "చేయ్యండి"
+  "chEyandi": "చేయండి",
+  "cheyyandi": "చేయ్యండి",
+  "chEyyaMDI": "చేయ్యండి",
+  "chEyyandi": "చేయ్యండి"
 };
+const SORTED_WORD_OVERRIDES = Object.keys(WORD_OVERRIDES).sort((a, b) => b.length - a.length);
 
 /**
  * Halant-First Authentic Transliteration Engine matching Rachayitha's Desktop Code
@@ -147,8 +159,8 @@ function transliterate(text) {
     const isWordStart = (i === 0 || /[\s.,!?;:()\[\]{}"'\-]/.test(text[i - 1]));
     if (isWordStart) {
       let matchedOverride = null;
-      for (const word of Object.keys(WORD_OVERRIDES)) {
-        if (sliceText.toLowerCase().startsWith(word)) {
+      for (const word of SORTED_WORD_OVERRIDES) {
+        if (sliceText.toLowerCase().startsWith(word.toLowerCase())) {
           const nextChar = sliceText[word.length];
           if (!nextChar || /[\s.,!?;:()\[\]{}"'\-]/.test(nextChar)) {
             matchedOverride = word;

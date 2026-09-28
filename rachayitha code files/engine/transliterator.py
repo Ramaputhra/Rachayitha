@@ -63,9 +63,7 @@ CONSONANTS_MAP = {
 
 # Vowel Modifiers (Guninthalu Matras)
 VOWEL_MODS = {
-    "aam": "ాం",
     "aa": "ా", "A": "ా",
-    "am": "ం",   # Anusvara vowel modifier
     "a": "",  # Inherent vowel: removes halant/virama
     "ii": "ీ", "I": "ీ", "ee": "ీ",
     "i": "ి",
@@ -83,9 +81,7 @@ VOWEL_MODS = {
 
 # Independent Vowels (అచ్చులు)
 INDEPENDENT_VOWELS = {
-    "aam": "ఆం",
     "aa": "ఆ", "A": "ఆ",
-    "am": "అం",
     "a": "అ",
     "ii": "ఈ", "I": "ఈ", "ee": "ఈ",
     "i": "ఇ",
@@ -112,6 +108,33 @@ SPECIAL_MAP = {
     "_": ZWNJ       # Zero Width Non-Joiner
 }
 
+# Common Tenglish word overrides
+WORD_OVERRIDES = {
+    "namaskaaram": "నమస్కారం",
+    "namaskaram": "నమస్కారం",
+    "namaskaaraM": "నమస్కారం",
+    "namaskaraM": "నమస్కారం",
+    "namaskAram": "నమస్కారం",
+    "namaskAraM": "నమస్కారం",
+    "namaskaaramu": "నమస్కారము",
+    "namaskaramu": "నమస్కారము",
+    "rachayitha": "రచయిత",
+    "rachayita": "రచయిత",
+    "tho": "తో",
+    "tO": "తో",
+    "telugulo": "తెలుగులో",
+    "telugulO": "తెలుగులో",
+    "type": "టైప్",
+    "taip": "టైప్",
+    "Taip": "టైప్",
+    "cheyandi": "చేయండి",
+    "chEyandi": "చేయండి",
+    "cheyyandi": "చేయ్యండి",
+    "chEyyaMDI": "చేయ్యండి",
+    "chEyyandi": "చేయ్యండి"
+}
+SORTED_WORD_OVERRIDES = sorted(WORD_OVERRIDES.keys(), key=len, reverse=True)
+
 # Sort keys by length descending to prioritize greedy prefix matches (e.g. ksha before ksh before k)
 SORTED_SPECIAL = sorted(SPECIAL_MAP.keys(), key=len, reverse=True)
 SORTED_CONSONANTS = sorted(CONSONANTS_MAP.keys(), key=len, reverse=True)
@@ -135,6 +158,22 @@ def transliterate(text: str) -> str:
 
     while i < n:
         slice_text = text[i:]
+
+        # 0. Word-level overrides at word boundary
+        is_word_start = (i == 0 or text[i - 1] in " \t\n.,!?;:()[]{}\"'-\\/")
+        if is_word_start:
+            matched_override = None
+            slice_lower = slice_text.lower()
+            for word in SORTED_WORD_OVERRIDES:
+                if slice_lower.startswith(word.lower()):
+                    next_char = slice_text[len(word)] if len(slice_text) > len(word) else None
+                    if not next_char or next_char in " \t\n.,!?;:()[]{}\"'-\\/":
+                        matched_override = word
+                        break
+            if matched_override:
+                out.append(WORD_OVERRIDES[matched_override])
+                i += len(matched_override)
+                continue
 
         # 1. Check for Special Markers (e.g. M -> ం, H -> ః, ~, _)
         matched_special = None
