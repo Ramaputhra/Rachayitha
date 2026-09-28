@@ -3,19 +3,19 @@
 <img src="product_hunt_assets/01_product_hunt_icon_square_1x1.jpg" alt="Rachayitha Logo" width="128" style="border-radius: 24px;" />
 
 # Rachayitha (రచయిత)
-### Real-Time Phonetic Telugu Transliteration for Windows
+### Real-Time Phonetic Telugu Transliteration for Windows, macOS & Linux
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-0078D6?style=for-the-badge&logo=apple&logoColor=white)](https://github.com)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20(Official)%20%7C%20macOS%20%26%20Linux%20(Source)-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Ramaputhra/Rachayitha)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Telemetry-10B981?style=for-the-badge&logo=shield)](https://github)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Telemetry-10B981?style=for-the-badge&logo=shield)](https://github.com/Ramaputhra/Rachayitha)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-F59E0B?style=for-the-badge)](LICENSE)
 
-**Type natural Telugu anywhere in Windows without switching keyboards or using heavy cloud IMEs.**  
+**Type natural Telugu anywhere across your desktop without switching keyboards or using heavy cloud IMEs.**  
 *Inspired by Lekhini RTS and PramukhIME, engineered with zero-latency halant-first phonetic mapping.*
 
 <br/>
 
-[![Rachayitha Hero Showcase](product_hunt_assets/02_hero_transliteration_16x9.jpg)](https://github)
+[![Rachayitha Hero Showcase](product_hunt_assets/02_hero_transliteration_16x9.jpg)](https://github.com/Ramaputhra/Rachayitha)
 
 </div>
 
@@ -23,9 +23,17 @@
 
 ## 📖 Overview
 
-**Rachayitha (రచయిత)** is a native, ultra-lightweight Windows desktop utility that converts standard Roman phonetic keystrokes into elegant Telugu Unicode in real-time. 
+**Rachayitha (రచయిత)** is an ultra-lightweight, 100% offline desktop transliteration tool that converts standard Roman phonetic keystrokes (Tenglish) into authentic Telugu Unicode in real-time.
 
-Unlike traditional input methods that require bulky web APIs or cumbersome layout switching, Rachayitha hooks directly into low-level keyboard events to provide instant, seamless transliteration across **any application**—including WhatsApp Desktop, Microsoft Word, Notepad, Google Chrome, Discord, Slack, and IDEs.
+Unlike traditional input methods that require bulky web APIs or cumbersome layout switching, Rachayitha hooks directly into low-level keyboard events to provide instant transliteration across **any application**—including WhatsApp, Microsoft Word, Notepad, Google Chrome, Discord, Slack, and code editors.
+
+### 💻 Platform Support Matrix
+
+| Platform | Tier | Distribution | Status |
+| :--- | :--- | :--- | :--- |
+| **Windows 10 & 11 (64-bit)** | **Tier 1 (Official)** | 1-Click Setup (`.exe`) & Portable (`.exe`) | **Production Ready (v1.0)** |
+| **macOS (Intel & Apple Silicon)** | **Tier 2 (Preview)** | Run from Python 3.10+ Source | **Experimental** *(Native `.dmg` on Roadmap)* |
+| **Linux (Ubuntu, Debian, Fedora)** | **Tier 2 (Preview)** | Run from Python Source (X11) | **Experimental** *(IBus / Fcitx on Roadmap)* |
 
 ---
 
@@ -97,7 +105,7 @@ Never guess how to spell a complex letter again.
 
 ## 🚀 Installation & Building
 
-### 🪟 Windows
+### 🪟 Windows (Official Production Releases)
 
 #### Option A: 1-Click Installer (Recommended)
 Download the latest [**Rachayitha_Setup.exe** (Direct Download • 75 MB)](https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe) or get it from the [Releases](https://github.com/Ramaputhra/Rachayitha/releases) tab.
@@ -105,7 +113,10 @@ Download the latest [**Rachayitha_Setup.exe** (Direct Download • 75 MB)](https
 - Automatically creates Desktop and Start Menu shortcuts.
 - Fully registered in Windows *Installed Apps* for 1-click clean uninstallation.
 
-#### Option B: Build from Source on Windows
+#### Option B: Portable Binary
+Download [**Rachayitha.exe** (Portable • 37 MB)](https://github.com/Ramaputhra/Rachayitha/releases/download/v1.0.0/Rachayitha.exe) — zero installation, runs straight from USB or any folder.
+
+#### Option C: Build from Source on Windows
 ```powershell
 # 1. Clone the repository
 git clone https://github.com/Ramaputhra/Rachayitha.git
@@ -123,9 +134,10 @@ python make_single_installer.py
 
 ---
 
-### 🍎 macOS Setup & Build Guide
+### 🍎 macOS (Experimental • Build from Source)
 
-Rachayitha's core transliteration engine is completely cross-platform. On macOS, global keyboard interception uses standard macOS Accessibility APIs.
+> [!NOTE]
+> macOS support is currently in **developer preview**. Rachayitha's core transliteration engine runs natively, but system-wide key interception uses macOS Accessibility APIs and terminal execution. A native signed `.dmg` utilizing macOS InputMethodKit is on the roadmap.
 
 #### 1. Prerequisites
 Ensure you have Python 3.10+ installed via [Homebrew](https://brew.sh):
@@ -142,7 +154,7 @@ cd rachayitha/"rachayitha code files"
 pip3 install PyQt6 pyinstaller
 ```
 
-#### 3. ⚠️ Grant macOS Accessibility Permissions
+#### 3. Grant macOS Accessibility Permissions
 macOS security requires explicit user permission for background apps that listen to global key events:
 1. Open **System Settings** (or **System Preferences**).
 2. Go to **Privacy & Security** $\rightarrow$ **Accessibility**.
@@ -155,32 +167,42 @@ macOS security requires explicit user permission for background apps that listen
 sudo python3 main.py
 ```
 
-#### 5. Build Native macOS App Bundle (`.app`) & `.dmg`
-To package Rachayitha as a standalone Mac application:
-
+#### 5. Build Native macOS App Bundle (`.app`) & `.dmg` (Optional)
 ```bash
-# Step A: Convert PNG logo to Apple ICNS format
+# Convert PNG logo to Apple ICNS format
 mkdir -p Rachayitha.iconset
-sips -z 16 16     rachayitha_logo.png --out Rachayitha.iconset/icon_16x16.png
-sips -z 32 32     rachayitha_logo.png --out Rachayitha.iconset/icon_16x16@2x.png
-sips -z 128 128   rachayitha_logo.png --out Rachayitha.iconset/icon_128x128.png
-sips -z 256 256   rachayitha_logo.png --out Rachayitha.iconset/icon_256x256.png
-sips -z 512 512   rachayitha_logo.png --out Rachayitha.iconset/icon_512x512.png
+sips -z 512 512 rachayitha_logo.png --out Rachayitha.iconset/icon_512x512.png
 iconutil -c icns Rachayitha.iconset -o icon.icns
 
-# Step B: Compile .app Bundle using PyInstaller
+# Compile .app Bundle using PyInstaller
 pyinstaller --noconfirm --onedir --windowed \
   --name "Rachayitha" \
   --icon="icon.icns" \
   --add-data "data:data" \
   main.py
 
-# Step C: Package into a distributable Disk Image (.dmg)
+# Package into a distributable Disk Image (.dmg)
 hdiutil create -volname "Rachayitha" -srcfolder dist/Rachayitha.app -ov -format UDZO dist/Rachayitha.dmg
 ```
-Output:
-- 📦 **Native Mac App:** `dist/Rachayitha.app`
-- 💿 **Installer Disk Image:** `dist/Rachayitha.dmg` (Drag to `/Applications`)
+
+---
+
+### 🐧 Linux (Experimental • Run from Source)
+
+> [!NOTE]
+> Linux support currently runs under **X11 desktop sessions**. Raw keyboard interception uses the Linux input subsystem, which requires root privileges or explicit uinput group access. Native integration for **IBus / Fcitx** is planned on the roadmap.
+
+```bash
+# 1. Clone repository
+git clone https://github.com/Ramaputhra/Rachayitha.git
+cd rachayitha/"rachayitha code files"
+
+# 2. Install dependencies
+pip3 install -r requirements.txt
+
+# 3. Launch with root (required for raw keyboard event hooking)
+sudo python3 main.py
+```
 
 ---
 

@@ -1113,6 +1113,17 @@ body.mobile-nav-lock {
   border-radius: var(--radius-full);
 }
 
+.status-preview {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  background: rgba(0, 229, 255, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
 .macos-build-note {
   padding-top: 20px;
   border-top: 1px solid var(--border-subtle);

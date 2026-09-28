@@ -129,9 +129,11 @@ WORD_OVERRIDES = {
     "Taip": "టైప్",
     "cheyandi": "చేయండి",
     "chEyandi": "చేయండి",
-    "cheyyandi": "చేయ్యండి",
-    "chEyyaMDI": "చేయ్యండి",
-    "chEyyandi": "చేయ్యండి"
+    "cheyaMDI": "చేయండి",
+    "chEyaMDI": "చేయండి",
+    "cheyyandi": "చేయండి",
+    "chEyyaMDI": "చేయండి",
+    "chEyyandi": "చేయండి"
 }
 SORTED_WORD_OVERRIDES = sorted(WORD_OVERRIDES.keys(), key=len, reverse=True)
 

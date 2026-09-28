@@ -137,9 +137,11 @@ const WORD_OVERRIDES = {
   "Taip": "టైప్",
   "cheyandi": "చేయండి",
   "chEyandi": "చేయండి",
-  "cheyyandi": "చేయ్యండి",
-  "chEyyaMDI": "చేయ్యండి",
-  "chEyyandi": "చేయ్యండి"
+  "cheyaMDI": "చేయండి",
+  "chEyaMDI": "చేయండి",
+  "cheyyandi": "చేయండి",
+  "chEyyaMDI": "చేయండి",
+  "chEyyandi": "చేయండి"
 };
 const SORTED_WORD_OVERRIDES = Object.keys(WORD_OVERRIDES).sort((a, b) => b.length - a.length);
 

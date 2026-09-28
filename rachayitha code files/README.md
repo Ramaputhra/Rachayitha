@@ -3,11 +3,11 @@
 <img src="../product_hunt_assets/01_product_hunt_icon_square_1x1.jpg" alt="Rachayitha Logo" width="128" style="border-radius: 24px;" />
 
 # Rachayitha (రచయిత) Source Code
-### Real-Time Phonetic Telugu Transliteration Engine & Windows Desktop App
+### Real-Time Phonetic Telugu Transliteration Engine (Windows, macOS, Linux)
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-0078D6?style=for-the-badge&logo=apple&logoColor=white)](https://github.com)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20(Official)%20%7C%20macOS%20%26%20Linux%20(Source)-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Ramaputhra/Rachayitha)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Telemetry-10B981?style=for-the-badge&logo=shield)](https://github)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Telemetry-10B981?style=for-the-badge&logo=shield)](https://github.com/Ramaputhra/Rachayitha)
 
 <br/>
 

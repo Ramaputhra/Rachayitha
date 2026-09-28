@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Rachayitha (రచయిత) — Real-Time Phonetic Telugu Transliteration for Windows</title>
+  <title>Rachayitha (రచయిత) — Real-Time Phonetic Telugu Transliteration</title>
   
-  <meta name="description" content="Type natural Telugu anywhere in Windows with zero latency and 100% offline privacy. Halant-first phonetic engine for WhatsApp, Word, Chrome, and all desktop apps." />
-  <meta name="keywords" content="Telugu typing, Rachayitha, Telugu transliteration, Tenglish to Telugu, offline Telugu keyboard, Windows Telugu tool" />
-  <meta property="og:title" content="Rachayitha (రచయిత) — Real-Time Telugu Typing" />
-  <meta property="og:description" content="100% Offline, zero-latency phonetic Telugu typing across any Windows desktop application." />
+  <meta name="description" content="Type natural Telugu anywhere across desktop apps with zero latency and 100% offline privacy. Halant-first phonetic engine for WhatsApp, Word, Chrome, and all desktop apps." />
+  <meta name="keywords" content="Telugu typing, Rachayitha, Telugu transliteration, Tenglish to Telugu, offline Telugu keyboard, Windows Telugu tool, Telugu IME" />
+  <meta property="og:title" content="Rachayitha (రచయిత) — Real-Time Telugu Transliteration" />
+  <meta property="og:description" content="100% Offline, zero-latency phonetic Telugu typing across desktop applications." />
   <meta property="og:image" content="assets/hero_showcase.jpg" />
   <meta property="og:type" content="website" />
   
@@ -125,11 +125,11 @@
       </div>
 
       <div class="hero-sublinks">
-        <span class="sublink-tag">Windows 10 & 11 64-bit</span>
+        <span class="sublink-tag">Windows 10 & 11 (Official v1.0)</span>
         <span class="sublink-dot">•</span>
-        <a href="https://github.com/Ramaputhra/Rachayitha/releases/download/v1.0.0/Rachayitha.exe" class="hero-sublink">Download Portable (.exe • 37 MB)</a>
+        <a href="https://github.com/Ramaputhra/Rachayitha/releases/download/v1.0.0/Rachayitha.exe" class="hero-sublink">Portable (.exe • 37 MB)</a>
         <span class="sublink-dot">•</span>
-        <a href="#download" class="hero-sublink">macOS (Coming Soon)</a>
+        <a href="#download" class="hero-sublink">macOS & Linux (Source Preview)</a>
       </div>
 
       <!-- Hero 4K Showcase Window -->
@@ -154,7 +154,7 @@
   <!-- Universal Compatibility Bar -->
   <section class="compat-strip">
     <div class="container">
-      <p class="compat-title">Works seamlessly in every Windows app you use</p>
+      <p class="compat-title">Works seamlessly across all your favorite desktop apps</p>
       <div class="compat-badges">
         <div class="compat-chip">💬 WhatsApp Desktop</div>
         <div class="compat-chip">📄 Microsoft Word</div>
@@ -185,7 +185,7 @@
               <span>English / Tenglish Input</span>
               <span class="mono">Phonetic Keystrokes</span>
             </div>
-            <textarea id="demo-input" class="interactive-input" placeholder="Type here: e.g. namaskaaram, rachayita, tO, telugulO, Taip, chEyyaMDI..." rows="4">namaskaaram! rachayita tO telugulO Taip chEyyaMDI .</textarea>
+            <textarea id="demo-input" class="interactive-input" placeholder="Type here: e.g. namaskaaram, rachayita, tO, telugulO, Taip, cheyandi..." rows="4">namaskaaram! rachayita tO telugulO Taip cheyandi .</textarea>
           </div>
 
           <!-- Output Side -->
@@ -198,7 +198,7 @@
               </span>
             </div>
             <div id="demo-output" class="interactive-output telugu-font">
-              నమస్కారం! రచయిత తో తెలుగులో టైప్ చేయ్యండి .
+              నమస్కారం! రచయిత తో తెలుగులో టైప్ చేయండి .
             </div>
           </div>
         </div>
@@ -212,7 +212,7 @@
               <button class="preset-btn" onclick="setPreset('rachayita')">rachayita (రచయిత)</button>
               <button class="preset-btn" onclick="setPreset('telugulO')">telugulO (తెలుగులో)</button>
               <button class="preset-btn" onclick="setPreset('Taip')">Taip (టైప్)</button>
-              <button class="preset-btn" onclick="setPreset('chEyyaMDI')">chEyyaMDI (చేయ్యండి)</button>
+              <button class="preset-btn" onclick="setPreset('cheyandi')">cheyandi (చేయండి)</button>
               <button class="preset-btn" onclick="setPreset('amma')">amma (అమ్మ)</button>
             </div>
           </div>
@@ -483,27 +483,39 @@
                 <div class="os-icon-box">🪟</div>
                 <div>
                   <div class="os-name">Windows 10 & 11</div>
-                  <div class="os-meta">64-bit • Installer & Portable</div>
+                  <div class="os-meta">Official Release • Installer & Portable</div>
                 </div>
               </div>
               <span class="status-ready">Ready (v1.0)</span>
             </div>
 
-            <!-- macOS Coming Soon Card -->
+            <!-- macOS Card -->
             <div class="os-card">
               <div class="os-info">
                 <div class="os-icon-box"></div>
                 <div>
                   <div class="os-name">macOS (Apple Silicon & Intel)</div>
-                  <div class="os-meta">Universal DMG & .app Bundle</div>
+                  <div class="os-meta">Python 3.10+ Source • DMG in progress</div>
                 </div>
               </div>
-              <span class="status-soon">Coming Soon</span>
+              <span class="status-preview">Source Preview</span>
+            </div>
+
+            <!-- Linux Card -->
+            <div class="os-card">
+              <div class="os-info">
+                <div class="os-icon-box">🐧</div>
+                <div>
+                  <div class="os-name">Linux (Ubuntu, Debian, Fedora)</div>
+                  <div class="os-meta">Python on X11 • IBus/Fcitx in progress</div>
+                </div>
+              </div>
+              <span class="status-preview">Source Preview</span>
             </div>
           </div>
 
           <div class="macos-build-note">
-            Want to run on macOS right now? You can run directly from source via Python 3.10+ using Accessibility permissions. <a href="https://github.com/Ramaputhra/Rachayitha#--macos-setup--build-guide" target="_blank" rel="noopener" class="accent-link">See macOS Build Guide →</a>
+            <strong>Cross-Platform Notice:</strong> Windows is our primary production tier with 1-click installers. macOS and Linux support is available today via open-source Python. <a href="https://github.com/Ramaputhra/Rachayitha#--installation--building" target="_blank" rel="noopener" class="accent-link">View GitHub Setup Guide →</a>
           </div>
         </div>
       </div>
@@ -537,6 +549,6 @@
   </footer>
 
   <!-- Script -->
-  <script src="script.js?v=1.0.2"></script>
+  <script src="script.js?v=1.0.3"></script>
 </body>
 </html>
