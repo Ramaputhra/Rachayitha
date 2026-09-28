@@ -1,0 +1,12 @@
+{
+  "hotkeys": {
+    "telugu_on": "alt+t",
+    "english": "alt+e",
+    "toggle": "caps lock"
+  },
+  "current_language": "telugu",
+  "languages": [
+    "english",
+    "telugu"
+  ]
+}

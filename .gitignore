@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller & Build artifacts
+build/
+dist/
+installer_output/
+*.spec
+!Rachayitha.spec
+!Rachayitha_Setup.spec
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Rust / Tauri build artifacts (if applicable)
+src-tauri/target/

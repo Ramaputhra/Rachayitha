@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>రచయిత - Rachayitha Settings & Playground</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Mandali&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">ర</div>
+        <div class="logo-text">
+          <h1>రచయిత <span class="badge-en">Rachayitha</span></h1>
+          <p class="subtitle">Cross-Platform Real-Time Telugu Transliteration</p>
+        </div>
+      </div>
+      <div class="status-widget">
+        <div class="status-indicator" id="status-indicator">
+          <span class="pulse-dot"></span>
+          <span class="status-label" id="status-label">Telugu ON</span>
+        </div>
+        <button id="toggle-status-btn" class="btn-toggle" title="Toggle Telugu mode (Alt+T)">Toggle (Alt+T)</button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="playground">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Playground (అభ్యాసం)
+      </button>
+      <button class="tab-btn" data-tab="keymap">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10"/><path d="M7 12h10"/><path d="M7 16h4"/></svg>
+        Key Map (అక్షరమాల)
+      </button>
+      <button class="tab-btn" data-tab="preferences">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Preferences (అభిరుచులు)
+      </button>
+      <button class="tab-btn" data-tab="about">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        About (వివరాలు)
+      </button>
+    </nav>
+
+    <!-- Content Sections -->
+    <main class="tab-content">
+      <!-- 1. Playground Tab -->
+      <section id="tab-playground" class="tab-pane active">
+        <div class="pane-header">
+          <h2>Interactive Transliteration Playground</h2>
+          <p>Type in phonetic English (Tenglish) below to see real-time Telugu transformation.</p>
+        </div>
+
+        <div class="playground-grid">
+          <div class="input-card">
+            <div class="card-bar">
+              <span class="lang-tag">English (Tenglish)</span>
+              <button id="clear-btn" class="btn-ghost">Clear</button>
+            </div>
+            <textarea id="playground-input" placeholder="Type here... (e.g. namaskAram, meeru ela unnaru?)"></textarea>
+          </div>
+
+          <div class="output-card">
+            <div class="card-bar">
+              <span class="lang-tag telugu-tag">తెలుగు (Telugu)</span>
+              <button id="copy-btn" class="btn-ghost">Copy Text</button>
+            </div>
+            <div id="playground-output" class="output-display" tabindex="0">
+              <span class="placeholder">మీ తెలుగు అక్షరాలు ఇక్కడ కనిపిస్తాయి...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-examples">
+          <span class="examples-label">Quick Try:</span>
+          <button class="chip" data-text="telugu">telugu $\rightarrow$ తెలుగు</button>
+          <button class="chip" data-text="amma">amma $\rightarrow$ అమ్మ</button>
+          <button class="chip" data-text="namaskAram">namaskAram $\rightarrow$ నమస్కారం</button>
+          <button class="chip" data-text="rachayitha">rachayitha $\rightarrow$ రచయిత</button>
+          <button class="chip" data-text="kRuShNa">kRuShNa $\rightarrow$ కృష్ణ</button>
+          <button class="chip" data-text="bhAratadEsham">bhAratadEsham $\rightarrow$ భారతదేశం</button>
+        </div>
+      </section>
+
+      <!-- 2. Key Map Tab -->
+      <section id="tab-keymap" class="tab-pane">
+        <div class="pane-header">
+          <h2>Lekhini RTS Key Mapping (అక్షరమాల)</h2>
+          <p>Reference guide for Telugu vowels, consonants, guninthalu, and special characters.</p>
+        </div>
+
+        <div class="keymap-controls">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="keymap-search" placeholder="Search letter or key (e.g. 'aa', 'క్ష', 'k', 'గుణింతాలు')...">
+          </div>
+          <div class="category-filters" id="category-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="Vowels">Vowels (అచ్చులు)</button>
+            <button class="filter-btn" data-category="Consonants">Consonants (హల్లులు)</button>
+            <button class="filter-btn" data-category="Guninthalu">Guninthalu (గుణింతాలు)</button>
+            <button class="filter-btn" data-category="Special">Special (ప్రత్యేక గుర్తులు)</button>
+          </div>
+        </div>
+
+        <div class="keymap-grid" id="keymap-grid">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </section>
+
+      <!-- 3. Preferences Tab -->
+      <section id="tab-preferences" class="tab-pane">
+        <div class="pane-header">
+          <h2>Settings & Preferences</h2>
+          <p>Configure shortcuts, startup behavior, and system notifications.</p>
+        </div>
+
+        <div class="settings-form">
+          <div class="setting-item">
+            <div class="setting-info">
+              <label for="hotkey-input">Toggle Hotkey</label>
+              <span class="setting-desc">Global shortcut to switch between English and Telugu</span>
+            </div>
+            <input type="text" id="hotkey-input" value="alt+t" class="input-text">
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label for="autostart-toggle">Launch on System Startup</label>
+              <span class="setting-desc">Automatically launch Rachayitha when Windows / macOS / Linux boots</span>
+            </div>
+            <input type="checkbox" id="autostart-toggle" checked class="input-toggle">
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <label for="notifications-toggle">Desktop Notifications</label>
+              <span class="setting-desc">Show a quick toast notification when toggling Telugu mode</span>
+            </div>
+            <input type="checkbox" id="notifications-toggle" checked class="input-toggle">
+          </div>
+
+          <div class="form-actions">
+            <button id="save-settings-btn" class="btn-primary">Save Settings</button>
+            <span id="save-msg" class="save-toast">Preferences saved!</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. About Tab -->
+      <section id="tab-about" class="tab-pane">
+        <div class="pane-header">
+          <h2>About Rachayitha (రచయిత)</h2>
+          <p>The fast, native, cross-platform Telugu typing assistant.</p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-hero">
+            <div class="hero-logo">ర</div>
+            <h3>Rachayitha v1.0.0</h3>
+            <p class="about-tagline">Inspired by <strong>PramukhIME</strong> + <strong>Lekhini RTS</strong></p>
+          </div>
+          <div class="about-details">
+            <p><strong>Rachayitha</strong> is engineered to eliminate the friction of typing Telugu on modern operating systems. By running directly in the background with zero external web dependencies, it allows seamless typing across Notepad, Word, Chrome, WhatsApp Desktop, Slack, VS Code, and terminal applications.</p>
+            <div class="feature-badges">
+              <span class="feat-badge">100% Offline</span>
+              <span class="feat-badge">Sub-millisecond Latency</span>
+              <span class="feat-badge">~15 MB RAM Footprint</span>
+              <span class="feat-badge">Cross-Platform (Windows, Mac, Linux)</span>
+            </div>
+            <hr class="about-sep">
+            <p class="credits-text">Created for the Telugu community with ❤️ by <strong>Ramaputhra</strong>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
