@@ -6,7 +6,7 @@ from pathlib import Path
 
 SOURCE_DIR = Path(r"C:\Users\Sm!le\.gemini\antigravity-ide\brain\c576fa95-679d-4be7-895d-eb6b4cc03179")
 # Put them in Desktop\రచయిత\product_hunt_assets
-DEST_DIR = Path(r"c:\Users\Sm!le\Desktop\రచయిత\product_hunt_assets")
+DEST_DIR = Path(__file__).resolve().parent.parent / "product_hunt_assets"
 
 DEST_DIR.mkdir(parents=True, exist_ok=True)
 

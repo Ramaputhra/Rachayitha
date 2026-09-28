@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 
 SOURCE_DIR = Path(r"C:\Users\Sm!le\.gemini\antigravity-ide\brain\c576fa95-679d-4be7-895d-eb6b4cc03179")
-DEST_DIR = Path(__file__).parent / "product_hunt_assets"
+DEST_DIR = Path(__file__).resolve().parent / "product_hunt_assets"
 
 DEST_DIR.mkdir(parents=True, exist_ok=True)
 
