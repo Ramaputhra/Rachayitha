@@ -5,66 +5,134 @@ window.RACHAYITHA_DOWNLOADS = {
 };
 
 // --- 1. Authentic Telugu Rules Engine ---
-const VOWELS = {
-  "a": "అ", "aa": "ఆ", "A": "ఆ",
-  "i": "ఇ", "ii": "ఈ", "I": "ఈ", "ee": "ఈ",
-  "u": "ఉ", "uu": "ఊ", "U": "ఊ", "oo": "ఊ",
-  "Ru": "ఋ", "RU": "ౠ", "R": "ఋ",
-  "e": "ఎ", "ee": "ఏ", "E": "ఏ",
-  "ai": "ఐ",
-  "o": "ఒ", "oo": "ఓ", "O": "ఓ",
-  "au": "ఔ", "ou": "ఔ"
+const VIRAMA = '్';
+const ZWNJ = '\u200c';
+
+const CONSONANTS_MAP = {
+  // Ligatures & Conjuncts
+  "ksha": "క్ష", "Ksha": "క్ష", "kSha": "క్ష", "KSHA": "క్ష",
+  "ksh": "క్ష", "Ksh": "క్ష", "kSh": "క్ష", "KSH": "క్ష",
+  "jnya": "జ్ఞ", "Jnya": "జ్ఞ", "dnya": "జ్ఞ", "Dnya": "జ్ఞ", "gnya": "జ్ఞ",
+  "nga": "ఙ", "~g": "ఙ",
+  "nya": "ఞ", "~n": "ఞ",
+  "yy": "య్య",
+
+  // Velars
+  "kh": "ఖ", "Kh": "ఖ", "KH": "ఖ", "K": "ఖ",
+  "k": "క",
+  "gh": "ఘ", "Gh": "ఘ", "GH": "ఘ", "G": "ఘ",
+  "g": "గ",
+
+  // Palatals
+  "ch": "చ", "Ch": "ఛ", "CH": "ఛ", "c": "చ", "C": "ఛ",
+  "jh": "ఝ", "Jh": "ఝ", "JH": "ఝ", "J": "ఝ",
+  "j": "జ",
+
+  // Retroflexes
+  "Th": "ఠ", "TH": "ఠ",
+  "T": "ట",
+  "Dh": "ఢ", "DH": "ఢ",
+  "D": "డ",
+  "N": "ణ",
+
+  // Dentals
+  "th": "థ",
+  "t": "త",
+  "dh": "ధ",
+  "d": "ద",
+  "n": "న",
+
+  // Labials
+  "ph": "ఫ", "Ph": "ఫ", "PH": "ఫ", "P": "ఫ", "f": "ఫ", "F": "ఫ",
+  "p": "ప",
+  "bh": "భ", "Bh": "భ", "BH": "భ", "B": "భ",
+  "b": "బ",
+  "m": "మ",
+
+  // Semivowels & Liquids
+  "y": "య", "Y": "య",
+  "r": "ర",
+  "l": "ల",
+  "v": "వ", "w": "వ", "V": "వ", "W": "వ",
+  "L": "ళ",
+  "R": "ఱ",
+
+  // Sibilants & Aspirate
+  "sh": "శ", "Sh": "ష", "SH": "ష", "S": "శ",
+  "s": "స",
+  "h": "హ"
 };
 
-const MATRAS = {
-  "a": "",
+// Vowel Modifiers (Guninthalu Matras)
+const VOWEL_MODS = {
+  "aam": "ాం",
   "aa": "ా", "A": "ా",
-  "i": "ి",
+  "am": "ం",   // word final or Anusvara vowel modifier
+  "a": "",     // Inherent vowel: removes halant/virama
   "ii": "ీ", "I": "ీ", "ee": "ీ",
-  "u": "ు",
+  "i": "ి",
   "uu": "ూ", "U": "ూ", "oo": "ూ",
-  "Ru": "ృ", "RU": "ౄ", "R": "ృ",
+  "u": "ు",
+  "R^I": "ౄ", "RU": "ౄ",
+  "R^i": "ృ", "Ru": "ృ",
+  "E": "ే", "ea": "ే",
   "e": "ె",
-  "ee": "ే", "E": "ే",
-  "ai": "ై",
+  "ai": "ై", "ay": "ై",
+  "O": "ో", "oa": "ో",
   "o": "ొ",
-  "oo": "ో", "O": "ో",
-  "au": "ౌ", "ou": "ౌ"
+  "au": "ౌ", "ou": "ౌ", "av": "ౌ"
 };
 
-const CONSONANTS = {
-  "k": "క్", "kh": "ఖ్", "K": "ఖ్",
-  "g": "గ్", "gh": "ఘ్", "G": "ఘ్",
-  "ch": "చ్", "c": "చ్", "Ch": "ఛ్",
-  "j": "జ్", "jh": "ఝ్", "J": "ఝ్",
-  "T": "ట్", "Th": "ఠ్",
-  "D": "డ్", "Dh": "ఢ్",
-  "N": "ణ్",
-  "t": "త్", "th": "థ్",
-  "d": "ద్", "dh": "ధ్",
-  "n": "న్",
-  "p": "ప్", "ph": "ఫ్", "P": "ఫ్", "f": "ఫ్",
-  "b": "బ్", "bh": "భ్", "B": "భ్",
-  "m": "మ్",
-  "y": "య్",
-  "r": "ర్",
-  "l": "ల్",
-  "v": "వ్", "w": "వ్",
-  "sh": "శ్", "S": "శ్",
-  "Sh": "ష్",
-  "s": "స్",
-  "h": "హ్",
-  "L": "ళ్",
-  "ksh": "క్ష్", "Ksh": "క్ష్", "ksha": "క్ష"
+// Independent Vowels (అచ్చులు)
+const INDEPENDENT_VOWELS = {
+  "aam": "ఆం",
+  "aa": "ఆ", "A": "ఆ",
+  "am": "అం",
+  "a": "అ",
+  "ii": "ఈ", "I": "ఈ", "ee": "ఈ",
+  "i": "ఇ",
+  "uu": "ఊ", "U": "ఊ", "oo": "ఊ",
+  "u": "ఉ",
+  "R^I": "ౠ", "RU": "ౠ",
+  "R^i": "ఋ", "Ru": "ఋ",
+  "E": "ఏ", "ea": "ఏ",
+  "e": "ఎ",
+  "ai": "ఐ", "ay": "ఐ",
+  "O": "ఓ", "oa": "ఓ",
+  "o": "ఒ",
+  "au": "ఔ", "ou": "ఔ", "av": "ఔ"
 };
 
-const SPECIALS = {
+// Special Markers
+const SPECIAL_MAP = {
+  "MDI": "ండి",
+  "MDi": "ండి",
+  "mdi": "ండి",
   "M": "ం",
-  "H": "ః"
+  "H": "ః",
+  "~": VIRAMA,
+  "_": ZWNJ
+};
+
+// Pre-sort keys descending by length for greedy prefix matches
+const SORTED_SPECIAL = Object.keys(SPECIAL_MAP).sort((a, b) => b.length - a.length);
+const SORTED_CONSONANTS = Object.keys(CONSONANTS_MAP).sort((a, b) => b.length - a.length);
+const SORTED_VOWEL_MODS = Object.keys(VOWEL_MODS).sort((a, b) => b.length - a.length);
+const SORTED_INDEP_VOWELS = Object.keys(INDEPENDENT_VOWELS).sort((a, b) => b.length - a.length);
+
+// Common Tenglish colloquial shortcuts to ensure both casual and strict transliteration work
+const WORD_OVERRIDES = {
+  "rachayitha": "రచయిత",
+  "rachayita": "రచయిత",
+  "tho": "తో",
+  "telugulo": "తెలుగులో",
+  "type": "టైప్",
+  "cheyandi": "చేయండి",
+  "cheyyandi": "చేయ్యండి"
 };
 
 /**
- * Phonetic Transliteration implementation matching Rachayitha's Desktop Engine
+ * Halant-First Authentic Transliteration Engine matching Rachayitha's Desktop Code
  */
 function transliterate(text) {
   if (!text) return "";
@@ -73,85 +141,104 @@ function transliterate(text) {
   const n = text.length;
 
   while (i < n) {
-    // 1. Lookahead 4 chars (e.g. ksha)
-    let m4 = text.substr(i, 4);
-    if (m4.toLowerCase() === "ksha") {
-      out += "క్ష";
-      i += 4;
+    const sliceText = text.slice(i);
+
+    // 0. Word-level overrides at word boundary
+    const isWordStart = (i === 0 || /[\s.,!?;:()\[\]{}"'\-]/.test(text[i - 1]));
+    if (isWordStart) {
+      let matchedOverride = null;
+      for (const word of Object.keys(WORD_OVERRIDES)) {
+        if (sliceText.toLowerCase().startsWith(word)) {
+          const nextChar = sliceText[word.length];
+          if (!nextChar || /[\s.,!?;:()\[\]{}"'\-]/.test(nextChar)) {
+            matchedOverride = word;
+            break;
+          }
+        }
+      }
+      if (matchedOverride) {
+        out += WORD_OVERRIDES[matchedOverride];
+        i += matchedOverride.length;
+        continue;
+      }
+    }
+
+    // 1. Check Special Markers (e.g. MDI -> ండి, M -> ం, H -> ః)
+    let matchedSpecial = null;
+    for (const sm of SORTED_SPECIAL) {
+      if (sliceText.startsWith(sm)) {
+        matchedSpecial = sm;
+        break;
+      }
+    }
+    if (matchedSpecial) {
+      out += SPECIAL_MAP[matchedSpecial];
+      i += matchedSpecial.length;
       continue;
     }
 
-    // 2. Lookahead 3 chars (e.g. ksh, nna, kka, mma)
-    let m3 = text.substr(i, 3);
-    if (m3.toLowerCase() === "ksh") {
-      out += "క్ష్";
-      i += 3;
-      continue;
-    }
-    if (m3 === "nna") { out += "న్న"; i += 3; continue; }
-    if (m3 === "kka") { out += "క్క"; i += 3; continue; }
-    if (m3 === "mma") { out += "మ్మ"; i += 3; continue; }
-    if (m3 === "tta") { out += "ట్ట"; i += 3; continue; }
-    if (m3 === "ppa") { out += "ప్ప"; i += 3; continue; }
-    if (m3 === "lla") { out += "ల్ల"; i += 3; continue; }
-
-    // 3. Lookahead 2 chars
-    let m2 = text.substr(i, 2);
-    if (VOWELS[m2] && (i === 0 || text[i - 1] === " ")) {
-      out += VOWELS[m2];
-      i += 2;
-      continue;
+    // 2. Check Consonants
+    let matchedCons = null;
+    for (const ck of SORTED_CONSONANTS) {
+      if (sliceText.startsWith(ck)) {
+        matchedCons = ck;
+        break;
+      }
     }
 
-    // Consonant + Vowel combinations (e.g. ka -> క, kA -> కా, ku -> కు)
-    let c1 = text[i];
-    let v1 = text[i + 1];
-    if (CONSONANTS[c1] && v1 && (MATRAS[v1] !== undefined)) {
-      let base = CONSONANTS[c1].replace("్", "");
-      let matra = MATRAS[v1];
-      out += base + matra;
-      i += 2;
-      continue;
-    }
+    if (matchedCons) {
+      const base = CONSONANTS_MAP[matchedCons];
+      const afterCons = text.slice(i + matchedCons.length);
 
-    // Lookahead for 2-char consonants + vowel (e.g. tha, dhi, shu)
-    let c2 = text.substr(i, 2);
-    let vAfterC2 = text[i + 2];
-    if (CONSONANTS[c2] && vAfterC2 && (MATRAS[vAfterC2] !== undefined)) {
-      let base = CONSONANTS[c2].replace("్", "");
-      let matra = MATRAS[vAfterC2];
-      out += base + matra;
-      i += 3;
-      continue;
-    }
+      // If key already ended in inherent vowel like 'ksha'
+      if (matchedCons.endsWith('a') && matchedCons.length > 2) {
+        out += base;
+        i += matchedCons.length;
+        continue;
+      }
 
-    if (CONSONANTS[c2]) {
-      out += CONSONANTS[c2];
-      i += 2;
+      // Check if vowel modifier follows
+      let matchedVmod = null;
+      for (const vk of SORTED_VOWEL_MODS) {
+        if (afterCons.startsWith(vk)) {
+          matchedVmod = vk;
+          break;
+        }
+      }
+
+      if (matchedVmod) {
+        if (matchedVmod === 'a') {
+          // Inherent vowel 'a' removes virama, forming base consonant (e.g. n + a -> న)
+          out += base;
+        } else {
+          out += base + VOWEL_MODS[matchedVmod];
+        }
+        i += matchedCons.length + matchedVmod.length;
+      } else {
+        // Halant-first: No vowel follows -> attach virama (e.g. n -> న్, k -> క్)
+        out += base + VIRAMA;
+        i += matchedCons.length;
+      }
       continue;
     }
 
-    // 4. Lookahead 1 char
-    if (VOWELS[c1] && (i === 0 || text[i - 1] === " ")) {
-      out += VOWELS[c1];
-      i += 1;
+    // 3. Check Independent Vowels (at start of text or after space/vowel)
+    let matchedIndep = null;
+    for (const ivk of SORTED_INDEP_VOWELS) {
+      if (sliceText.startsWith(ivk)) {
+        matchedIndep = ivk;
+        break;
+      }
+    }
+
+    if (matchedIndep) {
+      out += INDEPENDENT_VOWELS[matchedIndep];
+      i += matchedIndep.length;
       continue;
     }
 
-    if (CONSONANTS[c1]) {
-      out += CONSONANTS[c1];
-      i += 1;
-      continue;
-    }
-
-    if (SPECIALS[c1]) {
-      out += SPECIALS[c1];
-      i += 1;
-      continue;
-    }
-
-    // Pass-through symbols, numbers, punctuation, spaces
-    out += c1;
+    // 4. Verbatim passthrough for punctuation, symbols, whitespace
+    out += text[i];
     i += 1;
   }
 

@@ -47,6 +47,7 @@ CONSONANTS_MAP = {
     "m": "మ",
 
     # Semivowels & Liquids
+    "yy": "య్య",
     "y": "య", "Y": "య",
     "r": "ర",
     "l": "ల",
@@ -62,7 +63,9 @@ CONSONANTS_MAP = {
 
 # Vowel Modifiers (Guninthalu Matras)
 VOWEL_MODS = {
+    "aam": "ాం",
     "aa": "ా", "A": "ా",
+    "am": "ం",   # Anusvara vowel modifier
     "a": "",  # Inherent vowel: removes halant/virama
     "ii": "ీ", "I": "ీ", "ee": "ీ",
     "i": "ి",
@@ -80,7 +83,9 @@ VOWEL_MODS = {
 
 # Independent Vowels (అచ్చులు)
 INDEPENDENT_VOWELS = {
+    "aam": "ఆం",
     "aa": "ఆ", "A": "ఆ",
+    "am": "అం",
     "a": "అ",
     "ii": "ఈ", "I": "ఈ", "ee": "ఈ",
     "i": "ఇ",
@@ -98,6 +103,9 @@ INDEPENDENT_VOWELS = {
 
 # Special Markers
 SPECIAL_MAP = {
+    "MDI": "ండి",
+    "MDi": "ండి",
+    "mdi": "ండి",
     "M": "ం",       # Sunna / Anusvara
     "H": "ః",       # Visarga
     "~": VIRAMA,    # Explicit pollu
