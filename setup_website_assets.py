@@ -17,6 +17,8 @@ mappings = [
     (PH_DIR / "03_features_keymap_playground_16x9.jpg", ASSETS_DIR / "keymap_showcase.jpg"),
     (PH_DIR / "04_universal_apps_offline_16x9.jpg", ASSETS_DIR / "apps_showcase.jpg"),
     (ROOT / "rachayitha_logo.png", ASSETS_DIR / "rachayitha_logo.png"),
+    (ROOT / "rachayitha code files" / "icon.ico", WEBSITE_DIR / "favicon.ico"),
+    (ROOT / "rachayitha code files" / "icon.ico", ASSETS_DIR / "favicon.ico"),
 ]
 
 for src, dest in mappings:
