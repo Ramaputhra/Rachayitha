@@ -8,7 +8,7 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-0078D6?style=for-the-badge&logo=apple&logoColor=white)](https://github.com)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20%7C%20Zero%20Telemetry-10B981?style=for-the-badge&logo=shield)](https://github)
-[![License](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-AGPL--3.0-F59E0B?style=for-the-badge)](LICENSE)
 
 **Type natural Telugu anywhere in Windows without switching keyboards or using heavy cloud IMEs.**  
 *Inspired by Lekhini RTS and PramukhIME, engineered with zero-latency halant-first phonetic mapping.*
@@ -225,5 +225,4 @@ Rachayitha is built with strict privacy principles:
 ## 🤝 Contributing & License
 
 Contributions, bug reports, and rule improvements are warmly welcomed!
-- Report issues or suggest new key combinations in [Issues](https://github.com).
-- Licensed under the [MIT License](LICENSE).
+- Licensed under the [GNU Affero General Public License v3.0 (AGPL-3.0)](LICENSE).

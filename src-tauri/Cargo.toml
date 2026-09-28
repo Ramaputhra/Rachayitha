@@ -3,7 +3,7 @@ name = "rachayitha"
 version = "1.0.0"
 description = "Rachayitha - Cross-Platform Real-Time Telugu Transliteration Utility"
 authors = ["Ramaputhra"]
-license = "MIT"
+license = "AGPL-3.0-only"
 edition = "2021"
 
 [build-dependencies]
