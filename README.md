@@ -100,7 +100,7 @@ Never guess how to spell a complex letter again.
 ### 🪟 Windows
 
 #### Option A: 1-Click Installer (Recommended)
-Download the latest `Rachayitha_Setup.exe` from the [Releases](https://github.com/Ramaputhra/Rachayitha/releases) tab.
+Download the latest [**Rachayitha_Setup.exe** (Direct Download • 75 MB)](https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe) or get it from the [Releases](https://github.com/Ramaputhra/Rachayitha/releases) tab.
 - Includes a 2-panel presentation setup wizard.
 - Automatically creates Desktop and Start Menu shortcuts.
 - Fully registered in Windows *Installed Apps* for 1-click clean uninstallation.

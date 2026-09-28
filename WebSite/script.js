@@ -1,7 +1,8 @@
-/**
- * Rachayitha (రచయిత) — Official Web Engine & Interactivity
- * Authentic Client-Side Halant-First Transliteration & Keymap Explorer
- */
+// --- Official Download URLs (Vercel Blob Storage CDN) ---
+window.RACHAYITHA_DOWNLOADS = {
+  installer: "https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe",
+  portable: "https://github.com/Ramaputhra/Rachayitha/releases/download/v1.0.0/Rachayitha.exe"
+};
 
 // --- 1. Authentic Telugu Rules Engine ---
 const VOWELS = {
@@ -242,6 +243,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const keymapGrid = document.getElementById("keymap-grid");
   const searchInput = document.getElementById("keymap-search");
   const tabBtns = document.querySelectorAll(".tab-btn");
+
+  // 0. Bind Centralized Download Links
+  if (window.RACHAYITHA_DOWNLOADS) {
+    document.querySelectorAll(".btn-installer-download").forEach(el => {
+      if (window.RACHAYITHA_DOWNLOADS.installer) el.href = window.RACHAYITHA_DOWNLOADS.installer;
+    });
+    document.querySelectorAll(".btn-portable-download").forEach(el => {
+      if (window.RACHAYITHA_DOWNLOADS.portable) el.href = window.RACHAYITHA_DOWNLOADS.portable;
+    });
+  }
 
   // A. Live Transliteration Playground
   if (demoInput && demoOutput) {
