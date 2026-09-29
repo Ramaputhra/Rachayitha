@@ -11,7 +11,7 @@ Write-Host "`n[1/3] Staging changes..." -ForegroundColor Yellow
 git add WebSite/ All.md deploy_website.bat deploy_website.ps1
 
 Write-Host "`n[2/3] Committing changes..." -ForegroundColor Yellow
-git commit -m "feat(website): add vercel analytics, speed insights, and best telugu typing tools guide"
+git commit -m "fix(vercel): configure outputDirectory and disable buildCommand for static site"
 
 Write-Host "`n[3/3] Pushing to GitHub (main branch)..." -ForegroundColor Yellow
 git push origin main

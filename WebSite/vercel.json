@@ -2,6 +2,8 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "outputDirectory": ".",
+  "buildCommand": null,
   "headers": [
     {
       "source": "/(.*)",
