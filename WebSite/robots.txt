@@ -1,0 +1,8 @@
+# Robots.txt for Rachayitha (రచయిత)
+# https://rachayitha.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Direct link to XML Sitemap for Google Search, Bing, and other crawlers
+Sitemap: https://rachayitha.vercel.app/sitemap.xml

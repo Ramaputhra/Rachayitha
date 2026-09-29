@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://rachayitha.vercel.app/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rachayitha.vercel.app/assets/hero_showcase.jpg</image:loc>
+      <image:title>Rachayitha Telugu Transliteration Software Showcase</image:title>
+      <image:caption>Real-time phonetic Telugu typing for Windows desktop applications</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rachayitha.vercel.app/assets/rachayitha_logo.png</image:loc>
+      <image:title>Rachayitha Official Logo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#playground</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#how-it-works</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#features</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#keymap</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#comparison</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#faq</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/#download</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rachayitha.vercel.app/best-telugu-typing-tools-for-windows</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://rachayitha.vercel.app/assets/hero_showcase.jpg</image:loc>
+      <image:title>The Best Telugu Typing Tools for Windows (2026 In-Depth Guide)</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -1,0 +1,22 @@
+{
+  "name": "rachayitha-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official website for Rachayitha - 100% Offline Real-Time Telugu Typing Software for Windows",
+  "scripts": {
+    "build": "echo 'Static assets ready for Vercel deployment'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0"
+  },
+  "keywords": [
+    "rachayitha",
+    "telugu-typing",
+    "indic-ime",
+    "windows",
+    "transliteration"
+  ],
+  "author": "Ramaputhra Purum",
+  "license": "AGPL-3.0"
+}

@@ -536,26 +536,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Auto-reset when resizing to desktop
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 868 && siteHeader && siteHeader.classList.contains("nav-open")) {
+    if (window.innerWidth > 1024 && siteHeader && siteHeader.classList.contains("nav-open")) {
       closeMobileNav();
     }
   });
 
-  // --- 4. Analytics & Conversion Tracking ---
-  function trackEvent(name, data = {}) {
-    if (window.va) {
-      window.va('event', { name, ...data });
-    }
-    console.log(`[Rachayitha Analytics] ${name}`, data);
-  }
+  // --- 4. Interactive FAQ Accordion ---
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    const questionBtn = item.querySelector(".faq-question");
+    if (!questionBtn) return;
+    questionBtn.addEventListener("click", () => {
+      const isActive = item.classList.contains("active");
+      // Optional: close other open items for cleaner reading
+      faqItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove("active");
+          const otherBtn = other.querySelector(".faq-question");
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+      item.classList.toggle("active", !isActive);
+      questionBtn.setAttribute("aria-expanded", !isActive ? "true" : "false");
+    });
+  });
 
-  // Track all .exe download button clicks
-  document.querySelectorAll('a[href$=".exe"]').forEach(link => {
+  // --- 5. Vercel Web Analytics & Conversion Tracking ---
+  window.trackAnalyticsEvent = function(name, data = {}) {
+    if (typeof window.va === "function") {
+      try {
+        window.va("event", { name, ...data });
+      } catch (err) {
+        console.warn("[Vercel Analytics] Track warning:", err);
+      }
+    }
+  };
+
+  // Track all Windows Installer and Portable downloads
+  document.querySelectorAll('a[href$=".exe"], .btn-installer-download').forEach(link => {
     link.addEventListener("click", () => {
-      const fileName = link.getAttribute("href").split("/").pop();
-      trackEvent("app_download", {
-        file: fileName,
-        platform: "windows"
+      const href = link.getAttribute("href") || "";
+      const isSetup = href.includes("Setup") || link.classList.contains("btn-installer-download");
+      window.trackAnalyticsEvent("download_click", {
+        file: isSetup ? "Rachayitha_Setup.exe" : "Rachayitha_Portable.exe",
+        type: isSetup ? "installer" : "portable",
+        element_id: link.id || "download_btn"
       });
     });
   });
@@ -563,8 +588,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Track GitHub visits
   document.querySelectorAll('a[href*="github.com"]').forEach(link => {
     link.addEventListener("click", () => {
-      trackEvent("github_visit");
+      window.trackAnalyticsEvent("github_visit", {
+        target: link.getAttribute("href")
+      });
     });
   });
+
+  // Track Blog navigation clicks
+  document.querySelectorAll('a[href*="best-telugu-typing-tools"]').forEach(link => {
+    link.addEventListener("click", () => {
+      window.trackAnalyticsEvent("blog_read_click");
+    });
+  });
+
+  // Track Demo Copy interactions
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      window.trackAnalyticsEvent("demo_text_copied");
+    });
+  }
 });
 
