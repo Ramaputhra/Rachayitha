@@ -196,6 +196,11 @@ class ProfessionalInstallerWindow(QWidget):
                 "desc": "Toggle languages seamlessly with your preferred hotkey (Default: Alt+T). Click tray icon for 60+ letter reference guide."
             },
             {
+                "icon": "📖",
+                "title": "Casual Type with 58k+ Words",
+                "desc": "Type naturally in colloquial Tenglish (e.g. 'nuvvu akkade undu vastunna', 'cheppamdi' -> 'చెప్పండి') with 58k+ dictionary & smart typo fixes!"
+            },
+            {
                 "icon": "🔒",
                 "title": "100% Offline & Private",
                 "desc": "Your typing never leaves your device. Zero cloud dependencies, zero telemetry, and takes under 20MB of RAM."

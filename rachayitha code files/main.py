@@ -24,7 +24,8 @@ class RachayithaApp:
 
         self.config = load_config()
         self.is_telugu_on = False
-        self.buffer = TypingBuffer()
+        casual_enabled = self.config.get("casual_type", True)
+        self.buffer = TypingBuffer(casual_enabled=casual_enabled)
 
         # Windows CapsLock check helper
         self.user32 = ctypes.windll.user32 if os.name == 'nt' else None
@@ -144,12 +145,18 @@ class RachayithaApp:
 
         return True
 
+    def on_casual_type_changed(self, enabled: bool):
+        self.config["casual_type"] = enabled
+        self.buffer.set_casual_enabled(enabled)
+        print(f"Casual Type toggled: {'ON' if enabled else 'OFF'}")
+
     def open_settings(self):
         try:
             if not self.settings_window:
                 self.settings_window = SettingsWindow(
                     on_toggle_callback=self.set_mode,
-                    on_hotkey_changed_callback=self.on_hotkey_changed
+                    on_hotkey_changed_callback=self.on_hotkey_changed,
+                    on_casual_type_changed_callback=self.on_casual_type_changed
                 )
             if self.settings_window.isMinimized():
                 self.settings_window.showNormal()

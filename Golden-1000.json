@@ -1,0 +1,6757 @@
+[
+  {
+    "tenglish": "cheppandi",
+    "telugu": "చెప్పండి",
+    "category": "bugfix",
+    "status": "must_pass"
+  },
+  {
+    "tenglish": "cheppamdi",
+    "telugu": "చెప్పండి",
+    "category": "bugfix"
+  },
+  {
+    "tenglish": "cheyyandi",
+    "telugu": "చెయ్యండి",
+    "category": "flexibility",
+    "note": "double yy must be kept"
+  },
+  {
+    "tenglish": "cheyandi",
+    "telugu": "చేయండి",
+    "category": "flexibility"
+  },
+  {
+    "tenglish": "cheyyamdi",
+    "telugu": "చెయ్యండి",
+    "category": "bugfix"
+  },
+  {
+    "tenglish": "namaskaram",
+    "telugu": "నమస్కారం"
+  },
+  {
+    "tenglish": "amma",
+    "telugu": "అమ్మ"
+  },
+  {
+    "tenglish": "nanna",
+    "telugu": "నాన్న"
+  },
+  {
+    "tenglish": "akka",
+    "telugu": "అక్క"
+  },
+  {
+    "tenglish": "anna",
+    "telugu": "అన్న"
+  },
+  {
+    "tenglish": "nenu",
+    "telugu": "నేను"
+  },
+  {
+    "tenglish": "meeru",
+    "telugu": "మీరు"
+  },
+  {
+    "tenglish": "telugu",
+    "telugu": "తెలుగు"
+  },
+  {
+    "tenglish": "rachayitha",
+    "telugu": "రచయిత"
+  },
+  {
+    "tenglish": "katha",
+    "telugu": "కథ"
+  },
+  {
+    "tenglish": "paata",
+    "telugu": "పాట"
+  },
+  {
+    "tenglish": "illu",
+    "telugu": "ఇల్లు"
+  },
+  {
+    "tenglish": "n",
+    "telugu": "న్",
+    "category": "halant"
+  },
+  {
+    "tenglish": "na",
+    "telugu": "న",
+    "category": "halant"
+  },
+  {
+    "tenglish": "andi",
+    "telugu": "అండి"
+  },
+  {
+    "tenglish": "ndi",
+    "telugu": "ండి",
+    "category": "sunna_fix"
+  },
+  {
+    "tenglish": "kRuShNa",
+    "telugu": "కృష్ణ"
+  },
+  {
+    "tenglish": "shri",
+    "telugu": "శ్రీ"
+  },
+  {
+    "tenglish": "krishna",
+    "telugu": "కృష్ణ"
+  },
+  {
+    "tenglish": "bagundi",
+    "telugu": "బాగుంది"
+  },
+  {
+    "tenglish": "bagunnara",
+    "telugu": "బాగున్నారా"
+  },
+  {
+    "tenglish": "ela unnaru",
+    "telugu": "ఎలా ఉన్నారు"
+  },
+  {
+    "tenglish": "dhanyavadamulu",
+    "telugu": "ధన్యవాదములు"
+  },
+  {
+    "tenglish": "kshaminchandi",
+    "telugu": "క్షమించండి"
+  },
+  {
+    "tenglish": "vachchindi",
+    "telugu": "వచ్చింది"
+  },
+  {
+    "tenglish": "vellindi",
+    "telugu": "వెళ్ళింది"
+  },
+  {
+    "tenglish": "choodandi",
+    "telugu": "చూడండి"
+  },
+  {
+    "tenglish": "randi",
+    "telugu": "రండి"
+  },
+  {
+    "tenglish": "ravandi",
+    "telugu": "రండి"
+  },
+  {
+    "tenglish": "tandri",
+    "telugu": "తండ్రి"
+  },
+  {
+    "tenglish": "talli",
+    "telugu": "తల్లి"
+  },
+  {
+    "tenglish": "kutumbam",
+    "telugu": "కుటుంబం"
+  },
+  {
+    "tenglish": "pranam",
+    "telugu": "ప్రాణం"
+  },
+  {
+    "tenglish": "hrudayam",
+    "telugu": "హృదయం"
+  },
+  {
+    "tenglish": "pustakam",
+    "telugu": "పుస్తకం"
+  },
+  {
+    "tenglish": "patrikalu",
+    "telugu": "పత్రికలు"
+  },
+  {
+    "tenglish": "hyderabad",
+    "telugu": "హైదరాబాద్"
+  },
+  {
+    "tenglish": "vijayawada",
+    "telugu": "విజయవాడ"
+  },
+  {
+    "tenglish": "telangana",
+    "telugu": "తెలంగాణ"
+  },
+  {
+    "tenglish": "andhra",
+    "telugu": "ఆంధ్ర"
+  },
+  {
+    "tenglish": "chesthanu",
+    "telugu": "చేస్తాను"
+  },
+  {
+    "tenglish": "chesa",
+    "telugu": "చేశా"
+  },
+  {
+    "tenglish": "tintanu",
+    "telugu": "తింటాను"
+  },
+  {
+    "tenglish": "rayadam",
+    "telugu": "రాయడం"
+  },
+  {
+    "tenglish": "chadavadam",
+    "telugu": "చదవడం"
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "మాట్లాడడం"
+  },
+  {
+    "tenglish": "andamaina",
+    "telugu": "అందమైన"
+  },
+  {
+    "tenglish": "manchi",
+    "telugu": "మంచి"
+  },
+  {
+    "tenglish": "samsaram",
+    "telugu": "సంసారం"
+  },
+  {
+    "tenglish": "a",
+    "telugu": "అ"
+  },
+  {
+    "tenglish": "aa",
+    "telugu": "ఆ"
+  },
+  {
+    "tenglish": "i",
+    "telugu": "ఇ"
+  },
+  {
+    "tenglish": "ii",
+    "telugu": "ఈ"
+  },
+  {
+    "tenglish": "u",
+    "telugu": "ఉ"
+  },
+  {
+    "tenglish": "uu",
+    "telugu": "ఊ"
+  },
+  {
+    "tenglish": "e",
+    "telugu": "ఎ"
+  },
+  {
+    "tenglish": "ee",
+    "telugu": "ఏ"
+  },
+  {
+    "tenglish": "ai",
+    "telugu": "ఐ"
+  },
+  {
+    "tenglish": "o",
+    "telugu": "ఒ"
+  },
+  {
+    "tenglish": "oo",
+    "telugu": "ఓ"
+  },
+  {
+    "tenglish": "au",
+    "telugu": "ఔ"
+  },
+  {
+    "tenglish": "ka",
+    "telugu": "క"
+  },
+  {
+    "tenglish": "kha",
+    "telugu": "ఖ"
+  },
+  {
+    "tenglish": "ga",
+    "telugu": "గ"
+  },
+  {
+    "tenglish": "cha",
+    "telugu": "చ"
+  },
+  {
+    "tenglish": "ja",
+    "telugu": "జ"
+  },
+  {
+    "tenglish": "Ta",
+    "telugu": "ట"
+  },
+  {
+    "tenglish": "Da",
+    "telugu": "డ"
+  },
+  {
+    "tenglish": "ta",
+    "telugu": "త"
+  },
+  {
+    "tenglish": "da",
+    "telugu": "ద"
+  },
+  {
+    "tenglish": "na",
+    "telugu": "న"
+  },
+  {
+    "tenglish": "pa",
+    "telugu": "ప"
+  },
+  {
+    "tenglish": "ma",
+    "telugu": "మ"
+  },
+  {
+    "tenglish": "ya",
+    "telugu": "య"
+  },
+  {
+    "tenglish": "ra",
+    "telugu": "ర"
+  },
+  {
+    "tenglish": "la",
+    "telugu": "ల"
+  },
+  {
+    "tenglish": "va",
+    "telugu": "వ"
+  },
+  {
+    "tenglish": "sa",
+    "telugu": "స"
+  },
+  {
+    "tenglish": "ha",
+    "telugu": "హ"
+  },
+  {
+    "tenglish": "ksha",
+    "telugu": "క్ష"
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppmu",
+    "telugu": "chepp_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyvu",
+    "telugu": "chEy_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radi",
+    "telugu": "ra_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchli",
+    "telugu": "vachch_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velllu",
+    "telugu": "vell_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddam",
+    "telugu": "chood_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndu",
+    "telugu": "tinn_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduru",
+    "telugu": "padu_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlamu",
+    "telugu": "maatla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayvu",
+    "telugu": "ray_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdi",
+    "telugu": "chaduv_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panili",
+    "telugu": "pani_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillalu",
+    "telugu": "pilla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadam",
+    "telugu": "abba_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadu",
+    "telugu": "amma_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppru",
+    "telugu": "chepp_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEymu",
+    "telugu": "chEy_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ravu",
+    "telugu": "ra_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdi",
+    "telugu": "vachch_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellli",
+    "telugu": "vell_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodlu",
+    "telugu": "chood_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndam",
+    "telugu": "tinn_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudu",
+    "telugu": "padu_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlaru",
+    "telugu": "maatla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raymu",
+    "telugu": "ray_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvvu",
+    "telugu": "chaduv_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidi",
+    "telugu": "pani_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillali",
+    "telugu": "pilla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbalu",
+    "telugu": "abba_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadam",
+    "telugu": "amma_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdu",
+    "telugu": "chepp_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyru",
+    "telugu": "chEy_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ramu",
+    "telugu": "ra_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchvu",
+    "telugu": "vachch_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldi",
+    "telugu": "vell_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodli",
+    "telugu": "chood_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnlu",
+    "telugu": "tinn_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudam",
+    "telugu": "padu_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladu",
+    "telugu": "maatla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayru",
+    "telugu": "ray_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvmu",
+    "telugu": "chaduv_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panivu",
+    "telugu": "pani_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladi",
+    "telugu": "pilla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbali",
+    "telugu": "abba_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammalu",
+    "telugu": "amma_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdam",
+    "telugu": "chepp_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydu",
+    "telugu": "chEy_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raru",
+    "telugu": "ra_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchmu",
+    "telugu": "vachch_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellvu",
+    "telugu": "vell_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddi",
+    "telugu": "chood_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnli",
+    "telugu": "tinn_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padulu",
+    "telugu": "padu_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladam",
+    "telugu": "maatla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydu",
+    "telugu": "ray_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvru",
+    "telugu": "chaduv_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panimu",
+    "telugu": "pani_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillavu",
+    "telugu": "pilla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadi",
+    "telugu": "abba_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammali",
+    "telugu": "amma_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chepplu",
+    "telugu": "chepp_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydam",
+    "telugu": "chEy_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radu",
+    "telugu": "ra_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchru",
+    "telugu": "vachch_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellmu",
+    "telugu": "vell_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodvu",
+    "telugu": "chood_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinndi",
+    "telugu": "tinn_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduli",
+    "telugu": "padu_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlalu",
+    "telugu": "maatla_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydam",
+    "telugu": "ray_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdu",
+    "telugu": "chaduv_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paniru",
+    "telugu": "pani_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillamu",
+    "telugu": "pilla_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbavu",
+    "telugu": "abba_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammadi",
+    "telugu": "amma_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppli",
+    "telugu": "chepp_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEylu",
+    "telugu": "chEy_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "radam",
+    "telugu": "ra_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdu",
+    "telugu": "vachch_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vellru",
+    "telugu": "vell_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodmu",
+    "telugu": "chood_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnvu",
+    "telugu": "tinn_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padudi",
+    "telugu": "padu_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlali",
+    "telugu": "maatla_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raylu",
+    "telugu": "ray_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvdam",
+    "telugu": "chaduv_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidu",
+    "telugu": "pani_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pillaru",
+    "telugu": "pilla_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbamu",
+    "telugu": "abba_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammavu",
+    "telugu": "amma_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppdi",
+    "telugu": "chepp_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEyli",
+    "telugu": "chEy_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ralu",
+    "telugu": "ra_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchdam",
+    "telugu": "vachch_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldu",
+    "telugu": "vell_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "choodru",
+    "telugu": "chood_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnmu",
+    "telugu": "tinn_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "paduvu",
+    "telugu": "padu_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatladi",
+    "telugu": "maatla_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rayli",
+    "telugu": "ray_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvlu",
+    "telugu": "chaduv_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panidam",
+    "telugu": "pani_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladu",
+    "telugu": "pilla_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbaru",
+    "telugu": "abba_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammamu",
+    "telugu": "amma_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "cheppvu",
+    "telugu": "chepp_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chEydi",
+    "telugu": "chEy_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "rali",
+    "telugu": "ra_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "vachchlu",
+    "telugu": "vachch_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "velldam",
+    "telugu": "vell_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chooddu",
+    "telugu": "chood_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "tinnru",
+    "telugu": "tinn_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "padumu",
+    "telugu": "padu_ము",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "maatlavu",
+    "telugu": "maatla_వు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "raydi",
+    "telugu": "ray_డి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "chaduvli",
+    "telugu": "chaduv_లి",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "panilu",
+    "telugu": "pani_లు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "pilladam",
+    "telugu": "pilla_డం",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "abbadu",
+    "telugu": "abba_డు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  },
+  {
+    "tenglish": "ammaru",
+    "telugu": "amma_రు",
+    "category": "auto",
+    "needs_review": true,
+    "freq": 0
+  }
+]

@@ -31,6 +31,7 @@ DEFAULT_CONFIG = {
         "english": "alt+e"
     },
     "current_language": "telugu",
+    "casual_type": True,
     "auto_start": True,
     "show_notifications": True
 }

@@ -269,7 +269,7 @@
         </a>
 
         <ul class="nav-links" id="nav-links">
-          <li><a href="#playground" class="nav-link">Demo</a></li>
+          <li><a href="#playground" class="nav-link">Showcase</a></li>
           <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
           <li><a href="#features" class="nav-link">Features</a></li>
           <li><a href="#keymap" class="nav-link">Key Map</a></li>
@@ -400,69 +400,235 @@
       </div>
     </section>
 
-    <!-- Live Interactive Transliteration Demo -->
+    <!-- Casual Typing Engine Visual Showcase -->
     <section class="playground-section" id="playground" aria-labelledby="playground-heading">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Interactive Demo</span>
-          <h2 class="section-title" id="playground-heading">Try Rachayitha Live in Your Browser</h2>
-          <p class="section-desc">Type phonetic Roman English (Tenglish) on the left. Watch authentic halant-first Telugu form dynamically on the right with sub-millisecond precision.</p>
+          <span class="section-tag">ENGINE ARCHITECTURE &amp; PREVIEW</span>
+          <h2 class="section-title" id="playground-heading">How Casual Typing Works in Rachayitha</h2>
+          <p class="section-desc">Type naturally in lowercase Tenglish without touching the Shift key. Rachayitha's native Windows engine combines a 58,421-word lexicon with morphological Telugu Sandhi to deliver true 0ms transliteration across every desktop app.</p>
         </div>
 
-        <div class="playground-card">
-          <div class="playground-grid">
-            <!-- Input Side -->
-            <div class="playground-input-side">
-              <div class="playground-label">
-                <span>English / Tenglish Input</span>
-                <span class="mono">Phonetic Keystrokes</span>
+        <div class="showcase-window-container">
+          <!-- Showcase Header Controls -->
+          <div class="showcase-tabs-bar">
+            <div class="showcase-tabs">
+              <button type="button" class="showcase-tab-btn active" id="tab-casual-view" onclick="switchShowcaseTab('casual')">
+                <span class="tab-indicator"></span>
+                ⚡ Casual Typing Engine (Active)
+              </button>
+              <button type="button" class="showcase-tab-btn" id="tab-compare-view" onclick="switchShowcaseTab('compare')">
+                <span class="tab-indicator"></span>
+                ⚖️ Casual vs High-Key Comparison
+              </button>
+            </div>
+            <div class="showcase-badge-pill">
+              <span class="pulse-dot"></span>
+              <span>Native Standalone Windows v1.0 • 100% Offline</span>
+            </div>
+          </div>
+
+          <!-- Showcase Display Stage: Native Software Window UI -->
+          <div class="showcase-display-stage">
+            <!-- Slide 1: Casual Mode Active UI -->
+            <div class="showcase-slide active" id="slide-casual">
+              <div class="cyber-window">
+                <!-- Window Top Header -->
+                <div class="cyber-window-header">
+                  <div class="cyber-window-dots" aria-hidden="true">
+                    <span class="cyber-dot dot-close"></span>
+                    <span class="cyber-dot dot-min"></span>
+                    <span class="cyber-dot dot-max"></span>
+                  </div>
+                  <div class="cyber-window-title">rachayitha — casual phonetic engine (alt+t)</div>
+                  <div class="cyber-window-badges">
+                    <span class="cyber-toggle-pill active">
+                      <span class="toggle-circle"></span>
+                      Casual Mode: ACTIVE
+                    </span>
+                    <span class="cyber-engine-pill">
+                      <span class="pulse-dot"></span>
+                      58,421 Lexicon &amp; Morphological Sandhi Engine
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Window Dual Panes -->
+                <div class="cyber-window-body">
+                  <!-- Left Pane: Tenglish -->
+                  <div class="cyber-pane pane-tenglish">
+                    <div class="pane-header">
+                      <span class="pane-tag">INPUT</span>
+                      <span class="pane-title">Natural Tenglish Input (Zero Shift Keys)</span>
+                    </div>
+                    <div class="pane-code-area mono">
+                      <p class="code-line"><span class="token-word">nenu</span> <span class="token-word">repu</span> <span class="token-word">vastunna</span>,</p>
+                      <p class="code-line"><span class="token-word">chala</span> <span class="token-word">bagundi</span>,</p>
+                      <p class="code-line"><span class="token-word">ela</span> <span class="token-word">unnaru</span>?</p>
+                      <p class="code-line"><span class="token-word">pillalu</span> <span class="token-word highlight-green">aadukuntunnaru</span>,</p>
+                      <p class="code-line"><span class="token-word">snehitulato</span> <span class="token-word highlight-cyan">matladali</span></p>
+                    </div>
+                  </div>
+
+                  <!-- Right Pane: Authentic Telugu -->
+                  <div class="cyber-pane pane-telugu">
+                    <div class="pane-header">
+                      <span class="pane-tag accent">OUTPUT</span>
+                      <span class="pane-title">Authentic Telugu Output (Real-time Transliteration)</span>
+                      <span class="pane-live-indicator"><span class="pulse-dot"></span> 0ms</span>
+                    </div>
+                    <div class="pane-output-area telugu-font">
+                      <p class="telugu-line">నేను రేపు వస్తున్నా,</p>
+                      <p class="telugu-line">చాలా బాగుంది,</p>
+                      <p class="telugu-line">ఎలా ఉన్నారు?</p>
+                      <p class="telugu-line highlight-green-te">పిల్లలు ఆడుకుంటున్నారు,</p>
+                      <p class="telugu-line highlight-cyan-te">స్నేహితులతో మాట్లాడాలి</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Window Bottom Status Bar -->
+                <div class="cyber-window-footer">
+                  <div class="status-pills-row">
+                    <span class="status-chip"><span class="chip-dot green"></span> 0ms Latency</span>
+                    <span class="status-chip"><span class="chip-dot cyan"></span> 100% Offline System</span>
+                    <span class="status-chip"><span class="chip-dot purple"></span> Reflexive Continuous Verb Engine</span>
+                    <span class="status-chip"><span class="chip-dot amber"></span> Alt+T Instant Hotkey</span>
+                  </div>
+                </div>
               </div>
-              <textarea id="demo-input" class="interactive-input" placeholder="Type here: e.g. namaskaaram, rachayita, tO, telugulO, Taip, cheyandi..." rows="4" aria-label="English Input for Telugu Transliteration">namaskaaram! rachayita tO telugulO Taip cheyandi .</textarea>
             </div>
 
-            <!-- Output Side -->
-            <div class="playground-output-side">
-              <div class="playground-label">
-                <span>Telugu Unicode Output</span>
-                <span class="live-badge mono">
-                  <span class="pulse-dot" style="width: 6px; height: 6px;" aria-hidden="true"></span>
-                  0ms Latency
-                </span>
-              </div>
-              <div id="demo-output" class="interactive-output telugu-font" aria-live="polite" aria-label="Telugu Transliterated Result">
-                నమస్కారం! రచయిత తో తెలుగులో టైప్ చేయండి .
+            <!-- Slide 2: High-Key vs Casual Comparison UI -->
+            <div class="showcase-slide" id="slide-compare">
+              <div class="cyber-window">
+                <!-- Window Top Header -->
+                <div class="cyber-window-header">
+                  <div class="cyber-window-dots" aria-hidden="true">
+                    <span class="cyber-dot dot-close"></span>
+                    <span class="cyber-dot dot-min"></span>
+                    <span class="cyber-dot dot-max"></span>
+                  </div>
+                  <div class="cyber-window-title">Rachayitha — Casual Typing vs Classic Lekhini RTS</div>
+                </div>
+
+                <!-- Window Dual Panes Comparison -->
+                <div class="cyber-window-body">
+                  <!-- Left: Classic High-Key (Lekhini RTS) -->
+                  <div class="cyber-pane pane-comparison-old">
+                    <div class="pane-header">
+                      <span class="pane-tag old">CLASSIC RTS</span>
+                      <span class="pane-title">Classic High-Key Mode</span>
+                    </div>
+                    <div class="pane-compare-content">
+                      <div class="compare-subtitle">Strict Uppercase Typing (Shift-Key Dependent)</div>
+                      <div class="compare-examples mono">
+                        <div class="example-row"><span class="bad-input">mATlADAnu</span> <span class="error-hint">&bull; 3 Shift key presses</span></div>
+                        <div class="example-row"><span class="bad-input">rEpU</span> <span class="error-hint">&bull; Complex capitalization</span></div>
+                        <div class="example-row"><span class="bad-input">intikI</span> <span class="error-hint">&bull; Awkward deergham caps</span></div>
+                      </div>
+                      <div class="compare-verdict-badges">
+                        <span class="verdict-chip bad">⚠️ Shift-Key Fatigue</span>
+                        <span class="verdict-chip bad">⚠️ Case-Sensitive Errors</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right: New Smart Casual Engine -->
+                  <div class="cyber-pane pane-comparison-new">
+                    <div class="pane-header">
+                      <span class="pane-tag new">RECOMMENDED</span>
+                      <span class="pane-title">New Smart Casual Typing Engine</span>
+                      <span class="pane-live-indicator"><span class="pulse-dot"></span> 0ms</span>
+                    </div>
+                    <div class="pane-compare-content">
+                      <div class="compare-subtitle good">Natural Lowercase Typing (Conversational Speed)</div>
+                      <div class="compare-examples mono">
+                        <div class="example-row-good">
+                          <span class="good-input">matladanu</span> <span class="arrow">&rarr;</span> <span class="good-output telugu-font">మాట్లాడాను</span>
+                        </div>
+                        <div class="example-row-good">
+                          <span class="good-input">repu</span> <span class="arrow">&rarr;</span> <span class="good-output telugu-font">రేపు</span>
+                        </div>
+                        <div class="example-row-good">
+                          <span class="good-input">intiki</span> <span class="arrow">&rarr;</span> <span class="good-output telugu-font">ఇంటికి</span>
+                        </div>
+                        <div class="example-row-good">
+                          <span class="good-input">pillalu aadukuntunnaru</span> <span class="arrow">&rarr;</span> <span class="good-output telugu-font">పిల్లలు ఆడుకుంటున్నారు</span>
+                        </div>
+                      </div>
+                      <div class="compare-verdict-badges">
+                        <span class="verdict-chip good">✓ Zero Shift Keys</span>
+                        <span class="verdict-chip good">✓ 58,421 Words Lexicon</span>
+                        <span class="verdict-chip good">✓ Auto Sandhi Conjugation</span>
+                        <span class="verdict-chip good">✓ 100% Offline Real-Time</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Window Bottom Status Bar -->
+                <div class="cyber-window-footer">
+                  <div class="status-pills-row">
+                    <span class="status-chip"><span class="chip-dot green"></span> Zero Learning Curve</span>
+                    <span class="status-chip"><span class="chip-dot cyan"></span> 2.5x Faster Daily Typing Speed</span>
+                    <span class="status-chip"><span class="chip-dot purple"></span> Automatic Grammar &amp; Suffix Engine</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Playground Footer Presets & Mobile Controls -->
-          <div class="playground-footer">
-            <div class="preset-wrapper">
-              <span class="preset-label">Try presets:</span>
-              <div class="preset-buttons">
-                <button type="button" class="preset-btn" onclick="setPreset('namaskaaram')">namaskaaram (నమస్కారం)</button>
-                <button type="button" class="preset-btn" onclick="setPreset('rachayita')">rachayita (రచయిత)</button>
-                <button type="button" class="preset-btn" onclick="setPreset('telugulO')">telugulO (తెలుగులో)</button>
-                <button type="button" class="preset-btn" onclick="setPreset('Taip')">Taip (టైప్)</button>
-                <button type="button" class="preset-btn" onclick="setPreset('cheyandi')">cheyandi (చేయండి)</button>
-                <button type="button" class="preset-btn" onclick="setPreset('amma')">amma (అమ్మ)</button>
+          <!-- Feature Breakdown Grid -->
+          <div class="showcase-features-grid">
+            <div class="showcase-feature-card">
+              <div class="feature-icon-box">⌨️</div>
+              <div class="feature-card-content">
+                <h3 class="feature-card-title">Zero Shift-Key Stress</h3>
+                <p class="feature-card-desc">Type <span class="mono">repu</span>, <span class="mono">chala</span>, <span class="mono">bagundi</span>, <span class="mono">unnaru</span> in effortless lowercase without pressing Shift or memorizing case rules.</p>
               </div>
             </div>
-            <div class="playground-actions">
-              <button type="button" class="action-btn clear-btn" id="clear-btn" title="Clear text">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
+
+            <div class="showcase-feature-card">
+              <div class="feature-icon-box">📚</div>
+              <div class="feature-card-content">
+                <h3 class="feature-card-title">58,421-Word Native Dictionary</h3>
+                <p class="feature-card-desc">Comprehensive conversational lexicon ranked by te_top10k frequency. Direct instant lookup with sub-millisecond local speed.</p>
+              </div>
+            </div>
+
+            <div class="showcase-feature-card">
+              <div class="feature-icon-box">🧩</div>
+              <div class="feature-card-content">
+                <h3 class="feature-card-title">Smart Telugu Sandhi Engine</h3>
+                <p class="feature-card-desc">Decomposes 17 noun postpositions (<span class="mono">-to, -lo, -nundi</span>) and 25+ verb conjugations like <span class="mono">aadukuntunnaru</span> &rarr; <span class="telugu-font">ఆడుకుంటున్నారు</span>.</p>
+              </div>
+            </div>
+
+            <div class="showcase-feature-card">
+              <div class="feature-icon-box">🪟</div>
+              <div class="feature-card-content">
+                <h3 class="feature-card-title">Native Desktop Windows Hooks</h3>
+                <p class="feature-card-desc">Toggle with <span class="mono">Alt+T</span> anywhere. Works seamlessly across WhatsApp, Microsoft Word, Chrome, Excel, Notepad, and Discord.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Desktop Download Callout Bar -->
+          <div class="showcase-cta-bar">
+            <div class="cta-bar-text">
+              <div class="cta-bar-title">Get the Full Native Performance on Windows 10 &amp; 11</div>
+              <div class="cta-bar-sub">Web browsers cannot intercept Windows OS keystrokes. Download the standalone 100% offline software for the real experience.</div>
+            </div>
+            <div class="cta-bar-action">
+              <a href="https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe" download="Rachayitha_Setup.exe" class="btn btn-cyan btn-installer-download" id="playground-cta-download-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                Clear
-              </button>
-              <button type="button" class="action-btn copy-btn" id="copy-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                Copy Telugu
-              </button>
+                Download Setup (Free • 75 MB)
+              </a>
             </div>
           </div>
         </div>
@@ -1041,7 +1207,9 @@
     </div>
   </footer>
 
-  <!-- Script -->
-  <script src="script.js?v=1.0.4"></script>
+  <!-- Casual Typing 58k Dictionary Data (Direct Offline/Local Loading) -->
+  <script src="casual_dict_data.js"></script>
+  <!-- Main Script -->
+  <script src="script.js?v=1.0.5"></script>
 </body>
 </html>

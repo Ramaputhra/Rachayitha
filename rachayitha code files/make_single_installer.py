@@ -40,10 +40,24 @@ def main():
     prepare_script = os.path.join(ROOT_DIR, "prepare_icons.py")
     subprocess.run([sys.executable, prepare_script], cwd=ROOT_DIR)
 
+    # 1.1 Sync data files (casual_type_dict.json, te_top10k.json, typo_fixes.json)
+    parent_data = os.path.abspath(os.path.join(ROOT_DIR, "..", "data"))
+    local_data = os.path.join(ROOT_DIR, "data")
+    os.makedirs(local_data, exist_ok=True)
+    for fname in ["casual_type_dict.json", "te_top10k.json", "typo_fixes.json"]:
+        src = os.path.join(parent_data, fname)
+        dst = os.path.join(local_data, fname)
+        if os.path.exists(src):
+            try:
+                shutil.copy2(src, dst)
+                print(f"  Synced {fname} -> data/")
+            except Exception as e:
+                print(f"  Note copying {fname}: {e}")
+
     icon_flag = f"--icon={ICON_ICO}" if os.path.exists(ICON_ICO) else None
 
     # 2. Compile Main Application Rachayitha.exe
-    print("\n[2/3] Compiling fresh Rachayitha.exe with Halant-First engine...")
+    print("\n[2/3] Compiling fresh Rachayitha.exe with Halant-First & Casual-Type engines...")
     cmd_app = [
         sys.executable, "-m", "PyInstaller",
         "--clean",
@@ -88,6 +102,40 @@ def main():
         mtime = datetime.fromtimestamp(os.path.getmtime(final_setup)).strftime("%Y-%m-%d %H:%M:%S")
         size_mb = os.path.getsize(final_setup) / (1024 * 1024)
 
+        # Copy installer & portable exe to root and WebSite for easy distribution
+        root_dir = os.path.abspath(os.path.join(ROOT_DIR, ".."))
+        targets = [
+            os.path.join(root_dir, "Rachayitha_Setup.exe"),
+            os.path.join(root_dir, "WebSite", "Rachayitha_Setup.exe"),
+        ]
+        for t in targets:
+            try:
+                shutil.copy2(final_setup, t)
+                print(f"  Synced installer -> {os.path.relpath(t, root_dir)}")
+            except Exception as e:
+                pass
+
+        if os.path.exists(MAIN_EXE):
+            try:
+                shutil.copy2(MAIN_EXE, os.path.join(root_dir, "Rachayitha.exe"))
+                shutil.copy2(MAIN_EXE, os.path.join(root_dir, "WebSite", "Rachayitha.exe"))
+                print("  Synced portable executable -> Rachayitha.exe & WebSite/Rachayitha.exe")
+            except Exception as e:
+                pass
+
+        # Sync showcase images if present
+        try:
+            brain_dir = r"C:\Users\Sm!le\.gemini\antigravity-ide\brain\354ebab5-b49f-4582-9479-eb61f7011a5b"
+            img1 = os.path.join(brain_dir, "casual_typing_showcase_1790785205122.jpg")
+            img2 = os.path.join(brain_dir, "casual_vs_highkey_1790785260899.jpg")
+            ws_assets = os.path.join(root_dir, "WebSite", "assets")
+            if os.path.exists(img1):
+                shutil.copy2(img1, os.path.join(ws_assets, "casual_typing_showcase.jpg"))
+            if os.path.exists(img2):
+                shutil.copy2(img2, os.path.join(ws_assets, "casual_vs_highkey.jpg"))
+        except Exception:
+            pass
+
         print("\n" + "=" * 70)
         print("  SUCCESS! Fresh Windows Single Installer created at:")
         print(f"  Path: {final_setup}")
@@ -96,6 +144,7 @@ def main():
         print("=" * 70)
         print("\nFeatures in this clean build:")
         print("  • Halant-First typing logic (N -> న్, Na -> న, Ksha -> క్ష, NN -> న్న్)")
+        print("  • Casual Type 58k+ colloquial dictionary with frequency ranking & typo fixes")
         print("  • Official app branding with rachayitha_logo.png (app & installer)")
         print("  • Professional 2-column installer with live feature presentation carousel")
         print("  • Integrated clean Windows uninstaller method (Settings -> Installed Apps)")

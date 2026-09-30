@@ -10,6 +10,7 @@ installer_output/
 *.spec
 !Rachayitha.spec
 !Rachayitha_Setup.spec
+*.exe
 
 # Virtual environments
 venv/

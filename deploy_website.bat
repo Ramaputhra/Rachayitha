@@ -8,11 +8,11 @@ echo.
 cd /d "%~dp0"
 
 echo [1/3] Staging changes...
-git add WebSite/ All.md deploy_website.bat deploy_website.ps1
+git add -A
 
 echo.
 echo [2/3] Committing changes...
-git commit -m "fix(vercel): configure outputDirectory and disable buildCommand for static site"
+git commit -m "feat(casual-typing): implement 58k dictionary, Sandhi conjugations, cyber showcase UI, and installer pipeline"
 
 echo.
 echo [3/3] Pushing to GitHub (main branch)...

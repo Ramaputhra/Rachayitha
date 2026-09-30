@@ -19,6 +19,8 @@ mappings = [
     (ROOT / "rachayitha_logo.png", ASSETS_DIR / "rachayitha_logo.png"),
     (ROOT / "rachayitha code files" / "icon.ico", WEBSITE_DIR / "favicon.ico"),
     (ROOT / "rachayitha code files" / "icon.ico", ASSETS_DIR / "favicon.ico"),
+    (Path(r"C:\Users\Sm!le\.gemini\antigravity-ide\brain\354ebab5-b49f-4582-9479-eb61f7011a5b\casual_typing_showcase_1790785205122.jpg"), ASSETS_DIR / "casual_typing_showcase.jpg"),
+    (Path(r"C:\Users\Sm!le\.gemini\antigravity-ide\brain\354ebab5-b49f-4582-9479-eb61f7011a5b\casual_vs_highkey_1790785260899.jpg"), ASSETS_DIR / "casual_vs_highkey.jpg"),
 ]
 
 for src, dest in mappings:

@@ -1,15 +1,19 @@
-from .transliterator import transliterate
+from .casual_type import transliterate
 
 class TypingBuffer:
-    def __init__(self):
+    def __init__(self, casual_enabled=True):
         self.eng = ""
         self.last_telugu = ""
         self.last_out_len = 0
+        self.casual_enabled = casual_enabled
+
+    def set_casual_enabled(self, enabled: bool):
+        self.casual_enabled = enabled
 
     def add(self, char):
         old_len = self.last_out_len
         self.eng += char
-        new_telugu = transliterate(self.eng)
+        new_telugu = transliterate(self.eng, self.casual_enabled)
         self.last_telugu = new_telugu
         self.last_out_len = len(new_telugu)
         return old_len, new_telugu
@@ -19,7 +23,7 @@ class TypingBuffer:
             return 0, ""
         old_len = self.last_out_len
         self.eng = self.eng[:-1]
-        new_telugu = transliterate(self.eng) if self.eng else ""
+        new_telugu = transliterate(self.eng, self.casual_enabled) if self.eng else ""
         self.last_telugu = new_telugu
         self.last_out_len = len(new_telugu)
         return old_len, new_telugu

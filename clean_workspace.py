@@ -14,6 +14,7 @@ ROOT_REMOVE_FILES = [
     "build-linux.sh",
     "build-macos.sh",
     "build-windows.bat",
+    "validate_seo.py",
 ]
 
 # Folders to remove in root (abandoned Rust/Tauri attempt)

@@ -1,25 +1,22 @@
 """
 Sync WebSite folder for Vercel deployment:
-- Copies Rachayitha-Premium.html to index.html
-- Copies product_hunt_assets and rachayitha_logo into WebSite for rich meta previews
+- Ensures product_hunt_assets and rachayitha_logo are copied into WebSite/assets
+- Validates that index.html, sitemap.xml, robots.txt, and site.webmanifest exist
 """
 import shutil
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent
 WEBSITE_DIR = ROOT_DIR / "WebSite"
+ASSETS_DIR = WEBSITE_DIR / "assets"
 
-src_html = WEBSITE_DIR / "Rachayitha-Premium.html"
-dest_html = WEBSITE_DIR / "index.html"
+ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 
-if src_html.exists():
-    shutil.copy2(src_html, dest_html)
-    print("  [✓] Synced Rachayitha-Premium.html -> WebSite/index.html")
-
-# Copy logo into WebSite
+# Copy logo into WebSite and WebSite/assets
 logo_src = ROOT_DIR / "rachayitha_logo.png"
 if logo_src.exists():
     shutil.copy2(logo_src, WEBSITE_DIR / "rachayitha_logo.png")
-    print("  [✓] Copied rachayitha_logo.png to WebSite/")
+    shutil.copy2(logo_src, ASSETS_DIR / "rachayitha_logo.png")
+    print("  [✓] Copied rachayitha_logo.png to WebSite/ and WebSite/assets/")
 
-print("\n🚀 WebSite directory is 100% prepared for Vercel deployment!")
+print("\n🚀 WebSite directory is 100% prepared for Vercel & Google Search deployment!")

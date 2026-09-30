@@ -11,13 +11,14 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap, QIcon, QColor
 
 from engine.paths import get_resource_path, load_config, save_config
-from engine.transliterator import transliterate
+from engine.casual_type import transliterate
 
 class SettingsWindow(QWidget):
-    def __init__(self, on_toggle_callback=None, on_hotkey_changed_callback=None):
+    def __init__(self, on_toggle_callback=None, on_hotkey_changed_callback=None, on_casual_type_changed_callback=None):
         super().__init__()
         self.on_toggle_callback = on_toggle_callback
         self.on_hotkey_changed_callback = on_hotkey_changed_callback
+        self.on_casual_type_changed_callback = on_casual_type_changed_callback
         self.setWindowTitle("రచయిత - Telugu Phonetic Transliteration & Key Map")
         self.setGeometry(220, 150, 840, 600)
         self.setStyleSheet("""
@@ -331,6 +332,11 @@ class SettingsWindow(QWidget):
         self.notify_chk.setChecked(self.config.get("show_notifications", True))
         pref_layout.addWidget(self.notify_chk)
 
+        self.casual_chk = QCheckBox("Casual Type (Colloquial & phonetic dictionary with 58k+ mappings)")
+        self.casual_chk.setChecked(self.config.get("casual_type", True))
+        self.casual_chk.setStyleSheet("color: #38bdf8; font-weight: 600;")
+        pref_layout.addWidget(self.casual_chk)
+
         layout.addWidget(pref_box)
         layout.addSpacing(16)
 
@@ -353,6 +359,8 @@ class SettingsWindow(QWidget):
         self.config["hotkeys"]["telugu_toggle"] = new_hotkey
         self.config["auto_start"] = self.autostart_chk.isChecked()
         self.config["show_notifications"] = self.notify_chk.isChecked()
+        casual_enabled = self.casual_chk.isChecked()
+        self.config["casual_type"] = casual_enabled
 
         # Update Windows Registry for auto-start
         self.update_windows_autostart(self.autostart_chk.isChecked())
@@ -361,6 +369,10 @@ class SettingsWindow(QWidget):
             # Notify live running hook to update hotkey immediately
             if self.on_hotkey_changed_callback:
                 self.on_hotkey_changed_callback(new_hotkey)
+
+            # Notify casual type toggle
+            if self.on_casual_type_changed_callback:
+                self.on_casual_type_changed_callback(casual_enabled)
 
             QMessageBox.information(
                 self, "Settings Saved",
@@ -423,8 +435,21 @@ class SettingsWindow(QWidget):
         # Quick Try Buttons
         chips_layout = QHBoxLayout()
         chips_layout.addWidget(QLabel("Quick Try:"))
-        for word in ["telugu", "amma", "namaskAram", "rachayitha", "kRuShNa", "bhAratadEsham"]:
-            btn = QPushButton(word)
+        for word in [
+            "ninna sayantram intiki vellaka ammato konchem matladanu amma naato cheppindi entante manam manushulam manaku edaina kavalsivasthe kashtapadi sadhinchukovali, lekapote manaki evaru mana kosam teesukochchi ivvaru.",
+            "nuvvu akkade undu vastunna",
+            "nannato matladali",
+            "intinundi vastunna",
+            "cheppamdi",
+            "cheyandi",
+            "cheyyandi",
+            "randi",
+            "choodandi",
+            "telugu",
+            "amma"
+        ]:
+            display_text = "Full Sentence Benchmark" if len(word) > 30 else word
+            btn = QPushButton(display_text)
             btn.setStyleSheet("background-color: #1e293b; color: #94a3b8; padding: 4px 10px; font-size: 11px;")
             btn.clicked.connect(lambda _, w=word: self.playground_input.setPlainText(w))
             chips_layout.addWidget(btn)
@@ -436,7 +461,8 @@ class SettingsWindow(QWidget):
 
     def on_playground_text_changed(self):
         text = self.playground_input.toPlainText()
-        self.playground_output.setPlainText(transliterate(text))
+        casual_enabled = self.casual_chk.isChecked() if hasattr(self, 'casual_chk') else self.config.get("casual_type", True)
+        self.playground_output.setPlainText(transliterate(text, casual_enabled))
 
     def create_about_tab(self):
         tab = QWidget()

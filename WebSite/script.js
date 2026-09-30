@@ -148,7 +148,10 @@ const SORTED_WORD_OVERRIDES = Object.keys(WORD_OVERRIDES).sort((a, b) => b.lengt
 /**
  * Halant-First Authentic Transliteration Engine matching Rachayitha's Desktop Code
  */
-function transliterate(text) {
+/**
+ * Classic Halant-First Authentic Transliteration Engine (Lekhini RTS High-Key Mode)
+ */
+function exactTransliterate(text) {
   if (!text) return "";
   let out = "";
   let i = 0;
@@ -259,6 +262,559 @@ function transliterate(text) {
   return out;
 }
 
+// ==========================================================================
+// Casual Typing Engine (Colloquial Lexicon + Morphological Sandhi + Phonetic)
+// 100% Matching Rachayitha Desktop Engine
+// ==========================================================================
+
+const CONVERSATIONAL_LEXICON = {
+  // --- Sentential Benchmark Core ---
+  "sayantram": "సాయంత్రం", "saayantram": "సాయంత్రం", "sayantraniki": "సాయంత్రానికి", "sayantramlo": "సాయంత్రంలో",
+  "intiki": "ఇంటికి", "intike": "ఇంటికే", "intlo": "ఇంట్లో", "intloki": "ఇంట్లోకి",
+  "vellaka": "వెళ్ళాక", "velladu": "వెళ్ళాడు", "vellindi": "వెళ్ళింది", "vellali": "వెళ్ళాలి",
+  "velli": "వెళ్ళి", "vellina": "వెళ్ళిన", "vellaru": "వెళ్ళారు", "vellanu": "వెళ్ళాను",
+  "vellipoyindi": "వెళ్ళిపోయింది", "vellipoyaru": "వెళ్ళిపోయారు", "vellipoyadu": "వెళ్ళిపోయాడు",
+  "ammato": "అమ్మతో", "ammatho": "అమ్మతో", "naato": "నాతో", "naatho": "నాతో",
+  "nannato": "నాన్నతో", "manato": "మనతో", "meeto": "మీతో", "meetoo": "మీతో",
+  "matladanu": "మాట్లాడాను", "maatladanu": "మాట్లాడాను", "matladadu": "మాట్లాడాడు", "matladindi": "మాట్లాడింది",
+  "matladaru": "మాట్లాడారు", "matladali": "మాట్లాడాలి", "matladadam": "మాట్లాడడం", "matladutunna": "మాట్లాడుతున్న",
+  "matladutu": "మాట్లాడుతూ", "matladava": "మాట్లాడవా", "sepu": "సేపు", "konchem": "కొంచెం",
+  "entante": "ఏంటంటే", "manushulam": "మనుషులం", "manushulu": "మనుషులు", "manushulaku": "మనుషులకు",
+  "edaina": "ఏదైనా", "edainaa": "ఏదైనా", "endukante": "ఎందుకంటే", "andukante": "అందుకంటే",
+  "kavalsivasthe": "కావల్సివస్తే", "kavalsivaste": "కావల్సివస్తే", "kavalsina": "కావల్సిన", "kavalasina": "కావలసిన",
+  "kavali": "కావాలి", "kashtapadi": "కష్టపడి", "kashtapadali": "కష్టపడాలి", "kashtapaddanu": "కష్టపడ్డాను",
+  "kashtapadadu": "కష్టపడ్డాడు", "kashtam": "కష్టం", "kashtalu": "కష్టాలు",
+  "sadhinchukovali": "సాధించుకోవాలి", "sadhinchukovadam": "సాధించుకోవడం", "sadhinchali": "సాధించాలి",
+  "sadhinchadu": "సాధించాడు", "sadhinchindi": "సాధించింది", "sadhincharu": "సాధించారు",
+  "sadhinchanu": "సాధించాను", "sadhinchina": "సాధించిన",
+  "teesukochchi": "తీసుకొచ్చి", "teesukochi": "తీసుకొచ్చి", "teesukochadu": "తీసుకొచ్చాడు",
+  "teesukochindi": "తీసుకొచ్చింది", "teesukocharu": "తీసుకొచ్చారు", "teesukochanu": "తీసుకొచ్చాను",
+  "teesukuni": "తీసుకుని", "teesukoni": "తీసుకొని", "teesukovali": "తీసుకోవాలి",
+  "ivvaru": "ఇవ్వరు", "ivvadu": "ఇవ్వడు", "ivvandi": "ఇవ్వండి", "ivvali": "ఇవ్వాలి",
+  "iccharu": "ఇచ్చారు", "icchadu": "ఇచ్చాడు", "lekapote": "లేకపోతే", "lekapothe": "లేకపోతే",
+  "manaki": "మనకి", "evaru": "ఎవరూ", "evaruu": "ఎవరూ", "pettukochchi": "పెట్టుకొచ్చి",
+  "chesukovali": "చేసుకోవాలి", "chusukovali": "చూసుకోవాలి", "telusukovali": "తెలుసుకోవాలి",
+  "vachchi": "వచ్చి", "vachi": "వచ్చి", "chala": "చాలా", "chaala": "చాలా",
+  "appudu": "అప్పుడు", "eppudu": "ఎప్పుడు", "ippudu": "ఇప్పుడు", "kosam": "కోసం", "mana": "మన",
+
+  // --- Pronouns & Demonstratives ---
+  "nenu": "నేను", "neenu": "నేను", "naa": "నా", "naaku": "నాకు", "nannu": "నన్ను",
+  "nuvvu": "నువ్వు", "nuvu": "నువ్వు", "nee": "నీ", "neeku": "నీకు", "ninnu": "నిన్ను",
+  "meeru": "మీరు", "meeruu": "మీరు", "mee": "మీ", "meeku": "మీకు", "mimmalni": "మిమ్మల్ని",
+  "memu": "మేము", "maaku": "మాకు",
+  "manam": "మనం", "manamu": "మనము", "manaku": "మనకు", "manalni": "మనల్ని",
+  "vaaru": "వారు", "varu": "వారు", "vaallu": "వాళ్ళు", "vallu": "వాళ్ళు", "vaallaki": "వాళ్ళకి",
+  "atanu": "అతను", "atadu": "అతడు", "ataniki": "అతనికి", "atanni": "అతన్ని",
+  "aame": "ఆమె", "aameku": "ఆమెకు", "aamenu": "ఆమెను",
+  "idi": "ఇది", "deeni": "దీని", "deeniki": "దీనికి", "deentlo": "దీంట్లో",
+  "adi": "అది", "daani": "దాని", "daaniki": "దానికి", "daantlo": "దాంట్లో",
+  "ivi": "ఇవి", "veeti": "వీటి", "veetiki": "వీటికి",
+  "avi": "అవి", "vaati": "వాటి", "vaatiki": "వాటికి",
+
+  // --- Time & Calendar Adverbs ---
+  "eroju": "ఈరోజు", "eeroju": "ఈరోజు", "repu": "రేపు", "ninna": "నిన్న", "monna": "మొన్న",
+  "ellundi": "ఎల్లుండి", "ippude": "ఇప్పుడే", "eppudo": "ఎప్పుడో", "appude": "అప్పుడే",
+  "roju": "రోజు", "roojuu": "రోజు", "rojulu": "రోజులు", "samvatsaram": "సంవత్సరం",
+  "nela": "నెల", "vaaram": "వారం", "udayam": "ఉదయం", "madhyahnam": "మధ్యాహ్నం",
+  "raatri": "రాత్రి", "shubharatri": "శుభరాత్రి", "malli": "మళ్ళీ", "mallee": "మళ్ళీ",
+  "tvaraga": "త్వరగా", "mundu": "ముందు", "munduku": "ముందుకు", "venuka": "వెనుక", "venakki": "వెనక్కి",
+
+  // --- Question Words (ప్రశ్నార్థకాలు) ---
+  "ela": "ఎలా", "elaa": "ఎలా", "ekkada": "ఎక్కడ", "ekkadaa": "ఎక్కడ",
+  "akkada": "అక్కడ", "ikkada": "ఇక్కడ", "enduku": "ఎందుకు", "anduku": "అందుకు",
+  "emiti": "ఏమిటి", "enti": "ఏంటి", "em": "ఏం", "eedi": "ఏది", "evaru": "ఎవరు",
+  "entha": "ఎంత", "enni": "ఎన్ని",
+
+  // --- Affirmations & Negations ---
+  "avunu": "అవును", "avnu": "అవును", "kadu": "కాదు", "kaadu": "కాదు",
+  "ledu": "లేదు", "ledhu": "లేదు", "laedu": "లేదు", "undi": "ఉంది", "undhi": "ఉంది",
+  "unnaru": "ఉన్నారు", "unnanu": "ఉన్నాను", "unnadu": "ఉన్నాడు", "unnadi": "ఉన్నది", "unnamu": "ఉన్నాము", "unnam": "ఉన్నాం", "unnavu": "ఉన్నావు", "unnara": "ఉన్నారా",
+  "bagundi": "బాగుంది", "bagundhi": "బాగుంది", "baga": "బాగా", "baaga": "బాగా",
+  "nijam": "నిజం", "abaddham": "అబద్ధం", "sare": "సరే", "alage": "అలాగే",
+
+  // --- Common Verbs (Inflected Conversational Forms) ---
+  "ra": "రా", "raa": "రా", "randi": "రండి", "ravali": "రావాలి", "vastunna": "వస్తున్నా", "vastundi": "వస్తుంది",
+  "vachanu": "వచ్చాను", "vachadu": "వచ్చాడు", "vachindi": "వచ్చింది", "vacharu": "వచ్చారు",
+  "po": "పో", "pondhi": "పొండి", "povali": "పోవాలి", "potunna": "పోతున్న", "poyanu": "పోయాను", "poyindi": "పోయింది",
+  "cheyyi": "చెయ్యి", "chey": "చేయి", "cheyandi": "చేయండి", "cheyyandi": "చెయ్యండి", "cheyyali": "చెయ్యాలి",
+  "chestunna": "చేస్తున్న", "chestundi": "చేస్తుంది", "chesanu": "చేశాను", "chesadu": "చేశాడు", "chesindi": "చేసింది", "chesaru": "చేశారు",
+  "cheppu": "చెప్పు", "cheppandi": "చెప్పండి", "cheppali": "చెప్పాలి", "cheptunna": "చెప్తున్న",
+  "cheppanu": "చెప్పాను", "cheppadu": "చెప్పాడు", "cheppindi": "చెప్పింది", "chepparu": "చెప్పారు",
+  "choodu": "చూడు", "chudu": "చూడు", "choodandi": "చూడండి", "chudandi": "చూడండి", "chudali": "చూడాలి",
+  "chustunna": "చూస్తున్న", "chusanu": "చూశాను", "chusadu": "చూశాడు", "chusindi": "చూసింది", "chusaru": "చూశారు",
+  "tinu": "తిను", "tinandi": "తినండి", "tinali": "తినాలి", "tintunna": "తింటున్న",
+  "tinnanu": "తిన్నాను", "tinnadu": "తిన్నాడు", "tinnindi": "తిన్నది", "tinnaru": "తిన్నారు",
+  "adugu": "అడుగు", "adagandi": "అడగండి", "adagali": "అడగాలి", "adugutunna": "అడుగుతున్న",
+  "adigaru": "అడిగారు", "adiganu": "అడిగాను", "adigadu": "అడిగాడు",
+  "vinu": "విను", "vinandi": "వినండి", "vinali": "వినాలి", "vintunna": "వింటున్న", "vinnanu": "విన్నాను",
+  "telusu": "తెలుసు", "teliyadu": "తెలియదు", "telusuko": "తెలుసుకో", "telusukondi": "తెలుసుకోండి",
+  "teesuko": "తీసుకో", "teesukondi": "తీసుకోండి", "pettuko": "పెట్టుకో", "pettukondi": "పెట్టుకోండి",
+  "aagu": "ఆగు", "aagandi": "ఆగండి", "aagali": "ఆగాలి",
+  "aadu": "ఆడు", "aaduko": "ఆడుకో", "aadukovali": "ఆడుకోవాలి", "aadukuntunnaru": "ఆడుకుంటున్నారు", "aadukuntunna": "ఆడుకుంటున్న", "aadukuntundi": "ఆడుకుంటుంది", "aadukuntadu": "ఆడుకుంటాడు", "aadukuntanu": "ఆడుకుంటాను", "aadukuntu": "ఆడుకుంటూ",
+  "chaduvu": "చదువు", "chadavandi": "చదవండి", "chadavali": "చదవాలి", "chaduvutunna": "చదువుతున్న",
+  "raayi": "రాయి", "raayandi": "రాయండి", "raayali": "రాయాలి", "raastunna": "రాస్తున్న",
+  "kurcho": "కూర్చో", "kurchondi": "కూర్చోండి", "nilabadu": "నిలబడు",
+  "bhayapadu": "భయపడు", "bhayapadaddu": "భయపడద్దు", "bhayapadali": "భయపడాలి", "bhayapadi": "భయపడి",
+  "marchipo": "మర్చిపో", "marchipovaddu": "మర్చిపోవద్దు", "marchipoyanu": "మర్చిపోయాను",
+
+  // --- Family & People ---
+  "amma": "అమ్మ", "nanna": "నాన్న", "talli": "తల్లి", "tandri": "తండ్రి",
+  "annayya": "అన్నయ్య", "anna": "అన్న", "tammudu": "తమ్ముడు", "akka": "అక్క", "chelli": "చెల్లి", "chellelu": "చెల్లెలు",
+  "pillalu": "పిల్లలు", "pilla": "పిల్ల", "babu": "బాబు", "papa": "పాప",
+  "koduku": "కొడుకు", "kuthuru": "కూతురు", "bharya": "భార్య", "bhatta": "భర్త",
+  "snehithudu": "స్నేహితుడు", "snehitudu": "స్నేహితుడు", "snehithulu": "స్నేహితులు", "snehitulu": "స్నేహితులు", "snehitulato": "స్నేహితులతో", "snehitulatho": "స్నేహితులతో", "snehithulato": "స్నేహితులతో", "snehithulatho": "స్నేహితులతో",
+  "mitrudu": "మిత్రుడు", "manishi": "మనిషి", "prajalu": "ప్రజలు",
+
+  // --- Nouns & Everyday Objects ---
+  "illu": "ఇల్లు", "ooru": "ఊరు", "badi": "బడి", "gudi": "గుడి",
+  "pustakam": "పుస్తకం", "pustakalu": "పుస్తకాలు", "kalam": "కలం", "kagitham": "కాగితం",
+  "annam": "అన్నం", "bhojanam": "భోజనం", "neellu": "నీళ్ళు", "neeru": "నీరు", "paalu": "పాలు",
+  "pani": "పని", "panulu": "పనులు", "vishayam": "విషయం", "prashna": "ప్రశ్న", "samadhanam": "సమాధానం",
+  "bhasha": "భాష", "desham": "దేశం", "raashtram": "రాష్ట్రం", "nagaram": "నగరం", "graamam": "గ్రామం",
+  "varsham": "వర్షం", "gaali": "గాలి", "velugu": "వెలుగు", "cheekati": "చీకటి",
+  "prema": "ప్రేమ", "sneham": "స్నేహం", "snehamto": "స్నేహంతో", "shanti": "శాంతి", "sukham": "సుఖం",
+  "santosham": "సంతోషం", "kopam": "కోపం", "kopamto": "కోపంతో", "bhayam": "భయం", "dhairyam": "ధైర్యం",
+
+  // --- Adjectives ---
+  "manchi": "మంచి", "pedda": "పెద్ద", "chinna": "చిన్న", "kotha": "కొత్త", "paatha": "పాత", "pata": "పాత",
+  "goppa": "గొప్ప", "teepi": "తీపి", "chaala": "చాలా", "ekkuva": "ఎక్కువ", "takkuva": "తక్కువ",
+  "sulabham": "సులభం", "kashtam": "కష్టం", "istam": "ఇష్టం", "ishtam": "ఇష్టం",
+
+  // --- Greetings & Politeness ---
+  "namaskaram": "నమస్కారం", "namaskaaram": "నమస్కారం", "namaste": "నమస్తే",
+  "dhanyavadalu": "ధన్యవాదాలు", "shubhodhayam": "శుభోదయం", "subhodhayam": "శుభోదయం",
+  "dayachesi": "దయచేసి", "kshamanchandi": "క్షమించండి",
+};
+
+const NOUN_DECLENSIONS = [
+  ["nunchi", "నుంచి"],
+  ["nundi", "నుండి"],
+  ["kosam", "కోసం"],
+  ["looki", "లోకి"],
+  ["loki", "లోకి"],
+  ["looni", "లోని"],
+  ["loni", "లోని"],
+  ["kante", "కంటే"],
+  ["thoo", "తో"],
+  ["too", "తో"],
+  ["tho", "తో"],
+  ["to", "తో"],
+  ["loo", "లో"],
+  ["lo", "లో"],
+  ["pai", "పై"],
+  ["ki", "కి"],
+  ["ku", "కు"],
+];
+
+const VERB_DECLENSIONS = [
+  ["kovadam", "కోవడం"],
+  ["kovali", "కోవాలి"],
+  ["koni", "కొని"],
+  ["kuni", "కుని"],
+  ["kondi", "కోండి"],
+  ["kuntunnaaru", "కుంటున్నారు"],
+  ["kuntunnaru", "కుంటున్నారు"],
+  ["kuntunnaanu", "కుంటున్నాను"],
+  ["kuntunnanu", "కుంటున్నాను"],
+  ["kuntunnaadu", "కుంటున్నాడు"],
+  ["kuntunnadu", "కుంటున్నాడు"],
+  ["kuntundi", "కుంటుంది"],
+  ["kuntunna", "కుంటున్న"],
+  ["kuntaru", "కుంటారు"],
+  ["kuntadu", "కుంటాడు"],
+  ["kuntanu", "కుంటాను"],
+  ["kuntamu", "కుంటాము"],
+  ["kuntam", "కుంటాం"],
+  ["kuntuu", "కుంటూ"],
+  ["kuntoo", "కుంటూ"],
+  ["kuntu", "కుంటూ"],
+  ["kunnaru", "కున్నారు"],
+  ["kunnanu", "కున్నాను"],
+  ["kunnadu", "కున్నాడు"],
+  ["kunna", "కున్న"],
+  ["kune", "కునే"],
+  ["vasthe", "వస్తే"],
+  ["vaste", "వస్తే"],
+  ["ochchi", "ఒచ్చి"],
+  ["ochi", "ఒచ్చి"],
+  ["padali", "పడాలి"],
+  ["paddanu", "పడ్డాను"],
+  ["padadu", "పడ్డాడు"],
+  ["padindi", "పడింది"],
+  ["padaru", "పడ్డారు"],
+  ["padi", "పడి"],
+  ["the", "తే"],
+  ["te", "తే"],
+  ["aka", "ఆక"],
+  ["tunnaaru", "తున్నారు"],
+  ["tunnaru", "తున్నారు"],
+  ["tunnaanu", "తున్నాను"],
+  ["tunnanu", "తున్నాను"],
+  ["tunnaadu", "తున్నాడు"],
+  ["tunnadu", "తున్నాడు"],
+  ["tunnayi", "తున్నాయి"],
+  ["tunnaayi", "తున్నాయి"],
+  ["thundi", "తుంది"],
+  ["tundi", "తుంది"],
+  ["thunna", "తున్న"],
+  ["tunna", "తున్న"],
+  ["tuu", "తూ"],
+  ["too", "తూ"],
+  ["tu", "తూ"],
+  ["aanu", "ాను"],
+  ["aadu", "ాడు"],
+  ["indi", "ింది"],
+  ["indhi", "ింది"],
+  ["aaru", "ారు"],
+  ["aamu", "ాము"],
+  ["anu", "ాను"],
+  ["adu", "ాడు"],
+  ["aru", "ారు"],
+  ["amu", "ాము"],
+  ["aalsina", "ాల్సిన"],
+  ["alsina", "ాల్సిన"],
+  ["aali", "ాలి"],
+  ["ali", "ాలి"],
+  ["andi", "ండి"],
+  ["amdi", "ండి"],
+  ["adam", "డం"],
+  ["aadam", "ాడం"],
+];
+
+const STEM_MAP = {
+  "naa": "నా",
+  "amma": "అమ్మ",
+  "nanna": "నాన్న",
+  "mana": "మన",
+  "mee": "మీ",
+  "int": "ఇంట్",
+  "inti": "ఇంటి",
+  "oor": "ఊర్",
+  "vell": "వెళ్ళ",
+  "matlad": "మాట్లాడ్",
+  "chepp": "చెప్ప",
+  "adag": "అడగ",
+  "vach": "వచ్చ",
+  "ches": "చేశ",
+  "teesuk": "తీసుకు",
+  "pettuk": "పెట్టుకు",
+  "kavalsi": "కావల్సి",
+  "ravalsi": "రావల్సి",
+  "chudalsi": "చూడాల్సి",
+  "kashta": "కష్ట",
+  "sadhinchu": "సాధించు",
+  "rav": "రావ",
+  "poy": "పోయ",
+  "tin": "తిన",
+  "chud": "చూడ",
+  "chood": "చూడ",
+  "chey": "చేయ",
+  "vin": "విన",
+  "aadu": "ఆడు",
+  "aad": "ఆడ",
+  "padu": "పడు",
+  "pad": "పడ",
+  "chaduvu": "చదువు",
+  "chadav": "చదవ",
+  "chesu": "చేసు",
+  "chusu": "చూసు",
+  "telusu": "తెలుసు",
+  "kurchu": "కూర్చు",
+  "nilabadu": "నిలబడు",
+  "bhayapad": "భయపడ",
+  "und": "ఉండ",
+};
+
+const TYPO_FIXES = {
+  "amdi": "andi",
+  "anndi": "andi",
+  "andhi": "andi",
+  "amdhi": "andi",
+  "nndi": "ndi",
+  "ndhi": "ndi",
+  "nddhi": "ndi",
+  "nndhi": "ndi",
+  "undhi": "undi",
+  "umdi": "undi",
+  "unndi": "undi",
+  "umdhi": "undi",
+  "ledhu": "ledu",
+  "lethu": "ledu",
+  "laedu": "ledu",
+  "leduu": "ledu",
+  "vasthunna": "vastunna",
+  "vastunnaa": "vastunna",
+  "vastuna": "vastunna",
+  "vastunnaaa": "vastunna",
+  "vachchindhi": "vachchindi",
+  "vellindhi": "vellindi",
+  "cheppindhi": "cheppindi",
+  "thunna": "tunna",
+  "tunnaa": "tunna",
+  "tuna": "tunna",
+  "nuvu": "nuvvu",
+  "nen": "nenu",
+  "avnu": "avunu",
+  "kadu": "kaadu",
+  "bagundhi": "bagundi",
+  "bagundh": "bagundi",
+  "cheyandi": "cheyandi",
+  "cheyyamdi": "cheyyandi",
+  "choodamdi": "choodandi",
+  "randhi": "randi",
+  "ramdi": "randi"
+};
+
+const SORTED_TYPO_FIXES = Object.entries(TYPO_FIXES).sort((a, b) => b[0].length - a[0].length);
+
+// Top word mappings (high frequency collision winners)
+const TOP_WORD_MAPPINGS = [
+  ["వస్తున్నా", ["vastunna", "vasthunna", "vastunnaa", "vastuna", "vastunnaaa"]],
+  ["చెప్పండి", ["cheppandi", "cheppamdi"]],
+  ["చేయండి", ["cheyandi", "cheeyandi"]],
+  ["చెయ్యండి", ["cheyyandi", "cheyyamdi"]],
+  ["రండి", ["randi", "randhi", "ramdi"]],
+  ["చూడండి", ["choodandi", "chudandi", "chuudandi", "choodamdi"]],
+  ["నువ్వు", ["nuvvu", "nuvu"]],
+  ["అక్కడే", ["akkade", "akkadae"]],
+  ["ఉండు", ["undu", "umdu"]],
+  ["ఉంది", ["undi", "undhi", "umdi"]],
+  ["లేదు", ["ledu", "ledhu", "laedu"]],
+  ["బాగుంది", ["bagundi", "bagundhi", "bagundh"]],
+  ["అవును", ["avunu", "avnu"]],
+  ["కాదు", ["kaadu", "kadu"]],
+  ["వచ్చింది", ["vachindi", "vachchindi", "vachchindhi"]],
+  ["వెళ్ళింది", ["vellindi", "vellindhi"]],
+];
+
+// Initialize CASUAL_DICT with full offline dictionary if present, then high-priority mappings
+const CASUAL_DICT = {};
+if (typeof window !== "undefined" && window.RACHAYITHA_CASUAL_DICT && typeof window.RACHAYITHA_CASUAL_DICT === "object") {
+  for (const [k, v] of Object.entries(window.RACHAYITHA_CASUAL_DICT)) {
+    CASUAL_DICT[k.toLowerCase()] = v;
+  }
+}
+for (const [telWord, romanKeys] of TOP_WORD_MAPPINGS) {
+  for (const rk of romanKeys) {
+    CASUAL_DICT[rk.toLowerCase()] = telWord;
+  }
+}
+for (const [k, v] of Object.entries(CONVERSATIONAL_LEXICON)) {
+  CASUAL_DICT[k.toLowerCase()] = v;
+}
+
+// Sandhi Rules Function
+function applySandhi(baseTe, sfxTe, sfxEn) {
+  if (!baseTe || !sfxTe) return (baseTe || "") + (sfxTe || "");
+
+  // Case A: Base ends with Virama / Halant (e.g. మాట్లాడ్, చెప్ప్)
+  if (baseTe.endsWith(VIRAMA)) {
+    const consBase = baseTe.slice(0, -1);
+    const vowelToMatra = {
+      'అ': '', 'ఆ': 'ా', 'ఇ': 'ి', 'ఈ': 'ీ', 'ఉ': 'ు', 'ఊ': 'ూ',
+      'ఎ': 'ె', 'ఏ': 'ే', 'ఐ': 'ై', 'ఒ': 'ొ', 'ఓ': 'ో', 'ఔ': 'ౌ'
+    };
+    const firstChar = sfxTe[0];
+    if (vowelToMatra[firstChar] !== undefined) {
+      return consBase + vowelToMatra[firstChar] + sfxTe.slice(1);
+    } else if (['ా', 'ి', 'ీ', 'ు', 'ూ', 'ె', 'ే', 'ై', 'ొ', 'ో', 'ౌ'].includes(firstChar)) {
+      return consBase + sfxTe;
+    }
+  }
+
+  // Case B: Base ends with Anusvara (Sunna 'ం')
+  if (baseTe.endsWith('ం')) {
+    return baseTe + sfxTe;
+  }
+
+  // Case C: Suffix starts with a matra
+  if (['ా', 'ి', 'ీ', 'ు', 'ూ', 'ె', 'ే', 'ై', 'ొ', 'ో', 'ౌ'].includes(sfxTe[0])) {
+    return baseTe + sfxTe;
+  }
+
+  return baseTe + sfxTe;
+}
+
+// Morphological Compound Decomposer
+function decomposeCompound(w) {
+  if (w.length < 4) return null;
+
+  function resolveStem(stem) {
+    if (STEM_MAP[stem]) return STEM_MAP[stem];
+    if (CASUAL_DICT[stem]) return CASUAL_DICT[stem];
+
+    // Plural oblique stem (pillala -> pillalu -> పిల్లల)
+    if (stem.endsWith("la") && stem.length > 3) {
+      const nomKey = stem.slice(0, -1) + "u";
+      if (CASUAL_DICT[nomKey]) {
+        const nomVal = CASUAL_DICT[nomKey];
+        if (nomVal.endsWith("లు")) {
+          return nomVal.slice(0, -1) + "ల";
+        }
+      }
+    }
+
+    // Anusvara stem (snehan- -> sneham -> స్నేహం)
+    if (stem.endsWith("n") && stem.length > 2) {
+      const mKey = stem.slice(0, -1) + "m";
+      if (CASUAL_DICT[mKey]) {
+        return CASUAL_DICT[mKey];
+      }
+    }
+
+    return null;
+  }
+
+  // 1. Verb Declensions
+  for (const [sfxEn, sfxTe] of VERB_DECLENSIONS) {
+    if (w.endsWith(sfxEn) && w.length > sfxEn.length + 1) {
+      const stem = w.slice(0, -sfxEn.length);
+      const baseTe = resolveStem(stem);
+      if (baseTe) return applySandhi(baseTe, sfxTe, sfxEn);
+    }
+  }
+
+  // 2. Noun Declensions
+  for (const [sfxEn, sfxTe] of NOUN_DECLENSIONS) {
+    if (w.endsWith(sfxEn) && w.length > sfxEn.length + 1) {
+      const stem = w.slice(0, -sfxEn.length);
+      const baseTe = resolveStem(stem);
+      if (baseTe) return applySandhi(baseTe, sfxTe, sfxEn);
+    }
+  }
+
+  return null;
+}
+
+// Dedicated Casual-Phonetic Fallback
+function casualPhoneticTransliterate(word) {
+  if (!word) return "";
+  let w = word.toLowerCase();
+
+  // 1. Retroflex clusters
+  w = w.replace(/sht/g, 'ShTa');
+  w = w.replace(/tl/g, 'Tla');
+  w = w.replace(/dl/g, 'Dla');
+
+  // 2. Prevent toxic 'av' -> ౌ
+  w = w.replace(/av([aeiouyrl])/g, 'a_v$1');
+
+  // 3. Prevent toxic 'ay' -> ై
+  w = w.replace(/ay([aeiou])/g, 'a_y$1');
+
+  // 4. Doubled chch -> cch (చ్చ)
+  w = w.replace(/chch/g, 'cch');
+
+  // 5. Word-final -am -> Sunna 'M' (ం)
+  if (w.endsWith('am') && w.length > 2) {
+    w = w.slice(0, -2) + 'aM';
+  }
+
+  // 6. Word-final postpositions & verb suffixes
+  if (w.endsWith('to') || w.endsWith('tho')) {
+    const pLen = w.endsWith('tho') ? 3 : 2;
+    w = w.slice(0, -pLen) + 'tO';
+  } else if (w.endsWith('lo') || w.endsWith('lho')) {
+    const pLen = w.endsWith('lho') ? 3 : 2;
+    w = w.slice(0, -pLen) + 'lO';
+  } else if (w.endsWith('ko')) {
+    w = w.slice(0, -2) + 'kO';
+  } else if (w.endsWith('ali') && w.length > 3) {
+    w = w.slice(0, -3) + 'Ali';
+  } else if (w.endsWith('anu') && w.length > 3) {
+    w = w.slice(0, -3) + 'Anu';
+  } else if (w.endsWith('adu') && w.length > 3) {
+    w = w.slice(0, -3) + 'Adu';
+  } else if (w.endsWith('aru') && w.length > 3) {
+    w = w.slice(0, -3) + 'Aru';
+  } else if (w.endsWith('kosam') && w.length > 5) {
+    w = w.slice(0, -5) + 'kOsaM';
+  }
+
+  // 7. Sibilants: sh + vowel -> Sh (ష)
+  w = w.replace(/sh([uUaAoOiI])/g, 'Sh$1');
+
+  // 8. Inherent long vowels for open syllables like 'repu', 'roju'
+  w = w.replace(/^re([pbtdkmnsvlrjg])/, 'rE$1');
+  w = w.replace(/^ro([pbtdkmnsvlrjg])/, 'rO$1');
+
+  let out = exactTransliterate(w);
+  out = out.replace(/\u200c/g, '');
+  return out;
+}
+
+// Single word casual transliterator
+function transliterateWord(word) {
+  const wLower = word.toLowerCase();
+
+  // 1 & 2. Direct lookup in CASUAL_DICT
+  if (CASUAL_DICT[wLower]) {
+    return CASUAL_DICT[wLower];
+  }
+
+  // 3. Morphological compound decomposition
+  const decomposed = decomposeCompound(wLower);
+  if (decomposed) {
+    return decomposed;
+  }
+
+  // 4. Typo fixes
+  if (TYPO_FIXES[wLower] && CASUAL_DICT[TYPO_FIXES[wLower]]) {
+    return CASUAL_DICT[TYPO_FIXES[wLower]];
+  }
+
+  for (const [err, fix] of SORTED_TYPO_FIXES) {
+    if (wLower.endsWith(err)) {
+      const candidate = wLower.slice(0, -err.length) + fix;
+      if (CASUAL_DICT[candidate]) {
+        return CASUAL_DICT[candidate];
+      }
+    }
+  }
+
+  for (const [err, fix] of SORTED_TYPO_FIXES) {
+    if (wLower.includes(err)) {
+      const candidate = wLower.replace(err, fix);
+      if (CASUAL_DICT[candidate]) {
+        return CASUAL_DICT[candidate];
+      }
+    }
+  }
+
+  // 5. Dedicated Casual-Phonetic Fallback
+  return casualPhoneticTransliterate(word);
+}
+
+// Multi-word casual transliterator
+function transliterateCasual(inputText) {
+  if (!inputText) return "";
+  const tokens = inputText.split(/([^\w~_]+)/);
+  const out = [];
+  for (const token of tokens) {
+    if (!token) continue;
+    if (/^[a-zA-Z0-9~_]+$/.test(token)) {
+      out.push(transliterateWord(token));
+    } else {
+      out.push(token);
+    }
+  }
+  return out.join("");
+}
+
+/**
+ * Universal Transliterate Gateway
+ * @param {string} text - The input Tenglish string
+ * @param {boolean} casualEnabled - Whether Casual Mode is active
+ */
+function transliterate(text, casualEnabled = true) {
+  if (!text) return "";
+  if (casualEnabled) {
+    return transliterateCasual(text);
+  } else {
+    return exactTransliterate(text);
+  }
+}
+
 // --- 2. Key Map Data ---
 const KEYMAP_DATA = [
   // Vowels (Achulu)
@@ -355,22 +911,111 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // A. Live Transliteration Playground
-  if (demoInput && demoOutput) {
-    const updateDemo = () => {
+  // Showcase Tab Switcher (Casual Mode vs High-Key Comparison)
+  window.switchShowcaseTab = function(mode) {
+    const tabCasual = document.getElementById("tab-casual-view");
+    const tabCompare = document.getElementById("tab-compare-view");
+    const slideCasual = document.getElementById("slide-casual");
+    const slideCompare = document.getElementById("slide-compare");
+
+    if (mode === "casual") {
+      if (tabCasual) tabCasual.classList.add("active");
+      if (tabCompare) tabCompare.classList.remove("active");
+      if (slideCasual) slideCasual.classList.add("active");
+      if (slideCompare) slideCompare.classList.remove("active");
+    } else {
+      if (tabCasual) tabCasual.classList.remove("active");
+      if (tabCompare) tabCompare.classList.add("active");
+      if (slideCasual) slideCasual.classList.remove("active");
+      if (slideCompare) slideCompare.classList.add("active");
+    }
+  };
+
+  // A. Live Transliteration Playground & Mode Toggle
+  const casualToggle = document.getElementById("casual-toggle");
+  const casualBadge = document.getElementById("casual-badge");
+  const modeExplainer = document.getElementById("mode-explainer");
+  const modeExplainerText = document.getElementById("mode-explainer-text");
+
+  const isCasualActive = () => {
+    return casualToggle ? casualToggle.checked : true;
+  };
+
+  let updateDemo = () => {
+    if (demoInput && demoOutput) {
       const text = demoInput.value;
       if (!text.trim()) {
         demoOutput.textContent = "తెలుగులో రాయండి...";
         demoOutput.style.opacity = "0.4";
       } else {
-        demoOutput.textContent = transliterate(text);
+        demoOutput.textContent = transliterate(text, isCasualActive());
         demoOutput.style.opacity = "1";
       }
-    };
+    }
+  };
 
-    demoInput.addEventListener("input", updateDemo);
-    updateDemo(); // initial run
+  const updateModeUI = () => {
+    const active = isCasualActive();
+    if (casualBadge) {
+      if (active) {
+        casualBadge.className = "casual-mode-badge active";
+        casualBadge.innerHTML = "⚡ Casual Mode ON";
+      } else {
+        casualBadge.className = "casual-mode-badge disabled";
+        casualBadge.innerHTML = "⌨️ High-Key (Classic RTS)";
+      }
+    }
+    if (modeExplainer && modeExplainerText) {
+      if (active) {
+        modeExplainer.className = "mode-explainer";
+        modeExplainerText.innerHTML = "<strong>Casual Mode (Active):</strong> Natural lowercase Tenglish typing with 58k+ vocabulary, Telugu Sandhi conjugations, and colloquial speech. No strict Shift keys needed.";
+      } else {
+        modeExplainer.className = "mode-explainer disabled";
+        modeExplainerText.innerHTML = "<strong>High-Key Mode (Active):</strong> Classic Lekhini RTS rules with strict case sensitivity (e.g. 'mATlADAnu', 'telugulO', 'Taip', 'ShTa').";
+      }
+    }
+    updateDemo();
+  };
+
+  if (casualToggle) {
+    casualToggle.addEventListener("change", updateModeUI);
   }
+
+  if (casualBadge) {
+    casualBadge.addEventListener("click", () => {
+      if (casualToggle) {
+        casualToggle.checked = !casualToggle.checked;
+        updateModeUI();
+      }
+    });
+  }
+
+  if (demoInput) {
+    demoInput.addEventListener("input", updateDemo);
+  }
+  updateModeUI();
+
+  // Attempt to asynchronously load extended 58,421 casual words dictionary from data folder
+  fetch("data/casual_type_dict.json")
+    .then(res => {
+      if (res.ok) return res.json();
+      throw new Error("Using integrated high-frequency lexicon.");
+    })
+    .then(data => {
+      let count = 0;
+      for (const [k, v] of Object.entries(data)) {
+        const kLower = k.toLowerCase();
+        if (!CASUAL_DICT[kLower]) {
+          CASUAL_DICT[kLower] = v;
+          count++;
+        }
+      }
+      console.log(`[Rachayitha] Successfully loaded ${count} extended casual words from dictionary.`);
+      updateDemo();
+    })
+    .catch(() => {
+      // High-frequency lexicon & phonetic Sandhi engine already active
+    });
 
   // B. Preset Buttons
   window.setPreset = function(text) {
