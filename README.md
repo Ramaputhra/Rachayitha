@@ -244,7 +244,7 @@ Every user has unique colloquialisms, nicknames, and dialect spellings. Rachayit
 ### 🪟 Windows (Official Releases)
 
 #### Option A: 1-Click Graphical Installer (Recommended)
-Download **`Rachayitha_Setup_V2.exe`** (v2.0 • 76 MB) from the [Official Releases](https://github.com/Ramaputhra/Rachayitha/releases) tab:
+Download [**`Rachayitha_Setup_V2.exe`**](https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe) (v2.0 • 76 MB) from the [Official Releases](https://github.com/Ramaputhra/Rachayitha/releases/tag/Rachayitha_V2):
 - Beautiful 2-column setup wizard with live feature presentation carousel.
 - Automatically creates Desktop, Start Menu, and Startup shortcuts.
 - Fully registered in Windows *Installed Apps* for clean 1-click uninstallation.

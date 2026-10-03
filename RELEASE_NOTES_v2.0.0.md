@@ -73,9 +73,9 @@ Brings modern smartphone predictive typing to every desktop application across W
 | **Source code (zip / tar.gz)** | — | **Source Code** | Full Python 3.10+ source with PyQt6 UI and complete linguistic datasets. |
 
 ### Direct Download Links:
-- **Installer (v2.0):** [Rachayitha_Setup_V2.exe](https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe)
+- **Installer (v2.0):** [Rachayitha_Setup_V2.exe](https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe)
 - **Portable (v2.0):** [Rachayitha_v2.exe](https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe)
-- **Official Website:** [rachayitha.vercel.app](https://rachayitha.vercel.app/)
+- **Official Website:** [https://rachayitha.vercel.app](https://rachayitha.vercel.app/)
 
 ---
 

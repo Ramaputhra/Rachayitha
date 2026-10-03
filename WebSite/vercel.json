@@ -7,17 +7,17 @@
   "redirects": [
     {
       "source": "/download",
-      "destination": "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
+      "destination": "https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe",
       "permanent": false
     },
     {
       "source": "/Rachayitha_Setup.exe",
-      "destination": "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
+      "destination": "https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe",
       "permanent": false
     },
     {
       "source": "/Rachayitha_Setup_V2.exe",
-      "destination": "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
+      "destination": "https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe",
       "permanent": false
     },
     {

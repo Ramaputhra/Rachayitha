@@ -1,7 +1,7 @@
 // --- Official Download URLs (GitHub Releases v2.0 & Production CDN) ---
 window.RACHAYITHA_DOWNLOADS = {
-  installer: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
-  installer_v2: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
+  installer: "https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe",
+  installer_v2: "https://github.com/Ramaputhra/Rachayitha/releases/download/Rachayitha_V2/Rachayitha_Setup_V2.exe",
   portable: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe",
   portable_v2: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe"
 };
