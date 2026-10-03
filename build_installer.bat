@@ -37,10 +37,14 @@ if %ERRORLEVEL% EQU 0 (
     echo ======================================================================
     copy /y "%SCRIPT_DIR%Rachayitha.exe" "%SCRIPT_DIR%Rachayitha_v2.exe" >nul
     copy /y "%SCRIPT_DIR%Rachayitha.exe" "%SCRIPT_DIR%WebSite\Rachayitha_v2.exe" >nul
+    if exist "%CODE_DIR%\installer_output\Rachayitha_Setup_V2.exe" (
+        copy /y "%CODE_DIR%\installer_output\Rachayitha_Setup_V2.exe" "%SCRIPT_DIR%Rachayitha_Setup_V2.exe" >nul
+        copy /y "%CODE_DIR%\installer_output\Rachayitha_Setup_V2.exe" "%SCRIPT_DIR%WebSite\Rachayitha_Setup_V2.exe" >nul
+    )
     echo   Installer Location:
-    echo     1. %CODE_DIR%\installer_output\Rachayitha_Setup.exe
-    echo     2. %SCRIPT_DIR%Rachayitha_Setup.exe
-    echo     3. %SCRIPT_DIR%WebSite\Rachayitha_Setup.exe
+    echo     1. %CODE_DIR%\installer_output\Rachayitha_Setup_V2.exe
+    echo     2. %SCRIPT_DIR%Rachayitha_Setup_V2.exe
+    echo     3. %SCRIPT_DIR%WebSite\Rachayitha_Setup_V2.exe
     echo.
     echo   Portable App Location:
     echo     * %SCRIPT_DIR%Rachayitha.exe
@@ -49,7 +53,11 @@ if %ERRORLEVEL% EQU 0 (
     echo     * %SCRIPT_DIR%WebSite\Rachayitha_v2.exe
     echo ======================================================================
     echo.
-    start "" explorer.exe /select,"%CODE_DIR%\installer_output\Rachayitha_Setup.exe"
+    if exist "%CODE_DIR%\installer_output\Rachayitha_Setup_V2.exe" (
+        start "" explorer.exe /select,"%CODE_DIR%\installer_output\Rachayitha_Setup_V2.exe"
+    ) else (
+        start "" explorer.exe /select,"%CODE_DIR%\installer_output\Rachayitha_Setup.exe"
+    )
 ) else (
     echo.
     echo ======================================================================

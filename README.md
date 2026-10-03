@@ -189,6 +189,17 @@ Switch effortlessly between two typing philosophies:
 
 ---
 
+### 6. ⚡ Adaptive Self-Learning Engine (Learns as You Backspace & Retype)
+
+Every user has unique colloquialisms, nicknames, and dialect spellings. Rachayitha's built-in **Self-Learning Engine** actively adapts to your personal style with zero manual configuration:
+- **Backspace-Retype Loop Detection:** If you type a casual word (e.g. `chala`), see it output something you didn't want, backspace it completely, and type your preferred word (e.g. `చాలా`), Rachayitha automatically associates `chala ➔ చాలా` for your profile!
+- **Suggestion Pill Reinforcement:** Clicking secondary or tertiary candidate pills in the floating ghost dock dynamically boosts their ranking for future typing.
+- **Habitual Collocation Learning:** Real-time tracking of consecutive words trains personal bigrams, surfacing your frequent phrases at the top of Next-Word predictions.
+- **100% Offline & Private:** Profile stored strictly locally in `%APPDATA%\Rachayitha\user_learned.json` with safe atomic writes. Zero network traffic, zero cloud telemetry.
+- **Interactive Management UI:** Search, view, delete mistaken entries, add custom mappings manually, and export/import dictionary backups in the Settings panel.
+
+---
+
 ## ⚖️ Typing Mode Comparison
 
 | Feature | Rachayitha Casual Mode | Rachayitha Classic RTS | Google Input Tools | Web Transliterators | Windows InScript |
@@ -196,6 +207,7 @@ Switch effortlessly between two typing philosophies:
 | **Real-Time Desktop Hook** | ✅ **Yes (System-wide)** | ✅ **Yes (System-wide)** | ⚠️ Limited / Deprecated | ❌ Browser Only | ✅ Native |
 | **100% Offline (No Cloud)** | ✅ **Yes** | ✅ **Yes** | ❌ No | ❌ Requires Web | ✅ Yes |
 | **Zero Shift / Lowercase Tenglish** | ✅ **Yes (58k Lexicon)** | ❌ Case-sensitive | ⚠️ AI Guesswork | ❌ Case-sensitive | ❌ Fixed Layout |
+| **Adaptive Self-Learning (Backspace Loop)** | ✅ **Yes (Local Profile)** | ❌ No | ❌ Cloud only | ❌ No | ❌ No |
 | **Latency** | ⚡ **0ms (Local)** | ⚡ **0ms (Local)** | ⏳ ~100-300ms (Network) | ⚡ Browser local | ⚡ 0ms |
 | **Morphological Sandhi Decomposer** | ✅ **Yes** | ❌ No | ❌ No | ❌ No | ❌ No |
 | **Privacy / No Telemetry** | 🔒 **100% Private** | 🔒 **100% Private** | ❌ Cloud telemetry | ⚠️ Web cookies | 🔒 Private |
@@ -232,7 +244,7 @@ Switch effortlessly between two typing philosophies:
 ### 🪟 Windows (Official Releases)
 
 #### Option A: 1-Click Graphical Installer (Recommended)
-Download **`Rachayitha_Setup.exe`** (v2.0 • 75 MB) from the [Releases](https://github.com/Ramaputhra/Rachayitha/releases) tab or your local build:
+Download **`Rachayitha_Setup_V2.exe`** (v2.0 • 76 MB) from the [Official Releases](https://github.com/Ramaputhra/Rachayitha/releases) tab:
 - Beautiful 2-column setup wizard with live feature presentation carousel.
 - Automatically creates Desktop, Start Menu, and Startup shortcuts.
 - Fully registered in Windows *Installed Apps* for clean 1-click uninstallation.
@@ -282,7 +294,8 @@ Rachayitha/
 ├── test_casual_type.py          # Standalone test runner (100% pass guarantee)
 ├── Rachayitha.exe               # Portable zero-install executable
 ├── Rachayitha_v2.exe            # Portable v2.0 zero-install executable
-├── Rachayitha_Setup.exe         # Single setup installer with wizard
+├── Rachayitha_Setup_V2.exe      # Official v2.0 setup installer with wizard (76 MB)
+├── Rachayitha_Setup.exe         # Single setup installer binary
 │
 ├── rachayitha code files/       # Core Python Desktop Application
 │   ├── main.py                  # Application entry point & tray listener loop
@@ -324,6 +337,8 @@ Rachayitha/
 │   ├── style.css                # Responsive styling & glowing cyber window design
 │   ├── script.js                # Interactive tab switcher & demo handlers
 │   ├── Rachayitha.exe           # Hosted portable download
+│   ├── Rachayitha_v2.exe        # Hosted v2 portable download
+│   ├── Rachayitha_Setup_V2.exe  # Official v2 installer download
 │   └── Rachayitha_Setup.exe     # Hosted installer download
 │
 ├── product_hunt_assets/         # High-resolution feature showcase graphics

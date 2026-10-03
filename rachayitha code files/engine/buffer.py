@@ -1,7 +1,17 @@
-from typing import List, Optional
+import time
+from typing import List, Optional, Tuple, Dict, Any
 from .casual_type import transliterate_word_candidates
 from .lm import TeluguLM
 from .predictor import NextWordPredictor
+
+try:
+    from .learner import get_learner
+except ImportError:
+    try:
+        from engine.learner import get_learner
+    except ImportError:
+        def get_learner():
+            return None
 
 class TypingBuffer:
     def __init__(self, casual_enabled=True):
@@ -11,6 +21,7 @@ class TypingBuffer:
         self.casual_enabled = casual_enabled
         self.lm = TeluguLM()
         self.predictor = NextWordPredictor(self.lm)
+        self.learner = get_learner()
         self.current_suggestion = ""
         self.current_suggestions = []
 
@@ -19,6 +30,15 @@ class TypingBuffer:
         self.prev_word_telugu = None
         self.prev_word_eng = None
         self.prev_word_candidates = None
+
+        # Self-learning: Backspace-Retype Tracking
+        self.pending_retype: Optional[Dict[str, Any]] = None
+        self.last_committed_eng: Optional[str] = None
+        self.last_committed_tel: Optional[str] = None
+        self.last_committed_time: float = 0.0
+        self.post_commit_backspaces: int = 0
+        self.peak_eng: str = ""
+        self.peak_telugu: str = ""
 
     def set_casual_enabled(self, enabled: bool):
         self.casual_enabled = enabled
@@ -34,6 +54,9 @@ class TypingBuffer:
             new_telugu = exact_transliterate(self.eng)
             self.last_telugu = new_telugu
             self.last_out_len = len(new_telugu)
+            if len(self.eng) >= len(self.peak_eng):
+                self.peak_eng = self.eng
+                self.peak_telugu = new_telugu
             self.clear_suggestion()
             return old_len, new_telugu, None
 
@@ -46,6 +69,9 @@ class TypingBuffer:
         )
         self.last_telugu = new_telugu
         self.last_out_len = len(new_telugu)
+        if len(self.eng) >= len(self.peak_eng):
+            self.peak_eng = self.eng
+            self.peak_telugu = new_telugu
 
         # Update prefix-aware predictions
         self.current_suggestions = self.predictor.predict_next(
@@ -87,11 +113,27 @@ class TypingBuffer:
         if not self.eng:
             return 0, "", None
         old_len = self.last_out_len
+        old_eng = self.eng
+        old_tel = self.last_telugu
         self.eng = self.eng[:-1]
 
         if not self.eng:
             self.last_telugu = ""
             self.last_out_len = 0
+
+            # Mid-word complete erasure detection using peak word before backspaces started
+            peak_e = self.peak_eng or old_eng
+            peak_t = self.peak_telugu or old_tel
+            if peak_e and len(peak_e) >= 2 and peak_t:
+                self.pending_retype = {
+                    "erased_eng": peak_e,
+                    "erased_telugu": peak_t,
+                    "timestamp": time.time(),
+                    "source": "mid_word"
+                }
+            self.peak_eng = ""
+            self.peak_telugu = ""
+
             if self.casual_enabled and self.prev_word_telugu:
                 self.current_suggestions = self.predictor.predict_next(
                     self.prev_word_telugu,
@@ -130,17 +172,62 @@ class TypingBuffer:
         self.current_suggestion = self.current_suggestions[0] if self.current_suggestions else ""
         return old_len, new_telugu, None
 
+    def notify_external_backspace(self):
+        """
+        Called when Backspace is pressed when buffer is inactive (e.g. deleting committed word/space).
+        """
+        now = time.time()
+        if self.last_committed_eng and self.last_committed_tel and (now - self.last_committed_time < 12.0):
+            self.post_commit_backspaces += 1
+            self.pending_retype = {
+                "erased_eng": self.last_committed_eng,
+                "erased_telugu": self.last_committed_tel,
+                "timestamp": now,
+                "source": "post_commit"
+            }
+
     def commit_word(self):
         """Called when Space is pressed"""
         if self.eng:
+            current_eng = self.eng
+            current_tel = self.last_telugu
+
+            # Check if this resolves a pending backspace-retype correction!
+            if self.pending_retype and self.learner:
+                dt = time.time() - self.pending_retype.get("timestamp", 0)
+                if dt < 20.0:
+                    erased_eng = self.pending_retype.get("erased_eng", "")
+                    erased_tel = self.pending_retype.get("erased_telugu", "")
+                    if erased_eng and current_tel and erased_tel != current_tel:
+                        self.learner.learn_backspace_correction(
+                            erased_eng=erased_eng,
+                            erased_telugu=erased_tel,
+                            new_eng=current_eng,
+                            new_telugu=current_tel
+                        )
+                self.pending_retype = None
+
+            # Sequential bigram learning
+            if self.prev_word_telugu and current_tel and self.learner:
+                self.learner.learn_bigram(self.prev_word_telugu, current_tel)
+
+            self.last_committed_eng = self.eng
+            self.last_committed_tel = self.last_telugu
+            self.last_committed_time = time.time()
+            self.post_commit_backspaces = 0
+
             self.prev_prev_word = self.prev_word_telugu
             self.prev_word_telugu = self.last_telugu
             self.prev_word_eng = self.eng
             self.prev_word_candidates = transliterate_word_candidates(self.eng)
+        else:
+            self.post_commit_backspaces = 0
 
         self.eng = ""
         self.last_telugu = ""
         self.last_out_len = 0
+        self.peak_eng = ""
+        self.peak_telugu = ""
 
         # Predict next word candidates (casual mode only)
         if self.casual_enabled and self.prev_word_telugu:
@@ -190,6 +277,19 @@ class TypingBuffer:
 
         bs_count = self.last_out_len
         to_insert = target + " "
+
+        # Record candidate selection or prediction acceptance in learner
+        if self.learner:
+            if self.eng:
+                self.learner.learn_candidate_selection(
+                    roman=self.eng,
+                    chosen_telugu=target,
+                    rejected_telugu=self.last_telugu,
+                    prev_word=self.prev_word_telugu
+                )
+            elif self.prev_word_telugu:
+                self.learner.learn_bigram(self.prev_word_telugu, target)
+
         self.commit_word_with_telugu(target)
         return bs_count, to_insert
 

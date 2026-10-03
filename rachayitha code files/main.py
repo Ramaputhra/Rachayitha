@@ -198,6 +198,7 @@ class RachayithaApp:
                     self.bridge.hide_suggestion.emit()
                 return False
             else:
+                self.buffer.notify_external_backspace()
                 self.buffer.clear_suggestion()
                 self.bridge.hide_suggestion.emit()
                 return True

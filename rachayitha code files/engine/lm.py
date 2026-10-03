@@ -366,6 +366,22 @@ class TeluguLM:
                 p_right = self.get_bigram_prob(c, next_word)
                 score += 2.5 * math.log(max(p_right, 1e-12))
 
+            # Personal Bigram Prior from SelfLearningEngine
+            try:
+                from .learner import get_learner
+                learner = get_learner()
+            except Exception:
+                try:
+                    from engine.learner import get_learner
+                    learner = get_learner()
+                except Exception:
+                    learner = None
+
+            if prev_word and learner:
+                p_cnt = learner.get_personal_bigram_count(prev_word, c)
+                if p_cnt > 0:
+                    score += 6.0 * math.log(1.0 + p_cnt)
+
             if score > best_score:
                 best_score = score
                 best_cand = c

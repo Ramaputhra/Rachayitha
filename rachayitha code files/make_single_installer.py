@@ -43,11 +43,17 @@ def run_tests():
     if os.path.exists(test_script):
         res = subprocess.run([sys.executable, test_script], cwd=ROOT_DIR)
         if res.returncode != 0:
-            print("\n[ERROR] Test suite failed! Halting build to maintain 100% engine accuracy.")
+            print("\n[ERROR] Linguistic test suite failed! Halting build.")
             sys.exit(1)
         print("  ✓ All linguistic and phonetic engine tests PASSED!")
-    else:
-        print("  Note: test_casual_type.py not found, proceeding...")
+
+    self_learn_test = os.path.join(ROOT_DIR, "test_self_learn.py")
+    if os.path.exists(self_learn_test):
+        res_learn = subprocess.run([sys.executable, self_learn_test], cwd=ROOT_DIR)
+        if res_learn.returncode != 0:
+            print("\n[ERROR] Self-learning test suite failed! Halting build.")
+            sys.exit(1)
+        print("  ✓ All adaptive self-learning engine tests PASSED!")
 
 def main():
     print("=" * 70)
@@ -133,10 +139,19 @@ def main():
         mtime = datetime.fromtimestamp(os.path.getmtime(final_setup)).strftime("%Y-%m-%d %H:%M:%S")
         size_mb = os.path.getsize(final_setup) / (1024 * 1024)
 
+        # Also produce Rachayitha_Setup_V2.exe in output folder
+        final_setup_v2 = os.path.join(OUTPUT_DIR, "Rachayitha_Setup_V2.exe")
+        try:
+            shutil.copy2(final_setup, final_setup_v2)
+        except Exception:
+            pass
+
         # Copy installer & portable exe to root and WebSite for easy distribution
         targets = [
             os.path.join(PARENT_DIR, "Rachayitha_Setup.exe"),
+            os.path.join(PARENT_DIR, "Rachayitha_Setup_V2.exe"),
             os.path.join(PARENT_DIR, "WebSite", "Rachayitha_Setup.exe"),
+            os.path.join(PARENT_DIR, "WebSite", "Rachayitha_Setup_V2.exe"),
         ]
         for t in targets:
             try:

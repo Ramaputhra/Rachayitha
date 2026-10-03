@@ -1,7 +1,7 @@
-// --- Official Download URLs (Vercel Blob Storage CDN & GitHub Releases v2.0) ---
+// --- Official Download URLs (GitHub Releases v2.0 & Production CDN) ---
 window.RACHAYITHA_DOWNLOADS = {
-  installer: "https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe",
-  installer_v2: "https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe",
+  installer: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
+  installer_v2: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_Setup_V2.exe",
   portable: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe",
   portable_v2: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe"
 };
@@ -781,9 +781,39 @@ function casualPhoneticTransliterate(word) {
   return out;
 }
 
+// Adaptive Self-Learning Profile in Browser (100% Local Storage)
+const WEB_LEARNED_KEY = "rachayitha_user_learned";
+function getWebLearnedProfile() {
+  try {
+    const s = localStorage.getItem(WEB_LEARNED_KEY);
+    return s ? JSON.parse(s) : {};
+  } catch (e) {
+    return {};
+  }
+}
+function getWebLearnedOverride(word) {
+  if (!word) return null;
+  const profile = getWebLearnedProfile();
+  return profile[word.toLowerCase().trim()] || null;
+}
+function saveWebLearnedOverride(eng, tel) {
+  if (!eng || !tel) return;
+  try {
+    const profile = getWebLearnedProfile();
+    profile[eng.toLowerCase().trim()] = tel.trim();
+    localStorage.setItem(WEB_LEARNED_KEY, JSON.stringify(profile));
+  } catch (e) {}
+}
+
 // Single word casual transliterator
 function transliterateWord(word) {
   const wLower = word.toLowerCase();
+
+  // 0. Check Adaptive Self-Learning user overrides
+  const userOverride = getWebLearnedOverride(wLower);
+  if (userOverride) {
+    return userOverride;
+  }
 
   // 1 & 2. Direct lookup in CASUAL_DICT
   if (CASUAL_DICT[wLower]) {
@@ -1261,7 +1291,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const href = link.getAttribute("href") || "";
       const isSetup = href.includes("Setup") || link.classList.contains("btn-installer-download");
       window.trackAnalyticsEvent("download_click", {
-        file: isSetup ? "Rachayitha_Setup.exe" : "Rachayitha_Portable.exe",
+        file: isSetup ? "Rachayitha_Setup_V2.exe" : "Rachayitha_v2.exe",
         type: isSetup ? "installer" : "portable",
         element_id: link.id || "download_btn"
       });

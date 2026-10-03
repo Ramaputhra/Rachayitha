@@ -53,6 +53,16 @@ except ImportError:
             sys.path.insert(0, cur_dir)
         from lm import TeluguLM
 
+# Self Learning Engine
+try:
+    from .learner import get_learner
+except ImportError:
+    try:
+        from engine.learner import get_learner
+    except ImportError:
+        def get_learner():
+            return None
+
 # Global dictionaries
 CASUAL_DICT = {}
 CASUAL_CANDIDATES = {}
@@ -884,32 +894,26 @@ def transliterate_word_candidates(word: str):
 
     w_lower = word.lower()
 
-    # Dynamic multi-candidate resolution for ambiguous conversational words scored by TeluguLM
-    if w_lower in ["matladanu", "maatladanu"]:
-        return [
-            {"tel": "మాట్లాడాను", "freq": 19000},
-            {"tel": "మాట్లాడను", "freq": 18000}
-        ]
-    if w_lower in ["vellanu"]:
-        return [
-            {"tel": "వెళ్ళాను", "freq": 20000},
-            {"tel": "వెళ్లను", "freq": 19000}
-        ]
-    if w_lower in ["anta", "antha"]:
-        return [
-            {"tel": "అంత", "freq": 20000},
-            {"tel": "అంతా", "freq": 18000}
-        ]
-    if w_lower == "nenu":
-        return [
-            {"tel": "నేను", "freq": 25000},
-            {"tel": "నేనూ", "freq": 15000}
-        ]
-    if w_lower in ["sari", "saari"]:
-        return [
-            {"tel": "సారి", "freq": 22000},
-            {"tel": "సరి", "freq": 18000}
-        ]
+    # 0. Check Adaptive Self-Learning user overrides (100% highest priority)
+    learner = get_learner()
+    user_override = learner.get_override(w_lower) if learner else None
+
+    # Helper function to apply user candidate boosts
+    def apply_boosts(cands_list):
+        if not cands_list or not learner:
+            return cands_list
+        boosted = []
+        for c in cands_list:
+            if isinstance(c, dict):
+                t = c.get("tel", "")
+                boost = learner.get_candidate_boost(w_lower, t)
+                f = c.get("freq", 5000) + boost
+                boosted.append({"tel": t, "freq": max(100, f)})
+            elif isinstance(c, str):
+                boost = learner.get_candidate_boost(w_lower, c)
+                boosted.append({"tel": c, "freq": 5000 + boost})
+        boosted.sort(key=lambda x: x.get("freq", 0), reverse=True)
+        return boosted
 
     # Helper function to query candidate dictionary or CASUAL_DICT
     def get_cand(k: str):
@@ -929,10 +933,47 @@ def transliterate_word_candidates(word: str):
             return val if isinstance(val, list) else [val]
         return None
 
+    if user_override:
+        override_cand = {"tel": user_override, "freq": 999999}
+        base_cands = get_cand(w_lower) or []
+        remaining = []
+        for c in base_cands:
+            t = c.get("tel") if isinstance(c, dict) else c
+            if t != user_override:
+                remaining.append(c)
+        return [override_cand] + apply_boosts(remaining)
+
+    # Dynamic multi-candidate resolution for ambiguous conversational words scored by TeluguLM
+    if w_lower in ["matladanu", "maatladanu"]:
+        return apply_boosts([
+            {"tel": "మాట్లాడాను", "freq": 19000},
+            {"tel": "మాట్లాడను", "freq": 18000}
+        ])
+    if w_lower in ["vellanu"]:
+        return apply_boosts([
+            {"tel": "వెళ్ళాను", "freq": 20000},
+            {"tel": "వెళ్లను", "freq": 19000}
+        ])
+    if w_lower in ["anta", "antha"]:
+        return apply_boosts([
+            {"tel": "అంత", "freq": 20000},
+            {"tel": "అంతా", "freq": 18000}
+        ])
+    if w_lower == "nenu":
+        return apply_boosts([
+            {"tel": "నేను", "freq": 25000},
+            {"tel": "నేనూ", "freq": 15000}
+        ])
+    if w_lower in ["sari", "saari"]:
+        return apply_boosts([
+            {"tel": "సారి", "freq": 22000},
+            {"tel": "సరి", "freq": 18000}
+        ])
+
     # 1. Direct match in candidate dictionary
     cands = get_cand(w_lower)
     if cands:
-        return cands
+        return apply_boosts(cands)
 
     # 2. Check chat abbreviations (nen -> nenu, velanu -> vellanu)
     if w_lower in CHAT_ABBREVIATIONS:

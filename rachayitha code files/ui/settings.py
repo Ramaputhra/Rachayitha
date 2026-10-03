@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QTabWidget,
     QTableWidget, QTableWidgetItem, QLineEdit, QPushButton,
     QCheckBox, QTextEdit, QHeaderView, QMessageBox, QFrame,
-    QApplication
+    QApplication, QFileDialog
 )
 from PyQt6.QtCore import Qt, pyqtSignal, QTimer
 from PyQt6.QtGui import QFont, QPixmap, QIcon, QColor, QTextCursor
@@ -14,6 +14,7 @@ from PyQt6.QtGui import QFont, QPixmap, QIcon, QColor, QTextCursor
 from engine.paths import get_resource_path, load_config, save_config
 from engine.casual_type import transliterate
 from engine.buffer import TypingBuffer
+from engine.learner import get_learner
 
 class PlaygroundEditor(QTextEdit):
     suggestion_changed = pyqtSignal(object)        # Emits list of ghost suggestion texts or []
@@ -188,6 +189,7 @@ class PlaygroundEditor(QTextEdit):
                     self.suggestion_changed.emit([])
                 return
             else:
+                self.buffer.notify_external_backspace()
                 self.buffer.clear_suggestion()
                 self.suggestion_changed.emit([])
                 super().keyPressEvent(event)
@@ -345,6 +347,7 @@ class SettingsWindow(QWidget):
         """)
 
         self.config = load_config()
+        self.learner = get_learner()
         self.init_ui()
 
     def init_ui(self):
@@ -404,7 +407,10 @@ class SettingsWindow(QWidget):
         # Tab 3: Live Playground
         tabs.addTab(self.create_playground_tab(), "Live Playground (అభ్యాసం)")
 
-        # Tab 4: About
+        # Tab 4: Self-Learning & Vocabulary Profile
+        tabs.addTab(self.create_learning_tab(), "Self-Learning (స్వయం అభ్యాసం)")
+
+        # Tab 5: About
         tabs.addTab(self.create_about_tab(), "About (వివరాలు)")
 
         main_layout.addWidget(tabs)
@@ -1011,6 +1017,235 @@ class SettingsWindow(QWidget):
         self.playground_editor.buffer.commit_sentence()
         self.on_playground_suggestion_changed("")
         self.on_playground_hud_changed("Status", "Cleared")
+
+    def create_learning_tab(self):
+        tab = QWidget()
+        layout = QVBoxLayout()
+
+        # Stats Cards Row
+        stats_box = QFrame()
+        stats_box.setStyleSheet("background-color: #0b0f19; border: 1px solid #334155; border-radius: 8px; padding: 12px;")
+        stats_layout = QHBoxLayout(stats_box)
+
+        self.stat_overrides_lbl = QLabel()
+        self.stat_overrides_lbl.setStyleSheet("color: #38bdf8; font-weight: bold; font-size: 13px;")
+        self.stat_boosts_lbl = QLabel()
+        self.stat_boosts_lbl.setStyleSheet("color: #a78bfa; font-weight: bold; font-size: 13px;")
+        self.stat_bigrams_lbl = QLabel()
+        self.stat_bigrams_lbl.setStyleSheet("color: #34d399; font-weight: bold; font-size: 13px;")
+        self.stat_status_lbl = QLabel("🛡️ 100% Offline Profile")
+        self.stat_status_lbl.setStyleSheet("color: #94a3b8; font-size: 12px;")
+
+        stats_layout.addWidget(self.stat_overrides_lbl)
+        stats_layout.addWidget(self.stat_boosts_lbl)
+        stats_layout.addWidget(self.stat_bigrams_lbl)
+        stats_layout.addStretch()
+        stats_layout.addWidget(self.stat_status_lbl)
+        layout.addWidget(stats_box)
+
+        # Quick Add Custom Word Box
+        add_box = QFrame()
+        add_box.setStyleSheet("background-color: #0b0f19; border: 1px solid #334155; border-radius: 8px; padding: 12px;")
+        add_layout = QHBoxLayout(add_box)
+        add_layout.setContentsMargins(10, 8, 10, 8)
+
+        add_title = QLabel("Add Custom Mapping:")
+        add_title.setStyleSheet("font-weight: bold; color: #f8fafc;")
+        add_layout.addWidget(add_title)
+
+        self.add_eng_input = QLineEdit()
+        self.add_eng_input.setPlaceholderText("English/Casual input (e.g. 'bava', 'hyd')...")
+        self.add_eng_input.setStyleSheet("background-color: #1e293b; border: 1px solid #475569; border-radius: 4px; padding: 6px; color: #38bdf8;")
+        add_layout.addWidget(self.add_eng_input)
+
+        self.add_tel_input = QLineEdit()
+        self.add_tel_input.setPlaceholderText("Telugu word (e.g. 'బావా', 'హైదరాబాద్')...")
+        self.add_tel_input.setStyleSheet("background-color: #1e293b; border: 1px solid #475569; border-radius: 4px; padding: 6px; color: #34d399; font-family: 'Mandali', 'Gautami', 'Segoe UI'; font-size: 14px;")
+        add_layout.addWidget(self.add_tel_input)
+
+        add_btn = QPushButton("Save Word")
+        add_btn.setStyleSheet("background-color: #6366f1; color: white; font-weight: bold; padding: 6px 14px; border-radius: 4px;")
+        add_btn.clicked.connect(self.on_add_learned_word)
+        add_layout.addWidget(add_btn)
+
+        layout.addWidget(add_box)
+
+        # Search Bar
+        search_row = QHBoxLayout()
+        search_lbl = QLabel("Search Learned:")
+        search_lbl.setStyleSheet("font-weight: 600; color: #cbd5e1;")
+        self.learned_search_box = QLineEdit()
+        self.learned_search_box.setPlaceholderText("Filter learned words or English keys...")
+        self.learned_search_box.setStyleSheet("background-color: #0b0f19; border: 1px solid #334155; border-radius: 6px; padding: 6px; color: #38bdf8;")
+        self.learned_search_box.textChanged.connect(self.populate_learned_table)
+        search_row.addWidget(search_lbl)
+        search_row.addWidget(self.learned_search_box)
+        layout.addLayout(search_row)
+
+        # Table of Learned Overrides
+        self.learned_table = QTableWidget(0, 5)
+        self.learned_table.setHorizontalHeaderLabels([
+            "English / Casual Input",
+            "Learned Telugu Output",
+            "Usage Count",
+            "Learning Source",
+            "Action"
+        ])
+        self.learned_table.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+        self.learned_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.ResizeToContents)
+        self.learned_table.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+        self.learned_table.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeMode.Stretch)
+        self.learned_table.horizontalHeader().setSectionResizeMode(4, QHeaderView.ResizeMode.Fixed)
+        self.learned_table.setColumnWidth(4, 90)
+        layout.addWidget(self.learned_table)
+
+        # Bottom Controls
+        bottom_row = QHBoxLayout()
+        self.learning_enabled_chk = QCheckBox("Enable Adaptive Self-Learning (learns when you backspace and retype)")
+        self.learning_enabled_chk.setChecked(self.learner.is_enabled() if self.learner else True)
+        self.learning_enabled_chk.setStyleSheet("color: #38bdf8; font-weight: bold;")
+        self.learning_enabled_chk.toggled.connect(self.on_toggle_learning)
+        bottom_row.addWidget(self.learning_enabled_chk)
+        bottom_row.addStretch()
+
+        export_btn = QPushButton("Export JSON...")
+        export_btn.setStyleSheet("background-color: #1e293b; color: #cbd5e1; padding: 6px 12px; border-radius: 4px;")
+        export_btn.clicked.connect(self.on_export_learning)
+        bottom_row.addWidget(export_btn)
+
+        import_btn = QPushButton("Import JSON...")
+        import_btn.setStyleSheet("background-color: #1e293b; color: #cbd5e1; padding: 6px 12px; border-radius: 4px;")
+        import_btn.clicked.connect(self.on_import_learning)
+        bottom_row.addWidget(import_btn)
+
+        clear_btn = QPushButton("Reset Profile")
+        clear_btn.setStyleSheet("background-color: #7f1d1d; color: #fca5a5; font-weight: bold; padding: 6px 12px; border-radius: 4px;")
+        clear_btn.clicked.connect(self.on_clear_learning)
+        bottom_row.addWidget(clear_btn)
+
+        layout.addLayout(bottom_row)
+        tab.setLayout(layout)
+
+        self.update_learning_stats()
+        self.populate_learned_table()
+        return tab
+
+    def update_learning_stats(self):
+        if not self.learner:
+            return
+        stats = self.learner.get_stats()
+        self.stat_overrides_lbl.setText(f"📖 {stats['total_overrides']} Custom Words")
+        self.stat_boosts_lbl.setText(f"⚖️ {stats['total_boosts']} Candidate Boosts")
+        self.stat_bigrams_lbl.setText(f"🔗 {stats['total_bigrams']} Collocations")
+
+    def populate_learned_table(self):
+        if not self.learner:
+            return
+        query = self.learned_search_box.text().strip().lower() if hasattr(self, 'learned_search_box') else ""
+        items = []
+        for eng, data in self.learner.word_overrides.items():
+            tel = data.get("tel", "") if isinstance(data, dict) else str(data)
+            count = data.get("count", 1) if isinstance(data, dict) else 1
+            source = data.get("source", "user") if isinstance(data, dict) else "user"
+            if query and (query not in eng.lower() and query not in tel.lower()):
+                continue
+            items.append((eng, tel, count, source))
+
+        items.sort(key=lambda x: x[2], reverse=True)
+        self.learned_table.setRowCount(len(items))
+
+        for row_idx, (eng, tel, count, source) in enumerate(items):
+            item_eng = QTableWidgetItem(eng)
+            item_eng.setForeground(QColor("#38bdf8"))
+            item_eng.setFont(QFont("Consolas", 11, QFont.Weight.Bold))
+
+            item_tel = QTableWidgetItem(tel)
+            item_tel.setForeground(QColor("#34d399"))
+            item_tel.setFont(QFont("Mandali", 13, QFont.Weight.Bold))
+
+            item_count = QTableWidgetItem(f"{count}×")
+            item_count.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+            item_count.setForeground(QColor("#94a3b8"))
+
+            src_label = "Backspace Retype" if source == "backspace_correction" else ("Pill Select" if source == "candidate_selection" else "Manual")
+            item_src = QTableWidgetItem(src_label)
+            item_src.setForeground(QColor("#a78bfa"))
+
+            del_btn = QPushButton("Delete")
+            del_btn.setStyleSheet("background-color: #334155; color: #f87171; border-radius: 3px; padding: 2px 8px; font-size: 11px;")
+            del_btn.clicked.connect(lambda _, k=eng: self.on_delete_learned_word(k))
+
+            self.learned_table.setItem(row_idx, 0, item_eng)
+            self.learned_table.setItem(row_idx, 1, item_tel)
+            self.learned_table.setItem(row_idx, 2, item_count)
+            self.learned_table.setItem(row_idx, 3, item_src)
+            self.learned_table.setCellWidget(row_idx, 4, del_btn)
+
+    def on_add_learned_word(self):
+        eng = self.add_eng_input.text().strip().lower()
+        tel = self.add_tel_input.text().strip()
+        if not eng or not tel:
+            QMessageBox.warning(self, "Invalid Input", "Please provide both English key and Telugu word.")
+            return
+        if self.learner:
+            self.learner.add_manual_override(eng, tel)
+            self.add_eng_input.clear()
+            self.add_tel_input.clear()
+            self.update_learning_stats()
+            self.populate_learned_table()
+
+    def on_delete_learned_word(self, eng_key: str):
+        if self.learner:
+            self.learner.remove_override(eng_key)
+            self.update_learning_stats()
+            self.populate_learned_table()
+
+    def on_toggle_learning(self, checked: bool):
+        if self.learner:
+            self.learner.set_enabled(checked)
+
+    def on_export_learning(self):
+        if not self.learner:
+            return
+        path, _ = QFileDialog.getSaveFileName(self, "Export Learned Vocabulary", "rachayitha_learned.json", "JSON Files (*.json)")
+        if path:
+            if self.learner.export_profile(path):
+                QMessageBox.information(self, "Export Success", f"Learned profile exported to:\n{path}")
+            else:
+                QMessageBox.critical(self, "Export Failed", "Could not export profile.")
+
+    def on_import_learning(self):
+        if not self.learner:
+            return
+        path, _ = QFileDialog.getOpenFileName(self, "Import Learned Vocabulary", "", "JSON Files (*.json)")
+        if path:
+            if self.learner.import_profile(path, merge=True):
+                self.update_learning_stats()
+                self.populate_learned_table()
+                QMessageBox.information(self, "Import Success", "Learned profile successfully merged!")
+            else:
+                QMessageBox.critical(self, "Import Failed", "Could not import profile file.")
+
+    def on_clear_learning(self):
+        if not self.learner:
+            return
+        reply = QMessageBox.question(
+            self,
+            "Reset Profile?",
+            "Are you sure you want to clear all learned words and corrections?\nThis action cannot be undone.",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
+        if reply == QMessageBox.StandardButton.Yes:
+            self.learner.clear_all()
+            self.update_learning_stats()
+            self.populate_learned_table()
+
+    def showEvent(self, event):
+        super().showEvent(event)
+        if hasattr(self, 'update_learning_stats'):
+            self.update_learning_stats()
+        if hasattr(self, 'populate_learned_table'):
+            self.populate_learned_table()
 
     def create_about_tab(self):
         tab = QWidget()

@@ -103,6 +103,26 @@ class NextWordPredictor:
         candidates = []
         seen = set()
 
+        # 0. Personal Learned Transitions from SelfLearningEngine (Top Priority)
+        learner = None
+        try:
+            from .learner import get_learner
+            learner = get_learner()
+        except Exception:
+            try:
+                from engine.learner import get_learner
+                learner = get_learner()
+            except Exception:
+                learner = None
+
+        if prev_word and learner:
+            for w, _ in learner.get_personal_transitions(prev_word):
+                if prefix and not self._matches_prefix(w, prefix):
+                    continue
+                if w not in seen:
+                    candidates.append(w)
+                    seen.add(w)
+
         # 1. Gather transitions from prev_word
         if prev_word:
             for w, _ in self._transitions_by_prev.get(prev_word, []):
@@ -160,6 +180,10 @@ class NextWordPredictor:
             if prev_word:
                 p_prev = self.lm.get_bigram_prob(prev_word, w)
                 score += 2.2 * math.log(max(p_prev, 1e-12))
+                if learner:
+                    p_cnt = learner.get_personal_bigram_count(prev_word, w)
+                    if p_cnt > 0:
+                        score += 5.0 * math.log(1.0 + p_cnt)
 
             # 4c. Trigram context probability: P(w | prev_prev_word)
             if prev_prev_word:

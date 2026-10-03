@@ -53,10 +53,17 @@
 - Live Alt+T toggle testing between Telugu and English mode.
 
 ### 2.8 Professional Standalone Installer
-- Single self-contained installer (`Rachayitha_Setup.exe`).
+- Single self-contained installer (`Rachayitha_Setup_V2.exe` / `Rachayitha_Setup.exe`).
 - **Feature Presentation Carousel:** Showcases core capabilities while installing.
 - **Automated Configuration:** Installs to `%LOCALAPPDATA%\Programs\Rachayitha`, creates Desktop and Start Menu shortcuts, and enables auto-start on boot (`shell:startup`).
 - **Clean Uninstaller:** Fully registered in Windows Settings $\rightarrow$ Installed Apps (Add/Remove Programs).
+
+### 2.9 Adaptive Self-Learning & Personal Vocabulary Engine
+- **Backspace-Retype Loop Detection:** Automatically detects when a user backspaces an unwanted transliteration and types their intended replacement. Rachayitha permanently learns the user's casual spelling pattern without requiring manual dictionary editing.
+- **Candidate Feedback Reinforcement:** Boosts candidate ranking in real-time whenever secondary/tertiary pills are accepted from the floating ghost overlay.
+- **Habitual Collocation Learning:** Dynamically records consecutive word pairs as personal bigrams, surfacing the user's favorite phrases at the top of Next-Word predictions.
+- **100% Offline & Private:** Stored strictly locally in `%APPDATA%\Rachayitha\user_learned.json` with atomic writes. Zero network traffic, zero cloud telemetry.
+- **Interactive Management UI:** Full GUI tab in Settings to view learned words, audit usage frequencies, delete mistaken entries, add custom dialect words, and export/import profile backups.
 
 ---
 
@@ -64,14 +71,15 @@
 
 ```
 రచయిత/
-├── PRD.md                       # Master Product Requirements Document v2.0
+├── PRD.md                       # Master Product Requirements Document v2.0+
 ├── README.md                    # Project documentation & feature showcase
 ├── LICENSE                      # GPLv3 Open Source License
 ├── All.md                       # Master Telugu Keystroke & Unicode Blueprint
 ├── Golden-1000.json             # RTS Engine Gold Verification Dataset
 ├── build_installer.bat          # 1-Click Builder: Clean -> Test -> Compile
 ├── clean_workspace.py           # Canonical workspace cleaner & debt reducer
-├── test_casual_type.py          # Standalone test runner (100% pass guarantee)
+├── test_casual_type.py          # Standalone linguistic test runner
+├── run_self_learn_tests.bat     # 1-Click Self-Learning test runner
 ├── Rachayitha.exe               # Portable zero-install executable
 ├── Rachayitha_v2.exe            # Portable v2.0 zero-install executable
 ├── Rachayitha_Setup.exe         # Single setup installer with wizard
@@ -80,6 +88,7 @@
 │   ├── make_single_installer.py # PyInstaller standalone & installer builder
 │   ├── prepare_icons.py         # Multi-res icon generation utility
 │   ├── test_casual_type.py      # Core unit & integration test suite
+│   ├── test_self_learn.py       # Self-learning unit test suite
 │   ├── requirements.txt         # Dependencies (PyQt6, keyboard, Pillow, pyinstaller)
 │   ├── icon.ico                 # Multi-resolution Windows app icon
 │   ├── icon.png                 # App icon PNG
@@ -94,11 +103,12 @@
 │   │   └── typo_fixes.json
 │   ├── engine/
 │   │   ├── __init__.py
-│   │   ├── buffer.py            # Sliding window buffer & retroactive correction
+│   │   ├── buffer.py            # Typing buffer with backspace-retype tracking
 │   │   ├── casual_type.py       # Conversational lexicon & candidate generation
-│   │   ├── lm.py                # IndicCorp Trigram LM & collocations
+│   │   ├── learner.py           # Offline adaptive self-learning profile manager
+│   │   ├── lm.py                # IndicCorp Trigram LM & personal bigrams
 │   │   ├── paths.py             # Bundle & config path resolver
-│   │   ├── predictor.py         # Next-word prediction engine
+│   │   ├── predictor.py         # Next-word prediction & personalized transitions
 │   │   └── transliterator.py    # Halant-First RTS phonetic engine
 │   ├── ui/
 │   │   ├── __init__.py
