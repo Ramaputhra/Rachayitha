@@ -1,7 +1,9 @@
-// --- Official Download URLs (Vercel Blob Storage CDN) ---
+// --- Official Download URLs (Vercel Blob Storage CDN & GitHub Releases v2.0) ---
 window.RACHAYITHA_DOWNLOADS = {
   installer: "https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe",
-  portable: "https://github.com/Ramaputhra/Rachayitha/releases/download/v1.0.0/Rachayitha.exe"
+  installer_v2: "https://hoahsw3mekzqivuy.public.blob.vercel-storage.com/Rachayitha_Setup.exe",
+  portable: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe",
+  portable_v2: "https://github.com/Ramaputhra/Rachayitha/releases/download/v2.0.0/Rachayitha_v2.exe"
 };
 
 // --- 1. Authentic Telugu Rules Engine ---
@@ -149,7 +151,7 @@ const SORTED_WORD_OVERRIDES = Object.keys(WORD_OVERRIDES).sort((a, b) => b.lengt
  * Halant-First Authentic Transliteration Engine matching Rachayitha's Desktop Code
  */
 /**
- * Classic Halant-First Authentic Transliteration Engine (Lekhini RTS High-Key Mode)
+ * Classic Halant-First Authentic Transliteration Engine (RTS High-Key Mode)
  */
 function exactTransliterate(text) {
   if (!text) return "";
@@ -272,13 +274,33 @@ const CONVERSATIONAL_LEXICON = {
   "sayantram": "సాయంత్రం", "saayantram": "సాయంత్రం", "sayantraniki": "సాయంత్రానికి", "sayantramlo": "సాయంత్రంలో",
   "intiki": "ఇంటికి", "intike": "ఇంటికే", "intlo": "ఇంట్లో", "intloki": "ఇంట్లోకి",
   "vellaka": "వెళ్ళాక", "velladu": "వెళ్ళాడు", "vellindi": "వెళ్ళింది", "vellali": "వెళ్ళాలి",
-  "velli": "వెళ్ళి", "vellina": "వెళ్ళిన", "vellaru": "వెళ్ళారు", "vellanu": "వెళ్ళాను",
+  "velli": "వెళ్ళి", "vellina": "వెళ్ళిన", "vellaru": "వెళ్ళారు", "vellaanu": "వెళ్ళాను", "velanu": "వెళ్లను",
   "vellipoyindi": "వెళ్ళిపోయింది", "vellipoyaru": "వెళ్ళిపోయారు", "vellipoyadu": "వెళ్ళిపోయాడు",
   "ammato": "అమ్మతో", "ammatho": "అమ్మతో", "naato": "నాతో", "naatho": "నాతో",
   "nannato": "నాన్నతో", "manato": "మనతో", "meeto": "మీతో", "meetoo": "మీతో",
-  "matladanu": "మాట్లాడాను", "maatladanu": "మాట్లాడాను", "matladadu": "మాట్లాడాడు", "matladindi": "మాట్లాడింది",
+  "maatlaadaanu": "మాట్లాడాను", "matlaadaanu": "మాట్లాడాను", "matladadu": "మాట్లాడాడు", "matladindi": "మాట్లాడింది",
   "matladaru": "మాట్లాడారు", "matladali": "మాట్లాడాలి", "matladadam": "మాట్లాడడం", "matladutunna": "మాట్లాడుతున్న",
   "matladutu": "మాట్లాడుతూ", "matladava": "మాట్లాడవా", "sepu": "సేపు", "konchem": "కొంచెం",
+  "matlade": "మాట్లాడే", "maatlaade": "మాట్లాడే", "matladedi": "మాట్లాడేది", "matladedhi": "మాట్లాడేది", "matladetappudu": "మాట్లాడేటప్పుడు",
+  "nuvvennanna": "నువ్వెన్నన్నా", "nuvvuennanna": "నువ్వెన్నన్నా",
+  "nenenduku": "నేనెందుకు", "neenenduku": "నేనెందుకు", "nenedo": "నేనేదో", "nenemo": "నేనేమో",
+  "nenena": "నేనేనా", "nenoo": "నేనూ", "nenuu": "నేనూ", "nenunna": "నేనున్నా", "nenunnanu": "నేనున్నాను",
+  "veltanu": "వెళ్తాను", "velthanu": "వెళ్తాను", "veltadu": "వెళ్తాడు", "velthadu": "వెళ్తాడు",
+  "veltaru": "వెళ్తారు", "veltharu": "వెళ్తారు", "veltadi": "వెళ్తది", "velthadi": "వెళ్తది",
+  "veltundi": "వెళ్తుంది", "velthundi": "వెళ్తుంది", "veltava": "వెళ్తావా", "velthava": "వెళ్తావా",
+  "veltara": "వెళ్తారా", "velthara": "వెళ్తారా", "veltam": "వెళ్తాం", "veltham": "వెళ్తాం",
+  "veltu": "వెళ్తూ", "velthu": "వెళ్తూ", "velte": "వెళ్తే", "velthe": "వెళ్తే",
+  "sarele": "సరేలే", "sareley": "సరేలే", "sarelee": "సరేలే",
+  "unnavo": "ఉన్నావో", "unnaavo": "ఉన్నావో", "unnado": "ఉన్నాడో", "unnaado": "ఉన్నాడో",
+  "unnaro": "ఉన్నారో", "unnaaro": "ఉన్నారో", "unnano": "ఉన్నానో", "unnaano": "ఉన్నానో",
+  "bayataki": "బయటకి", "bayatiki": "బయటికి", "bayataku": "బయటకు",
+  "vere": "వేరే", "veere": "వేరే",
+  "phone": "ఫోన్", "phon": "ఫోన్", "fone": "ఫోన్", "fon": "ఫోన్",
+  "samayamlo": "సమయంలో", "samayaniki": "సమయానికి", "samayam": "సమయం",
+  "cheppu": "చెప్పు",
+  "inko": "ఇంకో", "inkosari": "ఇంకోసారి", "sari": "సారి", "saari": "సారి",
+  "vellanu": "వెళ్లను", "velanu": "వెళ్లను",
+  "kopanga": "కోపంగా", "kopam": "కోపం", "anta": "అంత", "antha": "అంత",
   "entante": "ఏంటంటే", "manushulam": "మనుషులం", "manushulu": "మనుషులు", "manushulaku": "మనుషులకు",
   "edaina": "ఏదైనా", "edainaa": "ఏదైనా", "endukante": "ఎందుకంటే", "andukante": "అందుకంటే",
   "kavalsivasthe": "కావల్సివస్తే", "kavalsivaste": "కావల్సివస్తే", "kavalsina": "కావల్సిన", "kavalasina": "కావలసిన",
@@ -734,7 +756,23 @@ function casualPhoneticTransliterate(word) {
   // 7. Sibilants: sh + vowel -> Sh (ష)
   w = w.replace(/sh([uUaAoOiI])/g, 'Sh$1');
 
-  // 8. Inherent long vowels for open syllables like 'repu', 'roju'
+  // 8. Word-final -o clitic -> O (e.g. unnavo -> ఉన్నావో, enduko -> ఎందుకో)
+  w = w.replace(/([bcdfghjklmnpqrstvwxyz])o$/, '$1O');
+  w = w.replace(/([a-z]+)av([oO])$/, '$1Av$2');
+  w = w.replace(/([a-z]+)ad([oO])$/, '$1Ad$2');
+  w = w.replace(/([a-z]+)an([oO])$/, '$1An$2');
+  w = w.replace(/([a-z]+)ar([oO])$/, '$1Ar$2');
+
+  // 9. Pronoun nen- -> nEn- (నేను, నేనెందుకు, etc.)
+  if (w.startsWith("nen")) {
+    w = "nEn" + w.slice(3);
+  }
+
+  // 10. Future velt- -> veLt- (వెళ్తాను)
+  w = w.replace(/^velth/, 'veLth');
+  w = w.replace(/^velt/, 'veLt');
+
+  // 11. Inherent long vowels for open syllables like 'repu', 'roju'
   w = w.replace(/^re([pbtdkmnsvlrjg])/, 'rE$1');
   w = w.replace(/^ro([pbtdkmnsvlrjg])/, 'rO$1');
 
@@ -971,7 +1009,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modeExplainerText.innerHTML = "<strong>Casual Mode (Active):</strong> Natural lowercase Tenglish typing with 58k+ vocabulary, Telugu Sandhi conjugations, and colloquial speech. No strict Shift keys needed.";
       } else {
         modeExplainer.className = "mode-explainer disabled";
-        modeExplainerText.innerHTML = "<strong>High-Key Mode (Active):</strong> Classic Lekhini RTS rules with strict case sensitivity (e.g. 'mATlADAnu', 'telugulO', 'Taip', 'ShTa').";
+        modeExplainerText.innerHTML = "<strong>High-Key Mode (Active):</strong> Classic RTS rules with strict case sensitivity (e.g. 'mATlADAnu', 'telugulO', 'Taip', 'ShTa').";
       }
     }
     updateDemo();

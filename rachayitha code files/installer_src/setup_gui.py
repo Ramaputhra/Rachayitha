@@ -59,7 +59,7 @@ def register_uninstaller(install_dir, exe_path):
         key = winreg.CreateKey(winreg.HKEY_CURRENT_USER, key_path)
         winreg.SetValueEx(key, "DisplayName", 0, winreg.REG_SZ, "Rachayitha (రచయిత) - Telugu Typing Tool")
         winreg.SetValueEx(key, "DisplayIcon", 0, winreg.REG_SZ, exe_path)
-        winreg.SetValueEx(key, "DisplayVersion", 0, winreg.REG_SZ, "1.0.0")
+        winreg.SetValueEx(key, "DisplayVersion", 0, winreg.REG_SZ, "2.0.0")
         winreg.SetValueEx(key, "Publisher", 0, winreg.REG_SZ, "Ramaputhra")
         winreg.SetValueEx(key, "InstallLocation", 0, winreg.REG_SZ, install_dir)
 
@@ -113,7 +113,7 @@ class InstallWorker(QThread):
 
             self.msleep(300)
 
-            self.progress.emit(50, "Installing Lekhini RTS rules matrix...")
+            self.progress.emit(50, "Installing Telugu phonetic rules matrix...")
             self.msleep(250)
 
             self.progress.emit(70, "Creating Desktop & Start Menu shortcuts...")
@@ -164,7 +164,7 @@ class InstallWorker(QThread):
 class ProfessionalInstallerWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("రచయిత (Rachayitha) - Setup")
+        self.setWindowTitle("రచయిత (Rachayitha) v2.0 - Setup")
         self.setGeometry(250, 180, 840, 520)
         self.setFixedSize(840, 520)
 
@@ -182,7 +182,7 @@ class ProfessionalInstallerWindow(QWidget):
             },
             {
                 "icon": "🔤",
-                "title": "Complete Lekhini RTS Coverage",
+                "title": "Complete Phonetic RTS Coverage",
                 "desc": "Full support for all 16 Achulu, 36 Hallulu, Guninthalu, Ligatures (జ్ఞ, క్ష, ఱ), Sunna (ం), and Visarga (ః)."
             },
             {
@@ -196,9 +196,24 @@ class ProfessionalInstallerWindow(QWidget):
                 "desc": "Toggle languages seamlessly with your preferred hotkey (Default: Alt+T). Click tray icon for 60+ letter reference guide."
             },
             {
+                "icon": "🧠",
+                "title": "Trigram Context LM (34.7M Tokens)",
+                "desc": "Resolves contextual polarity: 'akkada evaru leru' -> 'అక్కడ ఎవరూ లేరు' vs 'akkada evaru unnaru' -> 'అక్కడ ఎవరు ఉన్నారు' without special shift keys."
+            },
+            {
+                "icon": "🔮",
+                "title": "Next-Word Prediction & Tab Accept",
+                "desc": "Fluid floating ghost pill overlay right at your cursor. Press [Tab ⇥] to autocomplete predicted words instantly."
+            },
+            {
+                "icon": "⚡",
+                "title": "Retroactive Sliding Window Lookahead",
+                "desc": "3-word sliding buffer automatically backspaces and rewrites previous words when following context resolves them in 0ms."
+            },
+            {
                 "icon": "📖",
-                "title": "Casual Type with 58k+ Words",
-                "desc": "Type naturally in colloquial Tenglish (e.g. 'nuvvu akkade undu vastunna', 'cheppamdi' -> 'చెప్పండి') with 58k+ dictionary & smart typo fixes!"
+                "title": "Casual Type with 58k+ Lexicon",
+                "desc": "Type naturally in colloquial Tenglish (e.g. 'repu vastunna', 'cheppamdi' -> 'చెప్పండి') with 58k+ dictionary & typo fixes!"
             },
             {
                 "icon": "🔒",
@@ -346,7 +361,7 @@ class ProfessionalInstallerWindow(QWidget):
 
         s_layout.addStretch()
 
-        credits_lbl = QLabel("Version 1.0.0 • Ramaputhra")
+        credits_lbl = QLabel("Version 2.0.0 • Ramaputhra")
         credits_lbl.setStyleSheet("color: #64748b; font-size: 11px;")
         s_layout.addWidget(credits_lbl, alignment=Qt.AlignmentFlag.AlignCenter)
 

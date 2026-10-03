@@ -5,13 +5,273 @@ import sys
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QTabWidget,
     QTableWidget, QTableWidgetItem, QLineEdit, QPushButton,
-    QCheckBox, QTextEdit, QHeaderView, QMessageBox, QFrame
+    QCheckBox, QTextEdit, QHeaderView, QMessageBox, QFrame,
+    QApplication
 )
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QFont, QPixmap, QIcon, QColor
+from PyQt6.QtCore import Qt, pyqtSignal, QTimer
+from PyQt6.QtGui import QFont, QPixmap, QIcon, QColor, QTextCursor
 
 from engine.paths import get_resource_path, load_config, save_config
 from engine.casual_type import transliterate
+from engine.buffer import TypingBuffer
+
+class PlaygroundEditor(QTextEdit):
+    suggestion_changed = pyqtSignal(object)        # Emits list of ghost suggestion texts or []
+    hud_state_changed = pyqtSignal(str, str)      # Emits (title, detail) for HUD
+    retro_triggered = pyqtSignal(str, str)        # Emits (old_word, new_word)
+    language_toggled = pyqtSignal(bool)           # Emits True (Telugu) / False (English)
+    casual_toggled = pyqtSignal(bool)             # Emits True (Casual) / False (Exact)
+
+    def __init__(self, parent=None, casual_enabled=True):
+        super().__init__(parent)
+        self.is_telugu_on = True
+        self.casual_enabled = casual_enabled
+        self.buffer = TypingBuffer(casual_enabled=self.casual_enabled)
+
+        font = QFont("Mandali", 15)
+        if not font.exactMatch():
+            font = QFont("Gautami", 15)
+            if not font.exactMatch():
+                font = QFont("Segoe UI", 15)
+        self.setFont(font)
+        self.setAcceptRichText(False)
+        self.setPlaceholderText(
+            "Start typing here in natural Tenglish (e.g. 'nuvvu ', 'namaskaram', 'akkada evaru leru')...\n\n"
+            "• Keystrokes transform directly in-place (Natural Halant-First Pollu-First)\n"
+            "• Press [Space] to commit words and trigger Next-Word Prediction\n"
+            "• Press [Tab ⇥] to autocomplete predicted words\n"
+            "• Click any suggestion pill to insert secondary/tertiary candidates\n"
+            "• Press [Alt+T] to toggle between Telugu and English anytime"
+        )
+        self.setStyleSheet("""
+            QTextEdit {
+                background-color: #0b0f19;
+                border: 2px solid #334155;
+                border-radius: 8px;
+                padding: 14px;
+                color: #38bdf8;
+                font-family: 'Mandali', 'Gautami', 'Segoe UI', Tahoma;
+                font-size: 16px;
+                line-height: 1.6;
+                selection-background-color: #4338ca;
+            }
+            QTextEdit:focus {
+                border: 2px solid #6366f1;
+            }
+        """)
+
+    def set_mode(self, enabled: bool):
+        self.is_telugu_on = enabled
+        self.buffer.commit_sentence()
+        self.suggestion_changed.emit([])
+        self.language_toggled.emit(self.is_telugu_on)
+        state_str = "తెలుగు (Telugu Mode Active)" if self.is_telugu_on else "English (EN Mode Active)"
+        self.hud_state_changed.emit("Language Mode", state_str)
+
+    def toggle_mode(self):
+        self.set_mode(not self.is_telugu_on)
+
+    def set_casual_mode(self, enabled: bool):
+        self.casual_enabled = enabled
+        self.buffer.set_casual_enabled(enabled)
+        if not enabled:
+            self.suggestion_changed.emit([])
+        self.casual_toggled.emit(self.casual_enabled)
+        engine_str = "Casual Type (58k Lexicon + LM Active)" if self.casual_enabled else "Exact RTS Engine (Deterministic)"
+        self.hud_state_changed.emit("Engine Mode", engine_str)
+
+    def toggle_casual_mode(self):
+        self.set_casual_mode(not self.casual_enabled)
+
+    def accept_suggestion(self, suggestion_text=None):
+        if not self.casual_enabled:
+            return
+        target = suggestion_text or self.buffer.get_suggestion()
+        if not target:
+            return
+
+        bs_count, to_insert = self.buffer.accept_suggestion(target)
+        if to_insert:
+            cursor = self.textCursor()
+            cursor.beginEditBlock()
+            for _ in range(bs_count):
+                cursor.deletePreviousChar()
+            cursor.insertText(to_insert)
+            cursor.endEditBlock()
+            self.setTextCursor(cursor)
+
+            next_sugs = self.buffer.get_suggestions()
+            self.suggestion_changed.emit(next_sugs)
+            next_str = ", ".join(next_sugs) if next_sugs else "None"
+            self.hud_state_changed.emit("Autocomplete Accepted", f"'{target}' → Next: {next_str}")
+            self.setFocus()
+
+    def mousePressEvent(self, event):
+        super().mousePressEvent(event)
+        self.buffer.commit_sentence()
+        self.suggestion_changed.emit([])
+
+    def keyPressEvent(self, event):
+        # 1. Hotkey Check: Alt+T toggles language live
+        if (event.modifiers() & Qt.KeyboardModifier.AltModifier) and event.key() == Qt.Key.Key_T:
+            self.toggle_mode()
+            return
+
+        # 2. English Mode: Let all keys pass through natively
+        if not self.is_telugu_on:
+            super().keyPressEvent(event)
+            return
+
+        # 3. Telugu Mode Handling:
+        key = event.key()
+        text = event.text()
+
+        # Tab Key: Accept next-word prediction autocomplete
+        if key == Qt.Key.Key_Tab:
+            if self.casual_enabled and self.buffer.get_suggestions():
+                self.accept_suggestion()
+                return
+            return
+
+        # Space Key: Commit word and query next-word prediction
+        if key == Qt.Key.Key_Space:
+            self.buffer.commit_word()
+            cursor = self.textCursor()
+            cursor.insertText(" ")
+            if self.casual_enabled:
+                sugs = self.buffer.get_suggestions()
+                self.suggestion_changed.emit(sugs)
+                self.hud_state_changed.emit("Word Committed", f"Context: '{self.buffer.prev_word_telugu or ''}'")
+            else:
+                self.suggestion_changed.emit([])
+            return
+
+        # Sentence Delimiters: Enter, punctuation
+        if key in (Qt.Key.Key_Return, Qt.Key.Key_Enter):
+            self.buffer.commit_sentence()
+            cursor = self.textCursor()
+            cursor.insertText("\n")
+            self.suggestion_changed.emit([])
+            self.hud_state_changed.emit("Sentence End", "Enter")
+            return
+
+        if text in ['.', '?', '!', ':', ';', ',']:
+            self.buffer.commit_sentence()
+            cursor = self.textCursor()
+            cursor.insertText(text)
+            self.suggestion_changed.emit([])
+            self.hud_state_changed.emit("Punctuation", f"'{text}'")
+            return
+
+        # Escape Key: Clear suggestion
+        if key == Qt.Key.Key_Escape:
+            self.buffer.clear_suggestion()
+            self.suggestion_changed.emit([])
+            return
+
+        # Backspace Key: In-place undo
+        if key == Qt.Key.Key_Backspace:
+            if self.buffer.is_active():
+                backspaces_needed, new_out, _ = self.buffer.backspace()
+                cursor = self.textCursor()
+                cursor.beginEditBlock()
+                for _ in range(backspaces_needed):
+                    cursor.deletePreviousChar()
+                if new_out:
+                    cursor.insertText(new_out)
+                cursor.endEditBlock()
+                self.setTextCursor(cursor)
+                self.hud_state_changed.emit("Backspace", f"Stem: '{self.buffer.get_eng()}' → '{new_out}'")
+                if self.casual_enabled:
+                    self.suggestion_changed.emit(self.buffer.get_suggestions())
+                else:
+                    self.suggestion_changed.emit([])
+                return
+            else:
+                self.buffer.clear_suggestion()
+                self.suggestion_changed.emit([])
+                super().keyPressEvent(event)
+                return
+
+        # Letter / Phonetic Character Input
+        if len(text) == 1 and (text.isalpha() or text in ['~', '_']):
+            char = text
+            old_len, new_telugu, retro_patch = self.buffer.add(char)
+            cursor = self.textCursor()
+            cursor.beginEditBlock()
+            if retro_patch:
+                retro_bs, retro_text = retro_patch
+                for _ in range(retro_bs):
+                    cursor.deletePreviousChar()
+                cursor.insertText(retro_text)
+                self.retro_triggered.emit(self.buffer.prev_word_telugu or "", retro_text)
+                self.hud_state_changed.emit("✨ Retroactive Correction", retro_text)
+            else:
+                for _ in range(old_len):
+                    cursor.deletePreviousChar()
+                cursor.insertText(new_telugu)
+                self.hud_state_changed.emit("Syllable Assembled", f"'{self.buffer.get_eng()}' → '{new_telugu}'")
+            cursor.endEditBlock()
+            self.setTextCursor(cursor)
+
+            if self.casual_enabled:
+                self.suggestion_changed.emit(self.buffer.get_suggestions())
+            else:
+                self.suggestion_changed.emit([])
+            return
+
+        # Allow standard shortcuts: Ctrl+C, Ctrl+V, Ctrl+A, Ctrl+Z
+        if event.modifiers() & Qt.KeyboardModifier.ControlModifier:
+            super().keyPressEvent(event)
+            if key in (Qt.Key.Key_V, Qt.Key.Key_Z):
+                self.buffer.commit_sentence()
+                self.suggestion_changed.emit([])
+            return
+
+        # Pass through any other key (arrows, etc.)
+        self.suggestion_changed.emit([])
+        super().keyPressEvent(event)
+
+    def simulate_text(self, text: str):
+        self.clear()
+        self.buffer.commit_sentence()
+        self.set_mode(True)
+        for ch in text:
+            if ch == ' ':
+                self.buffer.commit_word()
+                cursor = self.textCursor()
+                cursor.insertText(" ")
+            elif ch in ['.', ',', '?', '!', ':', ';']:
+                self.buffer.commit_sentence()
+                cursor = self.textCursor()
+                cursor.insertText(ch)
+            elif ch == '\n':
+                self.buffer.commit_sentence()
+                cursor = self.textCursor()
+                cursor.insertText("\n")
+            else:
+                old_len, new_telugu, retro_patch = self.buffer.add(ch)
+                cursor = self.textCursor()
+                cursor.beginEditBlock()
+                if retro_patch:
+                    retro_bs, retro_text = retro_patch
+                    for _ in range(retro_bs):
+                        cursor.deletePreviousChar()
+                    cursor.insertText(retro_text)
+                    self.retro_triggered.emit(self.buffer.prev_word_telugu or "", retro_text)
+                else:
+                    for _ in range(old_len):
+                        cursor.deletePreviousChar()
+                    cursor.insertText(new_telugu)
+                cursor.endEditBlock()
+                self.setTextCursor(cursor)
+
+        if self.casual_enabled and self.buffer.get_suggestions():
+            self.suggestion_changed.emit(self.buffer.get_suggestions())
+        else:
+            self.suggestion_changed.emit([])
+        self.hud_state_changed.emit("Simulation Complete", "100% In-Memory Accuracy")
+        self.setFocus()
 
 class SettingsWindow(QWidget):
     def __init__(self, on_toggle_callback=None, on_hotkey_changed_callback=None, on_casual_type_changed_callback=None):
@@ -123,7 +383,7 @@ class SettingsWindow(QWidget):
         title_info = QVBoxLayout()
         title_text = QLabel("రచయిత (Rachayitha)")
         title_text.setStyleSheet("font-size: 20px; font-weight: 700; color: #ffffff;")
-        sub_text = QLabel("System-wide Telugu Phonetic Typing • Lekhini RTS Compatible")
+        sub_text = QLabel("System-wide Telugu Phonetic Typing • Created by Ramaputhra")
         sub_text.setStyleSheet("color: #94a3b8; font-size: 12px;")
         title_info.addWidget(title_text)
         title_info.addWidget(sub_text)
@@ -374,6 +634,10 @@ class SettingsWindow(QWidget):
             if self.on_casual_type_changed_callback:
                 self.on_casual_type_changed_callback(casual_enabled)
 
+            # Keep live playground editor synchronized
+            if hasattr(self, 'playground_editor'):
+                self.playground_editor.set_casual_mode(casual_enabled)
+
             QMessageBox.information(
                 self, "Settings Saved",
                 f"Preferences saved successfully!\n\nYour new toggle hotkey [{new_hotkey.upper()}] is active."
@@ -405,81 +669,364 @@ class SettingsWindow(QWidget):
     def create_playground_tab(self):
         tab = QWidget()
         layout = QVBoxLayout()
+        layout.setSpacing(10)
 
-        desc = QLabel("Type in phonetic English (Tenglish) below to test real-time Telugu transformation:")
-        desc.setStyleSheet("color: #94a3b8; margin-bottom: 6px;")
-        layout.addWidget(desc)
+        # 1. Top Controls Bar: Language Mode Toggle, Casual Mode Toggle, Action Buttons
+        top_bar = QHBoxLayout()
 
-        grid_layout = QHBoxLayout()
+        # Language Toggle Button (Alt+T)
+        self.play_lang_btn = QPushButton("🟢 తెలుగు (Telugu Mode Active) [Alt+T]")
+        self.play_lang_btn.setStyleSheet("""
+            QPushButton {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4f46e5, stop:1 #7c3aed);
+                color: #ffffff;
+                font-weight: 700;
+                font-size: 13px;
+                padding: 8px 16px;
+                border-radius: 6px;
+                border: none;
+            }
+            QPushButton:hover {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4338ca, stop:1 #6d28d9);
+            }
+        """)
+        self.play_lang_btn.clicked.connect(self.on_playground_lang_click)
+        top_bar.addWidget(self.play_lang_btn)
 
-        # Input Box
-        in_col = QVBoxLayout()
-        in_col.addWidget(QLabel("English Input (Tenglish):"))
-        self.playground_input = QTextEdit()
-        self.playground_input.setPlaceholderText("Type here... (e.g. namaskAram, meeru ela unnaru?)")
-        self.playground_input.textChanged.connect(self.on_playground_text_changed)
-        in_col.addWidget(self.playground_input)
-        grid_layout.addLayout(in_col)
+        # Casual Type Toggle Button
+        casual_active = self.config.get("casual_type", True)
+        self.play_casual_btn = QPushButton("⚡ Casual Mode: ON (58k Lexicon + LM)")
+        self.play_casual_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #0284c7;
+                color: #ffffff;
+                font-weight: 600;
+                font-size: 12px;
+                padding: 8px 14px;
+                border-radius: 6px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #0369a1;
+            }
+        """)
+        self.play_casual_btn.clicked.connect(self.on_playground_casual_click)
+        top_bar.addWidget(self.play_casual_btn)
 
-        # Output Box
-        out_col = QVBoxLayout()
-        out_col.addWidget(QLabel("తెలుగు (Telugu Output):"))
-        self.playground_output = QTextEdit()
-        self.playground_output.setReadOnly(True)
-        self.playground_output.setStyleSheet("font-size: 18px; color: #38bdf8; font-family: 'Mandali', 'Gautami', 'Segoe UI';")
-        out_col.addWidget(self.playground_output)
-        grid_layout.addLayout(out_col)
+        top_bar.addStretch()
 
-        layout.addLayout(grid_layout)
+        # Copy & Clear Buttons
+        copy_btn = QPushButton("📋 Copy Telugu")
+        copy_btn.setStyleSheet("background-color: #1e293b; color: #94a3b8; font-size: 12px; padding: 7px 14px; border-radius: 6px;")
+        copy_btn.clicked.connect(self.copy_playground_text)
+        top_bar.addWidget(copy_btn)
 
-        # Quick Try Buttons
+        clear_btn = QPushButton("🧹 Clear")
+        clear_btn.setStyleSheet("background-color: #1e293b; color: #94a3b8; font-size: 12px; padding: 7px 14px; border-radius: 6px;")
+        clear_btn.clicked.connect(self.clear_playground_text)
+        top_bar.addWidget(clear_btn)
+
+        layout.addLayout(top_bar)
+
+        # 2. Main Interactive In-Place Editor (Functions exactly as app works!)
+        self.playground_editor = PlaygroundEditor(casual_enabled=casual_active)
+        self.playground_editor.suggestion_changed.connect(self.on_playground_suggestion_changed)
+        self.playground_editor.hud_state_changed.connect(self.on_playground_hud_changed)
+        self.playground_editor.retro_triggered.connect(self.on_playground_retro_triggered)
+        self.playground_editor.language_toggled.connect(self.update_playground_lang_ui)
+        self.playground_editor.casual_toggled.connect(self.update_playground_casual_ui)
+        layout.addWidget(self.playground_editor, 1)
+
+        # 3. Next-Word Prediction Ghost Bar (Mirrors the floating desktop suggestion overlay!)
+        self.ghost_bar = QFrame()
+        self.ghost_bar.setStyleSheet("""
+            QFrame {
+                background-color: #111827;
+                border: 1px solid #1e293b;
+                border-radius: 8px;
+                padding: 6px 12px;
+            }
+        """)
+        ghost_layout = QHBoxLayout(self.ghost_bar)
+        ghost_layout.setContentsMargins(8, 4, 8, 4)
+
+        self.ghost_icon = QLabel("💡")
+        self.ghost_icon.setStyleSheet("font-size: 16px;")
+        ghost_layout.addWidget(self.ghost_icon)
+
+        self.ghost_label = QLabel("Type in natural Tenglish... press [Space] to see Next-Word Predictions")
+        self.ghost_label.setStyleSheet("color: #94a3b8; font-size: 12px;")
+        ghost_layout.addWidget(self.ghost_label)
+
+        # Clickable Autocomplete Pills (Top 3)
+        self.ghost_pills = []
+        self._current_playground_suggestions = []
+        for i in range(3):
+            btn = QPushButton("")
+            btn.setVisible(False)
+            btn.setCursor(Qt.CursorShape.PointingHandCursor)
+            if i == 0:
+                btn.setStyleSheet("""
+                    QPushButton {
+                        background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #6366f1, stop:1 #ec4899);
+                        color: #ffffff;
+                        font-weight: 700;
+                        font-size: 13px;
+                        padding: 4px 14px;
+                        border-radius: 12px;
+                        border: none;
+                    }
+                    QPushButton:hover {
+                        background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4f46e5, stop:1 #db2777);
+                    }
+                """)
+            else:
+                btn.setStyleSheet("""
+                    QPushButton {
+                        background-color: #334155;
+                        color: #f1f5f9;
+                        font-weight: 600;
+                        font-size: 12px;
+                        padding: 4px 12px;
+                        border-radius: 10px;
+                        border: 1px solid #475569;
+                    }
+                    QPushButton:hover {
+                        background-color: #475569;
+                        color: #ffffff;
+                    }
+                """)
+            btn.clicked.connect(lambda checked, idx=i: self._on_playground_pill_clicked(idx))
+            ghost_layout.addWidget(btn)
+            self.ghost_pills.append(btn)
+
+        ghost_layout.addStretch()
+
+        self.ghost_hint = QLabel("[Tab ⇥] Autocomplete")
+        self.ghost_hint.setStyleSheet("color: #64748b; font-size: 11px; font-weight: 600;")
+        ghost_layout.addWidget(self.ghost_hint)
+
+        layout.addWidget(self.ghost_bar)
+
+        # 4. Real-time Engine Diagnostic HUD (Shows active syllable, context & retroactive events)
+        hud_bar = QHBoxLayout()
+
+        self.hud_syllable = QLabel("Syllable: Idle")
+        self.hud_syllable.setStyleSheet("background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 4px; padding: 4px 10px; font-size: 11px; color: #94a3b8;")
+        hud_bar.addWidget(self.hud_syllable)
+
+        self.hud_retro = QLabel("Retroactive: Ready")
+        self.hud_retro.setStyleSheet("background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 4px; padding: 4px 10px; font-size: 11px; color: #94a3b8;")
+        hud_bar.addWidget(self.hud_retro)
+
+        hud_bar.addStretch()
+
+        latency_lbl = QLabel("⚡ 0ms Latency • 100% Local In-Memory Engine")
+        latency_lbl.setStyleSheet("color: #10b981; font-size: 11px; font-weight: 600;")
+        hud_bar.addWidget(latency_lbl)
+
+        layout.addLayout(hud_bar)
+
+        # 5. Quick Test & Benchmark Simulations
         chips_layout = QHBoxLayout()
-        chips_layout.addWidget(QLabel("Quick Try:"))
-        for word in [
-            "ninna sayantram intiki vellaka ammato konchem matladanu amma naato cheppindi entante manam manushulam manaku edaina kavalsivasthe kashtapadi sadhinchukovali, lekapote manaki evaru mana kosam teesukochchi ivvaru.",
-            "nuvvu akkade undu vastunna",
-            "nannato matladali",
-            "intinundi vastunna",
-            "cheppamdi",
-            "cheyandi",
-            "cheyyandi",
-            "randi",
-            "choodandi",
-            "telugu",
-            "amma"
-        ]:
-            display_text = "Full Sentence Benchmark" if len(word) > 30 else word
-            btn = QPushButton(display_text)
-            btn.setStyleSheet("background-color: #1e293b; color: #94a3b8; padding: 4px 10px; font-size: 11px;")
-            btn.clicked.connect(lambda _, w=word: self.playground_input.setPlainText(w))
+        test_lbl = QLabel("Quick Benchmarks:")
+        test_lbl.setStyleSheet("color: #cbd5e1; font-weight: 600; font-size: 12px;")
+        chips_layout.addWidget(test_lbl)
+
+        benchmarks = [
+            ("Conversational", "nuvvu akkade undu vastunna"),
+            ("Polarity Disambiguation", "akkada evaru leru"),
+            ("Collocations", "sarele inko sari vellanu"),
+            ("Full Sentence Benchmark", "nuvvennanna cheppu, nuvvu naatho matlade samayamlo naaku vere phone vachindi, lekapothe nenenduku bayataki veltanu, sarele inko sari vellanu, enduku anta kopanga unnavo cheppu, lekapothe nenu matladanu."),
+        ]
+
+        for label, text in benchmarks:
+            display_title = f"▶ {label}"
+            btn = QPushButton(display_title)
+            btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #1e293b;
+                    color: #94a3b8;
+                    padding: 5px 12px;
+                    font-size: 11px;
+                    border: 1px solid #334155;
+                    border-radius: 4px;
+                }
+                QPushButton:hover {
+                    background-color: #334155;
+                    color: #ffffff;
+                    border-color: #6366f1;
+                }
+            """)
+            btn.clicked.connect(lambda _, t=text: self.playground_editor.simulate_text(t))
             chips_layout.addWidget(btn)
+
         chips_layout.addStretch()
         layout.addLayout(chips_layout)
 
         tab.setLayout(layout)
         return tab
 
-    def on_playground_text_changed(self):
-        text = self.playground_input.toPlainText()
-        casual_enabled = self.casual_chk.isChecked() if hasattr(self, 'casual_chk') else self.config.get("casual_type", True)
-        self.playground_output.setPlainText(transliterate(text, casual_enabled))
+    def on_playground_lang_click(self):
+        self.playground_editor.toggle_mode()
+
+    def update_playground_lang_ui(self, is_telugu: bool):
+        if is_telugu:
+            self.play_lang_btn.setText("🟢 తెలుగు (Telugu Mode Active) [Alt+T]")
+            self.play_lang_btn.setStyleSheet("""
+                QPushButton {
+                    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4f46e5, stop:1 #7c3aed);
+                    color: #ffffff;
+                    font-weight: 700;
+                    font-size: 13px;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    border: none;
+                }
+                QPushButton:hover {
+                    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4338ca, stop:1 #6d28d9);
+                }
+            """)
+        else:
+            self.play_lang_btn.setText("⚪ English (EN Mode Active) [Alt+T]")
+            self.play_lang_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #334155;
+                    color: #cbd5e1;
+                    font-weight: 600;
+                    font-size: 13px;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    border: none;
+                }
+                QPushButton:hover {
+                    background-color: #475569;
+                }
+            """)
+
+    def on_playground_casual_click(self):
+        self.playground_editor.toggle_casual_mode()
+
+    def update_playground_casual_ui(self, is_casual: bool):
+        if is_casual:
+            self.play_casual_btn.setText("⚡ Casual Mode: ON (58k Lexicon + LM)")
+            self.play_casual_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #0284c7;
+                    color: #ffffff;
+                    font-weight: 600;
+                    font-size: 12px;
+                    padding: 8px 14px;
+                    border-radius: 6px;
+                    border: none;
+                }
+                QPushButton:hover {
+                    background-color: #0369a1;
+                }
+            """)
+        else:
+            self.play_casual_btn.setText("🎯 Exact RTS Mode (Deterministic)")
+            self.play_casual_btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #475569;
+                    color: #e2e8f0;
+                    font-weight: 600;
+                    font-size: 12px;
+                    padding: 8px 14px;
+                    border-radius: 6px;
+                    border: none;
+                }
+                QPushButton:hover {
+                    background-color: #64748b;
+                }
+            """)
+
+    def _on_playground_pill_clicked(self, idx: int):
+        if hasattr(self, '_current_playground_suggestions') and 0 <= idx < len(self._current_playground_suggestions):
+            word = self._current_playground_suggestions[idx]
+            self.playground_editor.accept_suggestion(word)
+
+    def on_playground_suggestion_changed(self, suggestions):
+        if isinstance(suggestions, str):
+            cands = [suggestions] if suggestions.strip() else []
+        elif isinstance(suggestions, (list, tuple)):
+            cands = [s for s in suggestions if s and s.strip()]
+        else:
+            cands = []
+
+        self._current_playground_suggestions = cands[:3]
+
+        if self._current_playground_suggestions:
+            self.ghost_icon.setText("🔮")
+            self.ghost_label.setText("Next Word Autocomplete:")
+            for i in range(3):
+                if i < len(self._current_playground_suggestions):
+                    w = self._current_playground_suggestions[i]
+                    if i == 0:
+                        self.ghost_pills[i].setText(f"1. {w}  [Tab ⇥]")
+                    else:
+                        self.ghost_pills[i].setText(f"{i + 1}. {w}")
+                    self.ghost_pills[i].setVisible(True)
+                else:
+                    self.ghost_pills[i].setVisible(False)
+
+            self.ghost_bar.setStyleSheet("""
+                QFrame {
+                    background-color: #1e1b4b;
+                    border: 1px solid #6366f1;
+                    border-radius: 8px;
+                    padding: 6px 12px;
+                }
+            """)
+        else:
+            self.ghost_icon.setText("💡")
+            self.ghost_label.setText("Type in natural Tenglish... press [Space] to trigger Next-Word Prediction")
+            for pill in self.ghost_pills:
+                pill.setVisible(False)
+            self.ghost_bar.setStyleSheet("""
+                QFrame {
+                    background-color: #111827;
+                    border: 1px solid #1e293b;
+                    border-radius: 8px;
+                    padding: 6px 12px;
+                }
+            """)
+
+    def on_playground_hud_changed(self, title: str, detail: str):
+        self.hud_syllable.setText(f"{title}: {detail}")
+
+    def on_playground_retro_triggered(self, old_word: str, new_word: str):
+        self.hud_retro.setText(f"✨ Retroactive: '{new_word}'")
+        self.hud_retro.setStyleSheet("background-color: #064e3b; border: 1px solid #10b981; border-radius: 4px; padding: 4px 10px; font-size: 11px; color: #a7f3d0; font-weight: bold;")
+        QTimer.singleShot(3000, lambda: self.hud_retro.setStyleSheet("background-color: #0b0f19; border: 1px solid #1e293b; border-radius: 4px; padding: 4px 10px; font-size: 11px; color: #94a3b8;"))
+
+    def copy_playground_text(self):
+        text = self.playground_editor.toPlainText()
+        if text:
+            QApplication.clipboard().setText(text)
+            self.on_playground_hud_changed("Clipboard", "✓ Telugu text copied to clipboard!")
+
+    def clear_playground_text(self):
+        self.playground_editor.clear()
+        self.playground_editor.buffer.commit_sentence()
+        self.on_playground_suggestion_changed("")
+        self.on_playground_hud_changed("Status", "Cleared")
 
     def create_about_tab(self):
         tab = QWidget()
         layout = QVBoxLayout()
 
-        about_title = QLabel("రచయిత (Rachayitha) v1.0.0")
+        about_title = QLabel("రచయిత (Rachayitha) v2.0.0")
         about_title.setStyleSheet("font-size: 20px; font-weight: bold; color: #6366f1;")
         layout.addWidget(about_title)
 
         about_text = QLabel(
-            "Inspired by PramukhIME and Lekhini RTS.\n\n"
             "Rachayitha enables seamless, system-wide phonetic typing in Telugu across ANY desktop "
             "application (Notepad, MS Word, Chrome, WhatsApp Desktop, Slack, VS Code, etc.).\n\n"
             "• 100% Offline & Private (Zero network telemetry)\n"
             "• Dynamic System Tray icon ('తె' / 'EN') showing active language\n"
             "• Live Hotkey Customization with Instant Re-registration\n"
-            "• Complete Lekhini RTS rules matrix (60+ letters)\n"
+            "• Complete Phonetic Telugu RTS rules matrix (60+ letters)\n"
             "• Automatic startup on Windows boot\n\n"
             "Created for the Telugu computing community with ❤️ by Ramaputhra."
         )

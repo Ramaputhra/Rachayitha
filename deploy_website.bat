@@ -7,15 +7,20 @@ echo.
 
 cd /d "%~dp0"
 
-echo [1/3] Staging changes...
+echo [1/4] Ensuring Rachayitha_v2.exe binaries are synced...
+copy /y "%~dp0Rachayitha.exe" "%~dp0Rachayitha_v2.exe" >nul 2>nul
+copy /y "%~dp0Rachayitha.exe" "%~dp0WebSite\Rachayitha_v2.exe" >nul 2>nul
+copy /y "%~dp0Rachayitha_Setup.exe" "%~dp0WebSite\Rachayitha_Setup.exe" >nul 2>nul
+
+echo [2/4] Staging changes...
 git add -A
 
 echo.
-echo [2/3] Committing changes...
-git commit -m "feat(casual-typing): implement 58k dictionary, Sandhi conjugations, cyber showcase UI, and installer pipeline"
+echo [3/4] Committing changes...
+git commit -m "feat(v2.0): update documentation, website showcase, and release binaries for Rachayitha v2.0"
 
 echo.
-echo [3/3] Pushing to GitHub (main branch)...
+echo [4/4] Pushing to GitHub (main branch)...
 git push origin main
 
 echo.

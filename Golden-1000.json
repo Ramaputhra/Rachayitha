@@ -6753,5 +6753,15 @@
     "category": "auto",
     "needs_review": true,
     "freq": 0
+  },
+  {
+    "tenglish": "nadavaalsina",
+    "telugu": "నడవాల్సిన",
+    "category": "must_pass"
+  },
+  {
+    "tenglish": "naDavaalsina",
+    "telugu": "నడవాల్సిన",
+    "category": "must_pass"
   }
 ]

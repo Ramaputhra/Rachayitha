@@ -7,7 +7,7 @@ DEST_DATA = os.path.join(ROOT, "rachayitha code files", "data")
 
 os.makedirs(DEST_DATA, exist_ok=True)
 
-files = ["casual_type_dict.json", "te_top10k.json", "typo_fixes.json"]
+files = ["casual_type_dict.json", "te_top10k.json", "typo_fixes.json", "te_lm.json", "casual_candidates.json"]
 for f in files:
     src = os.path.join(SRC_DATA, f)
     dst = os.path.join(DEST_DATA, f)

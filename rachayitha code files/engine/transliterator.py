@@ -7,7 +7,7 @@ from .paths import get_resource_path
 VIRAMA = '్'
 ZWNJ = '\u200c'
 
-# Complete Lekhini RTS Consonants mapping (base glyphs)
+# Complete Phonetic RTS Consonants mapping (base glyphs)
 CONSONANTS_MAP = {
     # Ligatures & Conjuncts
     "ksha": "క్ష", "Ksha": "క్ష", "kSha": "క్ష", "KSHA": "క్ష",
@@ -76,7 +76,7 @@ VOWEL_MODS = {
     "ai": "ై", "ay": "ై",
     "O": "ో", "oa": "ో",
     "o": "ొ",
-    "au": "ౌ", "ou": "ౌ", "av": "ౌ"
+    "au": "ౌ", "ou": "ౌ"
 }
 
 # Independent Vowels (అచ్చులు)
@@ -127,6 +127,26 @@ WORD_OVERRIDES = {
     "type": "టైప్",
     "taip": "టైప్",
     "Taip": "టైప్",
+    "typing": "టైపింగ్",
+    "taiping": "టైపింగ్",
+    "casual": "క్యాజువల్",
+    "kyasual": "క్యాజువల్",
+    "casuval": "క్యాజువల్",
+    "kyasuval": "క్యాజువల్",
+    "phone": "ఫోన్",
+    "phon": "ఫోన్",
+    "fone": "ఫోన్",
+    "fon": "ఫోన్",
+    "sarele": "సరేలే",
+    "sareley": "సరేలే",
+    "veltanu": "వెళ్తాను",
+    "velthanu": "వెళ్తాను",
+    "matlade": "మాట్లాడే",
+    "maatlaade": "మాట్లాడే",
+    "nenenduku": "నేనెందుకు",
+    "neenenduku": "నేనెందుకు",
+    "nuvvennanna": "నువ్వెన్నన్నా",
+    "bayataki": "బయటకి",
     "cheyandi": "చేయండి",
     "chEyandi": "చేయండి",
     "cheyaMDI": "చేయండి",

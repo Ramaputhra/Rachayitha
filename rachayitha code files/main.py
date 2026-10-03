@@ -10,9 +10,12 @@ from engine.buffer import TypingBuffer
 from engine.transliterator import transliterate
 from ui.tray import RachayithaTray
 from ui.settings import SettingsWindow
+from ui.suggestion_overlay import SuggestionOverlay
 
 class AppBridge(QObject):
     mode_changed = pyqtSignal(bool)
+    show_suggestion = pyqtSignal(object)
+    hide_suggestion = pyqtSignal()
 
 class RachayithaApp:
     def __init__(self):
@@ -26,6 +29,12 @@ class RachayithaApp:
         self.is_telugu_on = False
         casual_enabled = self.config.get("casual_type", True)
         self.buffer = TypingBuffer(casual_enabled=casual_enabled)
+
+        # Floating suggestion ghost overlay
+        self.overlay = SuggestionOverlay()
+        self.bridge.show_suggestion.connect(self.overlay.show_suggestion)
+        self.bridge.hide_suggestion.connect(self.overlay.hide)
+        self.overlay.candidate_accepted.connect(self.on_overlay_candidate_accepted)
 
         # Windows CapsLock check helper
         self.user32 = ctypes.windll.user32 if os.name == 'nt' else None
@@ -83,6 +92,7 @@ class RachayithaApp:
     def set_mode(self, enabled: bool):
         self.is_telugu_on = enabled
         self.buffer.commit()
+        self.bridge.hide_suggestion.emit()
         # Emit signal to update GUI & dynamic tray icon on Qt main thread
         self.bridge.mode_changed.emit(self.is_telugu_on)
 
@@ -97,6 +107,24 @@ class RachayithaApp:
             else:
                 self.tray.show_notification("రచయిత (Rachayitha)", "English Mode Active (EN)")
 
+    def on_overlay_candidate_accepted(self, cand: str):
+        """
+        Triggered when a user clicks any candidate pill in the floating overlay.
+        Inserts the selected Telugu word and advances context.
+        """
+        casual_on = self.config.get("casual_type", True)
+        if not casual_on or not cand:
+            return
+        bs_count, to_insert = self.buffer.accept_suggestion(cand)
+        if to_insert:
+            for _ in range(bs_count):
+                keyboard.send('backspace')
+            keyboard.write(to_insert)
+            self.bridge.hide_suggestion.emit()
+            next_sugs = self.buffer.get_suggestions()
+            if next_sugs:
+                self.bridge.show_suggestion.emit(next_sugs)
+
     def handle_key_event(self, e):
         if not self.is_telugu_on:
             return True
@@ -104,25 +132,75 @@ class RachayithaApp:
         if e.event_type != 'down':
             return True
 
+        casual_on = self.config.get("casual_type", True)
+
+        # Tab key: Accept next-word prediction (casual mode only)
+        if e.name == 'tab':
+            if casual_on and self.overlay.is_visible():
+                bs_count, to_insert = self.buffer.accept_suggestion()
+                if to_insert:
+                    for _ in range(bs_count):
+                        keyboard.send('backspace')
+                    keyboard.write(to_insert)
+                    self.bridge.hide_suggestion.emit()
+                    next_sugs = self.buffer.get_suggestions()
+                    if next_sugs:
+                        self.bridge.show_suggestion.emit(next_sugs)
+                    return False  # Suppress Tab key
+            return True       # Let Tab pass through normally
+
         # Ignore shortcut combinations like Ctrl+C, Ctrl+V, Alt+Tab
         if keyboard.is_pressed('ctrl') or keyboard.is_pressed('alt'):
             return True
 
-        # Commit word on boundary
-        if e.name in ['space', 'enter']:
-            self.buffer.commit()
+        # Word boundary: Space
+        if e.name == 'space':
+            self.buffer.commit_word()
+            if casual_on:
+                sugs = self.buffer.get_suggestions()
+                if sugs:
+                    self.bridge.show_suggestion.emit(sugs)
+                else:
+                    self.bridge.hide_suggestion.emit()
+            else:
+                self.bridge.hide_suggestion.emit()
+            return True
+
+        # Sentence boundary: Enter or Punctuation
+        if e.name in ['enter', '.', '?', '!', ':', ';']:
+            self.buffer.commit_sentence()
+            self.bridge.hide_suggestion.emit()
+            return True
+
+        # Escape key: Dismiss suggestion
+        if e.name == 'esc':
+            self.buffer.clear_suggestion()
+            self.bridge.hide_suggestion.emit()
             return True
 
         # Handle Backspace
         if e.name == 'backspace':
             if self.buffer.is_active():
-                backspaces_needed, new_out = self.buffer.backspace()
+                result = self.buffer.backspace()
+                backspaces_needed = result[0]
+                new_out = result[1]
                 for _ in range(backspaces_needed):
                     keyboard.send('backspace')
                 if new_out:
                     keyboard.write(new_out)
+                if casual_on:
+                    sugs = self.buffer.get_suggestions()
+                    if sugs:
+                        self.bridge.show_suggestion.emit(sugs)
+                    else:
+                        self.bridge.hide_suggestion.emit()
+                else:
+                    self.bridge.hide_suggestion.emit()
                 return False
-            return True
+            else:
+                self.buffer.clear_suggestion()
+                self.bridge.hide_suggestion.emit()
+                return True
 
         # Handle Letter typing
         if len(e.name) == 1:
@@ -137,17 +215,40 @@ class RachayithaApp:
 
                 char = e.name.upper() if is_upper else e.name.lower()
 
-                backspaces_needed, new_out = self.buffer.add(char)
-                for _ in range(backspaces_needed):
-                    keyboard.send('backspace')
-                keyboard.write(new_out)
+                result = self.buffer.add(char)
+                backspaces_needed = result[0]
+                new_out = result[1]
+                retro_patch = result[2] if len(result) > 2 else None
+
+                if retro_patch:
+                    retro_bs, retro_text = retro_patch
+                    for _ in range(retro_bs):
+                        keyboard.send('backspace')
+                    keyboard.write(retro_text)
+                else:
+                    for _ in range(backspaces_needed):
+                        keyboard.send('backspace')
+                    keyboard.write(new_out)
+
+                if casual_on:
+                    sugs = self.buffer.get_suggestions()
+                    if sugs:
+                        self.bridge.show_suggestion.emit(sugs)
+                    else:
+                        self.bridge.hide_suggestion.emit()
+                else:
+                    self.bridge.hide_suggestion.emit()
                 return False
 
+        # Any other unhandled key: dismiss floating overlay
+        self.bridge.hide_suggestion.emit()
         return True
 
     def on_casual_type_changed(self, enabled: bool):
         self.config["casual_type"] = enabled
         self.buffer.set_casual_enabled(enabled)
+        if not enabled:
+            self.bridge.hide_suggestion.emit()
         print(f"Casual Type toggled: {'ON' if enabled else 'OFF'}")
 
     def open_settings(self):

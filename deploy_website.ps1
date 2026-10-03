@@ -7,13 +7,18 @@ Write-Host "========================================================" -Foregroun
 
 Set-Location $PSScriptRoot
 
-Write-Host "`n[1/3] Staging changes..." -ForegroundColor Yellow
-git add WebSite/ All.md deploy_website.bat deploy_website.ps1
+Write-Host "`n[1/4] Ensuring Rachayitha_v2.exe binaries are synced..." -ForegroundColor Yellow
+Copy-Item "$PSScriptRoot\Rachayitha.exe" "$PSScriptRoot\Rachayitha_v2.exe" -Force -ErrorAction SilentlyContinue
+Copy-Item "$PSScriptRoot\Rachayitha.exe" "$PSScriptRoot\WebSite\Rachayitha_v2.exe" -Force -ErrorAction SilentlyContinue
+Copy-Item "$PSScriptRoot\Rachayitha_Setup.exe" "$PSScriptRoot\WebSite\Rachayitha_Setup.exe" -Force -ErrorAction SilentlyContinue
 
-Write-Host "`n[2/3] Committing changes..." -ForegroundColor Yellow
-git commit -m "fix(vercel): configure outputDirectory and disable buildCommand for static site"
+Write-Host "`n[2/4] Staging changes..." -ForegroundColor Yellow
+git add -A
 
-Write-Host "`n[3/3] Pushing to GitHub (main branch)..." -ForegroundColor Yellow
+Write-Host "`n[3/4] Committing changes..." -ForegroundColor Yellow
+git commit -m "feat(v2.0): update documentation, website showcase, and release binaries for Rachayitha v2.0"
+
+Write-Host "`n[4/4] Pushing to GitHub (main branch)..." -ForegroundColor Yellow
 git push origin main
 
 if ($LASTEXITCODE -eq 0) {
